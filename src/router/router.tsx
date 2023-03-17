@@ -6,11 +6,11 @@ import {
 import { RequareAuth } from '../components/RequareAuth';
 import { DetailsPage } from '../pages/DetailsPage';
 import { FavoritesPage } from '../pages/FavoritesPage';
-import { HomePage } from '../pages/HomePage';
+import { HomePage } from '../pages/HomePage/HomePage';
 import { SearchPage } from '../pages/SearchPage';
 import { SignInPage } from '../pages/SignInPage';
 import { SignUpPage } from '../pages/SignUpPage';
-import { MainTemplate } from '../templates/MainTemplate';
+import { MainTemplate } from '../templates/MainTemplate/MainTemplate';
 import { ROUTE } from './routes';
 
 export const router = createBrowserRouter(

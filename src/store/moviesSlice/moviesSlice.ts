@@ -4,7 +4,7 @@ import { transformMovies } from 'mappers/transformMovies';
 import { Movie } from 'types';
 
 interface MoviesState {
-  results: Movie[];
+  movies: Movie[];
   isLoading: boolean;
   error: string | null;
 }
@@ -12,7 +12,7 @@ interface MoviesState {
 const initialState: MoviesState = {
   isLoading: false,
   error: null,
-  results: [],
+  movies: [],
 };
 
 export const fetchAllMovies = createAsyncThunk<
@@ -23,7 +23,7 @@ export const fetchAllMovies = createAsyncThunk<
   try {
     const { data } = await axios.get(
       // `https://restcountries.com/v3.1/currency/${params.currency}`
-      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=war&type=&y=${params.year}&p=`
+      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=war&type=&plot=&y=${params.year}&p=`
     );
 
     const transformedMovies = transformMovies(data);
@@ -45,7 +45,7 @@ const moviesSlice = createSlice({
     });
     builder.addCase(fetchAllMovies.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.results.push(...payload);
+      state.movies.push(...payload);
     });
     builder.addCase(fetchAllMovies.rejected, (state, { payload }) => {
       if (payload) {

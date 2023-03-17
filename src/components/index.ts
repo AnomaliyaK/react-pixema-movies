@@ -1,2 +1,2 @@
-import { CountryList } from './CountryList';
-export { CountryList };
+import { MovieList } from './MovieList/MovieList';
+export { MovieList };

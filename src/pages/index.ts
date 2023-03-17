@@ -1,4 +1,4 @@
-import { HomePage } from './HomePage';
+import { HomePage } from './HomePage/HomePage';
 import { FavoritesPage } from './FavoritesPage';
 import { DetailsPage } from './DetailsPage';
 import { SearchPage } from './SearchPage';

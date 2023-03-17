@@ -1,11 +1,13 @@
+import { MovieList } from 'components';
 import { Loader } from 'components/Loader';
 import React from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
 import { fetchAllMovies } from 'store/moviesSlice/moviesSlice';
+import { StyledHomePage } from './styles';
 
 export const HomePage = () => {
-  const { isLoading, results, error } = useAppSelector((state) => state.movies);
+  const { isLoading, movies, error } = useAppSelector((state) => state.movies);
 
   const dispatch = useAppDispatch();
 
@@ -14,17 +16,11 @@ export const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <StyledHomePage>
       {isLoading && <Loader />}
       {/* span ниже сделать компонентом <ErrorMessage message={error}/>*/}
       {error && <span>{error}</span>}
-      {results && results.length > 0 && (
-        <ul>
-          {results.map((movie) => {
-            return <li>{movie.title}</li>;
-          })}
-        </ul>
-      )}
-    </div>
+      {movies && movies.length > 0 && <MovieList movies={movies} />}
+    </StyledHomePage>
   );
 };

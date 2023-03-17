@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { CountryList } from '../components/CountryList';
+import { MovieList } from '../components/MovieList/MovieList';
 
 export const FavoritesPage = () => {
-  const [countries, setCountries] = useState<any[]>([]);
+  const [movies, setMovies] = useState<any[]>([]);
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/currency/dollar')
+    fetch(
+      'https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&type=&y=&p=&s=love'
+    )
       .then((res) => res.json())
-      .then(setCountries);
+      .then(setMovies);
   }, []);
 
   return (
     <div>
       <h1>FavoritesPage</h1>
-      <CountryList countries={countries} />
+      <MovieList movies={movies} />
     </div>
   );
 };
