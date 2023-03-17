@@ -1,8 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import { transformMovies } from 'mappers/transformMovies';
+import { Movie } from 'types';
 
 interface MoviesState {
-  results: any[];
+  results: Movie[];
   isLoading: boolean;
   error: string | null;
 }
@@ -13,9 +15,24 @@ const initialState: MoviesState = {
   results: [],
 };
 
-export const fetchAllMovies = createAsyncThunk('movies/fetchAll', async () => {
-  const { data } = await axios.get('https://restcountries.com/v3.1/all');
-  return data;
+export const fetchAllMovies = createAsyncThunk<
+  Movie[],
+  { year: number },
+  { rejectValue: string }
+>('movies/fetchAll', async (params, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(
+      // `https://restcountries.com/v3.1/currency/${params.currency}`
+      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=war&type=&y=${params.year}&p=`
+    );
+
+    const transformedMovies = transformMovies(data);
+    return transformedMovies;
+  } catch (error) {
+    const { message } = error as AxiosError;
+
+    return rejectWithValue(message);
+  }
 });
 
 const moviesSlice = createSlice({
@@ -31,7 +48,10 @@ const moviesSlice = createSlice({
       state.results.push(...payload);
     });
     builder.addCase(fetchAllMovies.rejected, (state, { payload }) => {
-      state.isLoading = false;
+      if (payload) {
+        state.isLoading = false;
+        state.error = payload;
+      }
     });
   },
 });

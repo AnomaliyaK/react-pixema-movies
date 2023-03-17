@@ -12,7 +12,7 @@ export const FavoritesPage = () => {
   return (
     <div>
       <h1>FavoritesPage</h1>
-      {/* <CountryList countries={countries} /> */}
+      <CountryList countries={countries} />
     </div>
   );
 };
