@@ -1,5 +1,6 @@
 import { MovieList } from 'components';
 import { Loader } from 'components/Loader';
+import { ShowMoreButton } from 'components/ShowMoreButton/ShowMoreButton';
 import React from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';

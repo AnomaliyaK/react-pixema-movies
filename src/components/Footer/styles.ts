@@ -5,4 +5,5 @@ export const StyledFooter = styled.footer`
   font-size: 16px;
   font-weight: 500;
   align-items: end;
+  height: 120px;
 `;

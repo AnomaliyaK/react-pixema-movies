@@ -15,9 +15,9 @@ export const MainTemplate = () => {
       <SlyledGroupNavLogo>
         <LogoPixema src="../../assets/image/pixema.png" alt="pixema" />
         <Nav />
+
         <Footer />
       </SlyledGroupNavLogo>
-
       <StyledInput type="text" placeholder="Search" />
       <Outlet />
     </StyledMainTemplate>

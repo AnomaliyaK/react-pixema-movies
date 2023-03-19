@@ -2,25 +2,20 @@ import styled from 'styled-components';
 
 export const StyledMainTemplate = styled.div`
   min-height: 100vh;
-
   padding: 40px 62px 64px;
-  background-color: #000000; /* grid-template-columns: 272px;
-  /*  */
-    /* grid-template-rows: min-content auto; */ * /;
-  /* margin: 0 auto; */
-
-  /* max-width: fit-content;  */
+  background-color: #000000;
 `;
 
 export const SlyledGroupNavLogo = styled.div`
-  display: inline-grid;
+  position: fixed;
   width: 266px;
-  gap: 64px 40px;
-  min-height: 100vh;
+  height: 100%;
 `;
 
 export const StyledInput = styled.input`
   width: 1184px;
+  position: fixed;
+  margin-left: 306px;
   padding: 16px 20px;
   font-size: 16px;
   font-weight: 500;
