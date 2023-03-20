@@ -1,7 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { Footer } from '../../components/Footer/Footer';
-import { Nav } from '../../components/Nav/Nav';
+import { Footer, Nav } from 'components';
 import {
   LogoPixema,
   SlyledGroupNavLogo,
@@ -15,7 +14,6 @@ export const MainTemplate = () => {
       <SlyledGroupNavLogo>
         <LogoPixema src="../../assets/image/pixema.png" alt="pixemaLogo" />
         <Nav />
-
         <Footer />
       </SlyledGroupNavLogo>
       <StyledInput type="text" placeholder="Search" />

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
-import { transformMovies } from 'mappers/transformMovies';
+import { transformMovies } from 'mappers';
 import { Movie } from 'types';
 
 interface MoviesState {

@@ -1,20 +1,27 @@
-import { FiltersPage } from 'pages/FiltersPage/FiltersPage';
-import { SettingsPage } from 'pages/SettingsPage/SettingsPage';
-import { SortingPage } from 'pages/SortingPage/SortingPage';
-import { TrendsPage } from 'pages/TrendsPage/TrendsPage';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
-import { RequareAuth } from '../components/RequareAuth/RequareAuth';
-import { DetailsPage } from '../pages/DetailsPage/DetailsPage';
-import { FavoritesPage } from '../pages/FavoritesPage/FavoritesPage';
-import { HomePage } from '../pages/HomePage/HomePage';
-import { SearchPage } from '../pages/SearchPage/SearchPage';
-import { SignInPage } from '../pages/SignInPage/SignInPage';
-import { SignUpPage } from '../pages/SignUpPage/SignUpPage';
-import { MainTemplate } from '../templates/MainTemplate/MainTemplate';
+
+import { RequareAuth } from 'components';
+
+import {
+  DetailsPage,
+  FavoritesPage,
+  FiltersPage,
+  HomePage,
+  SearchPage,
+  SettingsPage,
+  SignInPage,
+  SignUpPage,
+  SortingPage,
+  TrendsPage,
+} from 'pages';
+
+import { MainTemplate } from 'templates';
+
+// при импорте из папки перестает работать
 import { ROUTE } from './routes';
 
 export const router = createBrowserRouter(
