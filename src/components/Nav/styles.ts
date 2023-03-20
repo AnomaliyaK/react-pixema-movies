@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { COLOR } from 'ui/color';
 
 export const StyledNavigation = styled.nav`
   display: grid;
@@ -10,4 +11,5 @@ export const StyledNavigation = styled.nav`
   margin-bottom: -275px;
   font-size: 18px;
   font-weight: 600;
+  color: ${COLOR.SECONDARY};
 `;

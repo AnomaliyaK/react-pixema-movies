@@ -1,11 +1,10 @@
 import { MovieList } from 'components';
-import { Loader } from 'components/Loader';
-import { ShowMoreButton } from 'components/ShowMoreButton/ShowMoreButton';
+import { Loader } from 'components/Loader/Loader';
 import React from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
 import { fetchAllMovies } from 'store/moviesSlice/moviesSlice';
-import { StyledHomePage } from './styles';
+import { StyledHomePage, StyledShowMoreButton } from './styles';
 
 export const HomePage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);
@@ -22,6 +21,12 @@ export const HomePage = () => {
       {/* span ниже сделать компонентом <ErrorMessage message={error}/>*/}
       {error && <span>{error}</span>}
       {movies && movies.length > 0 && <MovieList movies={movies} />}
+      <StyledShowMoreButton>
+        Show more{' '}
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden"></span>
+        </div>
+      </StyledShowMoreButton>
     </StyledHomePage>
   );
 };

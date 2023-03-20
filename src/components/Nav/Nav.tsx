@@ -1,6 +1,6 @@
 import React from 'react';
 import { ROUTE } from '../../router/routes';
-import { CustomLink } from '../CustomLink';
+import { CustomLink } from '../CustomLink/CustomLink';
 import { StyledNavigation } from './styles';
 
 export const Nav = () => {

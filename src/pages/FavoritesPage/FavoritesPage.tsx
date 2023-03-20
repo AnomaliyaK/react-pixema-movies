@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MovieList } from '../components/MovieList/MovieList';
+import { MovieList } from '../../components/MovieList/MovieList';
 
 export const FavoritesPage = () => {
   const [movies, setMovies] = useState<any[]>([]);

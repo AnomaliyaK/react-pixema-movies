@@ -13,7 +13,7 @@ export const MainTemplate = () => {
   return (
     <StyledMainTemplate>
       <SlyledGroupNavLogo>
-        <LogoPixema src="../../assets/image/pixema.png" alt="pixema" />
+        <LogoPixema src="../../assets/image/pixema.png" alt="pixemaLogo" />
         <Nav />
 
         <Footer />
