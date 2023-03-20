@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { COLOR } from 'ui/color';
 
 export const StyledMainTemplate = styled.div`
   min-height: 100vh;
   padding: 40px 62px 64px;
-  background-color: #000000;
+  background-color: ${COLOR.BLACK};
 `;
 
 export const SlyledGroupNavLogo = styled.div`
@@ -19,8 +20,8 @@ export const StyledInput = styled.input`
   padding: 16px 20px;
   font-size: 16px;
   font-weight: 500;
-  color: #80858b;
-  background-color: #323537;
+  color: ${COLOR.SECONDARY};
+  background-color: ${COLOR.GRAPHITE};
   border-radius: 10px;
   border: none;
 `;

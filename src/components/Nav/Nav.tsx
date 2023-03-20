@@ -7,10 +7,12 @@ export const Nav = () => {
   return (
     <StyledNavigation>
       <CustomLink to={ROUTE.HOME}>Home</CustomLink>
+      <CustomLink to={ROUTE.TRENDS}>Trends</CustomLink>
       <CustomLink to={ROUTE.FAVORITES}>Favorites</CustomLink>
-      <CustomLink to={ROUTE.SEARCH}>Search</CustomLink>
-      <CustomLink to={ROUTE.SIGN_IN}>Sign in</CustomLink>
-      <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
+      <CustomLink to={ROUTE.SETTINGS}>Settings</CustomLink>
+      {/* <CustomLink to={ROUTE.SEARCH}>Search</CustomLink> */}
+      {/* <CustomLink to={ROUTE.SIGN_IN}>Sign in</CustomLink>
+      <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink> */}
     </StyledNavigation>
   );
 };

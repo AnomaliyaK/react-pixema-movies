@@ -1,3 +1,7 @@
+import { FiltersPage } from 'pages/FiltersPage/FiltersPage';
+import { SettingsPage } from 'pages/SettingsPage/SettingsPage';
+import { SortingPage } from 'pages/SortingPage/SortingPage';
+import { TrendsPage } from 'pages/TrendsPage/TrendsPage';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -18,6 +22,10 @@ export const router = createBrowserRouter(
     <Route path={ROUTE.HOME} element={<MainTemplate />}>
       <Route index element={<HomePage />} />
       <Route path={ROUTE.DETAILS} element={<DetailsPage />} />
+      <Route path={ROUTE.TRENDS} element={<TrendsPage />} />
+      <Route path={ROUTE.SETTINGS} element={<SettingsPage />} />
+      <Route path={ROUTE.SORTING} element={<SortingPage />} />
+      <Route path={ROUTE.FILTERS} element={<FiltersPage />} />
       <Route path={ROUTE.SEARCH} element={<SearchPage />} />
       <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
       <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
