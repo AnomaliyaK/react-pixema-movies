@@ -26,7 +26,7 @@ export const SearchPage = () => {
       {results && results.length > 0 && (
         <ul>
           {results.map((movie) => {
-            return <li>{movie.name.common}</li>;
+            return <li>{movie.title}</li>;
           })}
         </ul>
       )}

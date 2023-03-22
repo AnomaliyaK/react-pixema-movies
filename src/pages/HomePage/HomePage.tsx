@@ -12,7 +12,7 @@ export const HomePage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllMovies({ year: 2022 }));
+    dispatch(fetchAllMovies({ year: 2020 }));
   }, [dispatch]);
 
   return (
@@ -22,7 +22,7 @@ export const HomePage = () => {
       {error && <span>{error}</span>}
       {movies && movies.length > 0 && <MovieList movies={movies} />}
       <StyledShowMoreButton>
-        Show more{' '}
+        Show more
         <div className="spinner-border" role="status">
           <span className="visually-hidden"></span>
         </div>
