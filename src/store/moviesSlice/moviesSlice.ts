@@ -7,12 +7,16 @@ interface MoviesState {
   movies: Movie[];
   isLoading: boolean;
   error: string | null;
+  // response:
+  // totalResults:
 }
 
 const initialState: MoviesState = {
   isLoading: false,
   error: null,
   movies: [],
+  // response:
+  // totalResults:
 };
 
 export const fetchAllMovies = createAsyncThunk<

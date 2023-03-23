@@ -1,13 +1,13 @@
 interface DataMovieApi {
   Search: MovieApi[];
-  totalResults: number;
-  Response: boolean;
+  totalResults: string;
+  Response: string;
 }
 
 interface DataMovie {
   movies: MovieApi[];
-  totalResults: number;
-  response: boolean;
+  totalResults: string;
+  response: string;
 }
 
 interface MovieApi {

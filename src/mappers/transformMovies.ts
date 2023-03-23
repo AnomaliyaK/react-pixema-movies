@@ -24,3 +24,19 @@ export const transformMovies = (dataMovies: DataMovieApi): Movie[] => {
     poster: Poster,
   }));
 };
+
+// export const transformAPI = (dataMovies: DataMovieApi) => {
+//   return Object.values(dataMovies).map(
+//     ({ Search, totalResults, Response }) => ({
+//       movies: Search.map(({ Title, Year, imdbID, Type, Poster }: Movie[]) => ({
+//         title: Title,
+//         year: Year,
+//         id: imdbID,
+//         type: Type,
+//         poster: Poster,
+//       })),
+//       totalResults: totalResults,
+//       response: Response,
+//     })
+//   );
+// };
