@@ -11,8 +11,8 @@ export const Nav = () => {
       <CustomLink to={ROUTE.FAVORITES}>Favorites</CustomLink>
       <CustomLink to={ROUTE.SETTINGS}>Settings</CustomLink>
       {/* <CustomLink to={ROUTE.SEARCH}>Search</CustomLink> */}
-      {/* <CustomLink to={ROUTE.SIGN_IN}>Sign in</CustomLink>
-      <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink> */}
+      {/* <CustomLink to={ROUTE.SIGN_IN}>Sign in</CustomLink>*/}
+      {/* <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink> */}
     </StyledNavigation>
   );
 };

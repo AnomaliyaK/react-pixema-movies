@@ -4,6 +4,7 @@ import { COLOR } from 'ui/color';
 export const StyledHomePage = styled.div`
   margin-left: 306px;
   margin-top: 152px;
+  color: ${COLOR.WHITE};
 `;
 
 export const StyledShowMoreButton = styled.button`

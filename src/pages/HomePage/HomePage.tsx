@@ -1,7 +1,5 @@
 import { MovieList } from 'components';
 import { Loader } from 'components/Loader/Loader';
-import { Modal } from 'components/Modal/Modal';
-
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
@@ -11,7 +9,7 @@ import { StyledHomePage, StyledShowMoreButton } from './styles';
 export const HomePage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);
   const dispatch = useAppDispatch();
-  const [isOpen, setIsOpen] = useState(true);
+  const { email, creationTime, isAuth } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(fetchAllMovies({ year: 2020 }));
@@ -19,7 +17,13 @@ export const HomePage = () => {
 
   return (
     <StyledHomePage>
-      {isOpen && <Modal />}
+      {isAuth && (
+        <>
+          <h1>Email: {email}</h1>
+          <p>Creation Time: {creationTime}</p>
+        </>
+      )}
+
       {isLoading && <Loader />}
       {/* span ниже сделать компонентом <ErrorMessage message={error}/>*/}
       {error && <span>{error}</span>}
