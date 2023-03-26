@@ -25,10 +25,10 @@ export const transformMovies = (dataMovies: DataMovieApi): Movie[] => {
   }));
 };
 
-// export const transformAPI = (dataMovies: DataMovieApi) => {
+// export const transformAPI = (dataMovies: DataMovieApi): DataMovie => {
 //   return Object.values(dataMovies).map(
 //     ({ Search, totalResults, Response }) => ({
-//       movies: Search.map(({ Title, Year, imdbID, Type, Poster }: Movie[]) => ({
+//       movies: Search.map(({ Title, Year, imdbID, Type, Poster }) => ({
 //         title: Title,
 //         year: Year,
 //         id: imdbID,

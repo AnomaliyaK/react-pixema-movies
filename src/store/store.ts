@@ -1,13 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import moviesReducer from './moviesSlice/moviesSlice';
-import searchReducer from './searchSlice/searchSlice';
-import userReducer from './userSlice/userSlice';
+import moviesReducer from './features/moviesSlice/moviesSlice';
+import searchReducer from './features/searchSlice/searchSlice';
+import userReducer from './features/userSlice/userSlice';
+import movieDetailsReducer from './features/movieDetailsSlice/movieDetailsSlice';
 
 export const store = configureStore({
   reducer: {
     movies: moviesReducer,
     search: searchReducer,
     user: userReducer,
+    movieDetails: movieDetailsReducer,
 
     // добавить и для всех остальных страниц favorites,search и тд
   },

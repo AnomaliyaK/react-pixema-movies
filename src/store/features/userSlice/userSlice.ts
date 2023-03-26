@@ -3,7 +3,7 @@ import {
   createSlice,
   isRejectedWithValue,
 } from '@reduxjs/toolkit';
-import { auth } from '../../firebase';
+import { auth } from '../../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { AuthFormValues } from 'pages/SignUpPage/SignUpPage';
 import { FirebaseError } from 'firebase/app';

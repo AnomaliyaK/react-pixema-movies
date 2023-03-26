@@ -1,5 +1,5 @@
-import { Spinner } from 'components/Spinner/Spinner';
 import React from 'react';
+import { Spinner } from 'components';
 import { StyledLoader } from './styles';
 
 export const Loader = () => {

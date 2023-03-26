@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR } from 'ui/color';
+import { COLOR } from 'ui';
 
 export const StyledHomePage = styled.div`
   margin-left: 306px;
@@ -7,7 +7,7 @@ export const StyledHomePage = styled.div`
   color: ${COLOR.WHITE};
 `;
 
-export const StyledShowMoreButton = styled.button`
+export const ShowMoreButton = styled.button`
   display: grid;
   background-color: ${COLOR.GRAPHITE};
   color: ${COLOR.WHITE};

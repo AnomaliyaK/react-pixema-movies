@@ -7,7 +7,7 @@ import {
 import { RequareAuth } from 'components';
 
 import {
-  DetailsPage,
+  MovieDetailsPage,
   FavoritesPage,
   FiltersPage,
   HomePage,
@@ -28,7 +28,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.HOME} element={<MainTemplate />}>
       <Route index element={<HomePage />} />
-      <Route path={ROUTE.DETAILS} element={<DetailsPage />} />
+      <Route path={ROUTE.DETAILS} element={<MovieDetailsPage />} />
       <Route path={ROUTE.TRENDS} element={<TrendsPage />} />
       <Route path={ROUTE.SETTINGS} element={<SettingsPage />} />
       <Route path={ROUTE.SORTING} element={<SortingPage />} />

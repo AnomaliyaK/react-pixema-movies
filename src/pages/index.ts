@@ -2,7 +2,7 @@ import { HomePage } from './HomePage/HomePage';
 import { FavoritesPage } from './FavoritesPage/FavoritesPage';
 import { FiltersPage } from './FiltersPage/FiltersPage';
 import { TrendsPage } from './TrendsPage/TrendsPage';
-import { DetailsPage } from './DetailsPage/DetailsPage';
+import { MovieDetailsPage } from './MovieDetailsPage/MovieDetailsPage';
 import { SearchPage } from './SearchPage/SearchPage';
 import { SortingPage } from './SortingPage/SortingPage';
 import { SettingsPage } from './SettingsPage/SettingsPage';
@@ -14,7 +14,7 @@ export {
   FavoritesPage,
   FiltersPage,
   TrendsPage,
-  DetailsPage,
+  MovieDetailsPage,
   SearchPage,
   SortingPage,
   SettingsPage,

@@ -2,7 +2,7 @@ import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { StyledSignUpPage } from './styles';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
-import { fetchSignUpUser } from 'store/userSlice/userSlice';
+import { fetchSignUpUser } from 'store/features/userSlice/userSlice';
 import { Loader } from 'components/Loader/Loader';
 import { useNavigate } from 'react-router-dom';
 

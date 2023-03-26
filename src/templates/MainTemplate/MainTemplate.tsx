@@ -6,13 +6,14 @@ import {
   SlyledGroupNavLogo,
   StyledInput,
   StyledMainTemplate,
+  WrapLogoPixema,
 } from './styles';
 import { Filters } from 'components/Filters/Filters';
 import { CustomLink } from 'components/CustomLink/CustomLink';
 import { ROUTE } from 'router';
 import { auth } from '../../firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
-import { useAppDispatch } from 'store/hooks/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
 
 export const MainTemplate = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ export const MainTemplate = () => {
     setIsOpen((prev) => !prev);
   };
   const dispatch = useAppDispatch();
+  const { email, creationTime, isAuth } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -27,17 +29,31 @@ export const MainTemplate = () => {
       console.log(user);
     });
   }, [dispatch]);
+
   return (
     <StyledMainTemplate>
       <button onClick={toggleFilters}>Open Modal</button>
       {isOpen && <Filters title="FILTER" onClick={toggleFilters} />}
       <SlyledGroupNavLogo>
-        <LogoPixema src="../../assets/image/pixema.png" alt="pixemaLogo" />
+        <WrapLogoPixema>
+          <LogoPixema
+            src="../../assets/icons/pixema-dark-icon.png"
+            alt="pixemaLogo"
+          />
+        </WrapLogoPixema>
+
         <Nav />
         <Footer />
       </SlyledGroupNavLogo>
       <StyledInput type="text" placeholder="Search" />
       <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
+      {/* данные о зарегистрированном пользователе */}
+      {isAuth && (
+        <>
+          <p>{email}</p>
+          <p>Creation Time: {creationTime}</p>
+        </>
+      )}
       <Outlet />
     </StyledMainTemplate>
   );

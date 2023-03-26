@@ -5,6 +5,7 @@ export const StyledMainTemplate = styled.div`
   min-height: 100vh;
   padding: 40px 62px 64px;
   background-color: ${COLOR.BLACK};
+  color: ${COLOR.WHITE};
 `;
 
 export const SlyledGroupNavLogo = styled.div`
@@ -24,6 +25,10 @@ export const StyledInput = styled.input`
   background-color: ${COLOR.GRAPHITE};
   border-radius: 10px;
   border: none;
+`;
+export const WrapLogoPixema = styled.div`
+  width: 158px;
+  height: 40px;
 `;
 export const LogoPixema = styled.img`
   width: 158px;

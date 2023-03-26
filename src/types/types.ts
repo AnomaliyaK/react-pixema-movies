@@ -5,7 +5,7 @@ interface DataMovieApi {
 }
 
 interface DataMovie {
-  movies: MovieApi[];
+  movies: Movie[];
   totalResults: string;
   response: string;
 }
@@ -26,37 +26,63 @@ interface Movie {
   poster: string;
 }
 
-export type { DataMovieApi, DataMovie, MovieApi, Movie };
+interface MovieDetailsApi {
+  Title: string;
+  Year: string;
+  Rated: string;
+  Released: string;
+  Runtime: string;
+  Genre: string;
+  Director: string;
+  Writer: string;
+  Actors: string;
+  Plot: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Poster: string;
+  Ratings: RatingsApi[];
+  Metascore: string;
+  imdbRating: string;
+  imdbVotes: string;
+  imdbID: string;
+  Type: string;
+  DVD: string;
+  BoxOffice: string;
+  Production: string;
+  Website: string;
+  Response: string;
+}
 
-// export interface MovieDetailsApi {
-//   Title: string;
-//   Year: string;
-//   Rated: string;
-//   Released: string;
-//   Runtime: string;
-//   Genre: string;
-//   Director: string;
-//   Writer: string;
-//   Actors: string;
-//   Plot: string;
-//   Language: string;
-//   Country: string;
-//   Awards: string;
-//   Poster: string;
-//   Ratings: RatingsApi[];
-//   Metascore: string;
-//   imdbRating: string;
-//   imdbVotes: string;
-//   imdbID: string;
-//   Type: string;
-//   DVD: string;
-//   BoxOffice: string;
-//   Production: string;
-//   Website: string;
-//   Response: string;
-// }
+interface RatingsApi {
+  Source: string;
+  Value: string;
+}
 
-// export interface RatingsApi {
-//   Source: string;
-//   Value: string;
-// }
+interface MovieDetails {
+  title: string;
+  id: string;
+  genre: string;
+  runtime: string;
+  imdbRating: string;
+  poster: string;
+  year: string;
+  released: string;
+  boxOffice: string;
+  country: string;
+  production: string;
+  actors: string;
+  plot: string;
+  director: string;
+  writers: string;
+}
+
+export type {
+  DataMovieApi,
+  DataMovie,
+  MovieApi,
+  Movie,
+  MovieDetailsApi,
+  MovieDetails,
+  RatingsApi,
+};

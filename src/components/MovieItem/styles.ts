@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MovieCard = styled.li`
+export const StyledMovieItem = styled.li`
   display: grid;
   gap: 24px;
   width: 266px;

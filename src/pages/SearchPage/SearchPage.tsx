@@ -2,7 +2,7 @@ import { Loader } from 'components/Loader/Loader';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
-import { fetchAllSearch } from 'store/searchSlice/searchSlice';
+import { fetchAllSearch } from 'store/features/searchSlice/searchSlice';
 
 export const SearchPage = () => {
   const { isLoading, results, error } = useAppSelector((state) => state.search);
