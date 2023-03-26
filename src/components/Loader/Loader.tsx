@@ -1,9 +1,12 @@
+import { Spinner } from 'components/Spinner/Spinner';
 import React from 'react';
+import { StyledLoader } from './styles';
 
 export const Loader = () => {
   return (
-    <div className="spinner-border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
+    <StyledLoader>
+      <Spinner />
+      Loading...
+    </StyledLoader>
   );
 };

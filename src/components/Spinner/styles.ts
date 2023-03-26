@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledSpinner = styled.div`
   display: inline-block;
+  margin: 0 12px;
   width: 16px;
   height: 16px;
   border: 2px solid rgba(255, 255, 255, 0.3);

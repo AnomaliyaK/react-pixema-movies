@@ -27,7 +27,6 @@ export const HomePage = () => {
 
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-
       {movies && movies.length > 0 && <MovieList movies={movies} />}
       <StyledShowMoreButton>
         Show more
