@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
 import { fetchAllMovies } from 'store/moviesSlice/moviesSlice';
 import { StyledHomePage, StyledShowMoreButton } from './styles';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
+import { Spinner } from 'components/Spinner/Spinner';
 
 export const HomePage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);
@@ -26,13 +27,11 @@ export const HomePage = () => {
 
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
+
       {movies && movies.length > 0 && <MovieList movies={movies} />}
       <StyledShowMoreButton>
         Show more
-        {/* заменить на другой спинер */}
-        {/* <div className="spinner-border" role="status">
-          <span className="visually-hidden"></span>
-        </div> */}
+        <Spinner />
       </StyledShowMoreButton>
     </StyledHomePage>
   );
