@@ -5,7 +5,9 @@ import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
 import { fetchSignUpUser } from 'store/userSlice/userSlice';
 import { Loader } from 'components/Loader/Loader';
 import { useNavigate } from 'react-router-dom';
-import { spawn } from 'child_process';
+
+import { CustomLink } from 'components/CustomLink/CustomLink';
+import { ROUTE } from 'router';
 
 // перенести потом в отдельный файл
 export interface AuthFormValues {
@@ -52,6 +54,9 @@ export const SignUpPage = () => {
         <button type="submit">Submit {isLoading && <Loader />}</button>
 
         {errorMessage && <span>{errorMessage}</span>}
+
+        <p>Already have an account?</p>
+        <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
       </form>
     </StyledSignUpPage>
   );
