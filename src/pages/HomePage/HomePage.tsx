@@ -1,10 +1,10 @@
-import { MovieList } from 'components';
-import { Loader } from 'components/Loader/Loader';
-import React, { useState } from 'react';
+import React from 'react';
+import { Loader, MovieList } from 'components';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
 import { fetchAllMovies } from 'store/moviesSlice/moviesSlice';
 import { StyledHomePage, StyledShowMoreButton } from './styles';
+import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
 
 export const HomePage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);
@@ -25,14 +25,14 @@ export const HomePage = () => {
       )}
 
       {isLoading && <Loader />}
-      {/* span ниже сделать компонентом <ErrorMessage message={error}/>*/}
-      {error && <span>{error}</span>}
+      {error && <ErrorMessage message={error} />}
       {movies && movies.length > 0 && <MovieList movies={movies} />}
       <StyledShowMoreButton>
         Show more
-        <div className="spinner-border" role="status">
+        {/* заменить на другой спинер */}
+        {/* <div className="spinner-border" role="status">
           <span className="visually-hidden"></span>
-        </div>
+        </div> */}
       </StyledShowMoreButton>
     </StyledHomePage>
   );
