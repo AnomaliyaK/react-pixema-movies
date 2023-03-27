@@ -32,15 +32,15 @@ export const MovieDetailsCard = ({
       <span>{title}</span>
       <span>{runtime}</span>
       <span>{imdbRating}</span>
-      <span>{year}</span>
-      <span>{released}</span>
-      <span>{boxOffice}</span>
-      <span>{country}</span>
-      <span>{production}</span>
-      <span>{actors}</span>
-      <span>{director}</span>
-      <span>{writers}</span>
       <p>{plot}</p>
+      <span>Year {year}</span>
+      <span>Released {released}</span>
+      <span>BoxOffice {boxOffice}</span>
+      <span>Country {country}</span>
+      <span>Prodaction {production}</span>
+      <span> Actors {actors}</span>
+      <span>Director {director}</span>
+      <span>Writers {writers}</span>
     </StyledMovieDetailsCard>
   );
 };
