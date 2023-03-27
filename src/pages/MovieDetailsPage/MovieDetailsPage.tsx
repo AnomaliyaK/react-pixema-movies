@@ -11,11 +11,11 @@ export const MovieDetailsPage = () => {
     (state) => state.movieDetails
   );
   const { title = '' } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const handleback = () => {
-    navigate(-1);
-  };
+  // const handleback = () => {
+  //   navigate(-1);
+  // };
 
   useEffect(() => {
     dispatch(fetchMovieDetails({ title }));
@@ -27,7 +27,7 @@ export const MovieDetailsPage = () => {
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
       {movieDetails && <MovieDetailsCard movieDetails={movieDetails} />}
-      <button onClick={handleback}>Back</button>
+      {/* <button onClick={handleback}>Back</button> */}
     </StyledDetailsPage>
   );
 };

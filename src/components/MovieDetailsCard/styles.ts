@@ -10,6 +10,29 @@ export const StyledMovieDetailsCard = styled.div`
 `;
 export const PosterWithButton = styled.div`
   width: 266px;
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr); */
+`;
+
+export const FavoriteButton = styled.button`
+  width: 50%;
+  padding: 19px;
+  background-color: ${COLOR.GRAPHITE};
+  border-radius: 10px 0 0 10px;
+  border: none;
+  border-right: 2px solid ${COLOR.BLACK};
+  cursor: pointer;
+  color: ${COLOR.LIGHT};
+`;
+
+export const ShareButton = styled.button`
+  width: 50%;
+  padding: 19px;
+  background-color: ${COLOR.GRAPHITE};
+  border-radius: 0 10px 10px 0;
+  border: none;
+  cursor: pointer;
+  color: ${COLOR.LIGHT};
 `;
 
 export const PosterDetails = styled.img`

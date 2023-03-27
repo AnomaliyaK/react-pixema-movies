@@ -1,10 +1,11 @@
 import { MovieDetailsItem } from 'components/MovieDetailsItem/MovieDetailsItem';
 import React from 'react';
 import { MovieDetails } from 'types';
-import { COLOR } from 'ui';
+
 import {
   Badges,
   DescriptionMovie,
+  FavoriteButton,
   FullDescription,
   GenreMovie,
   IMDb,
@@ -14,6 +15,7 @@ import {
   PosterWithButton,
   Rating,
   Runtime,
+  ShareButton,
   StyledMovieDetailsCard,
   TitleMovie,
 } from './styles';
@@ -45,8 +47,8 @@ export const MovieDetailsCard = ({
     <StyledMovieDetailsCard>
       <PosterWithButton>
         <PosterDetails src={poster} alt={title} />
-        <button>favorite</button>
-        <button>share</button>
+        <FavoriteButton>favorite</FavoriteButton>
+        <ShareButton>share</ShareButton>
       </PosterWithButton>
       <DescriptionMovie>
         <MainInfoMovie>
@@ -55,7 +57,7 @@ export const MovieDetailsCard = ({
           <Badges>
             <Rating>{imdbRating}</Rating>
             <IMDb>
-              <img src="../../assets/IMDb.png" alt="IMDb" /> {imdbRating}
+              <img src="../../assets/icons/IMDb.png" alt="IMDb" /> {imdbRating}
             </IMDb>
             <Runtime>{runtime}</Runtime>
           </Badges>
