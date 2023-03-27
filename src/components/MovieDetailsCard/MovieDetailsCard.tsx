@@ -1,13 +1,19 @@
+import { MovieDetailsItem } from 'components/MovieDetailsItem/MovieDetailsItem';
 import React from 'react';
 import { MovieDetails } from 'types';
 import { COLOR } from 'ui';
 import {
   Badges,
   DescriptionMovie,
+  FullDescription,
   GenreMovie,
+  IMDb,
   MainInfoMovie,
+  Plot,
   PosterDetails,
   PosterWithButton,
+  Rating,
+  Runtime,
   StyledMovieDetailsCard,
   TitleMovie,
 } from './styles';
@@ -47,21 +53,24 @@ export const MovieDetailsCard = ({
           <GenreMovie>{genre}</GenreMovie>
           <TitleMovie>{title}</TitleMovie>
           <Badges>
-            <span>{imdbRating}</span>
-            <span>IMDb {imdbRating}</span>
-            <span>{runtime}</span>
+            <Rating>{imdbRating}</Rating>
+            <IMDb>
+              <img src="../../assets/IMDb.png" alt="IMDb" /> {imdbRating}
+            </IMDb>
+            <Runtime>{runtime}</Runtime>
           </Badges>
         </MainInfoMovie>
-
-        <p>{plot}</p>
-        <span>Year {year}</span>
-        <span>Released {released}</span>
-        <span>BoxOffice {boxOffice}</span>
-        <span>Country {country}</span>
-        <span>Prodaction {production}</span>
-        <span> Actors {actors}</span>
-        <span>Director {director}</span>
-        <span>Writers {writers}</span>
+        <Plot>{plot}</Plot>
+        <FullDescription>
+          <MovieDetailsItem label="Year" value={year} />
+          <MovieDetailsItem label="Released" value={released} />
+          <MovieDetailsItem label="BoxOffice" value={boxOffice} />
+          <MovieDetailsItem label="Country" value={country} />
+          <MovieDetailsItem label="Prodaction" value={production} />
+          <MovieDetailsItem label="Actors" value={actors} />
+          <MovieDetailsItem label="Director" value={director} />
+          <MovieDetailsItem label="Writers" value={writers} />
+        </FullDescription>
       </DescriptionMovie>
     </StyledMovieDetailsCard>
   );

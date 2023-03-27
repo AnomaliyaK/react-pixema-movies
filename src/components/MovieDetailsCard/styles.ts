@@ -25,7 +25,7 @@ export const DescriptionMovie = styled.div`
   gap: 40px;
 `;
 
-export const MainInfoMovie = styled.span`
+export const MainInfoMovie = styled.div`
   display: grid;
 `;
 
@@ -42,4 +42,38 @@ export const TitleMovie = styled.div`
   color: ${COLOR.WHITE};
   margin-bottom: 24px;
 `;
-export const Badges = styled.div``;
+export const Badges = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: ${COLOR.WHITE};
+`;
+export const Rating = styled.span`
+  background-color: ${COLOR.GREEN};
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-right: 20px;
+`;
+
+export const IMDb = styled.span`
+  background-color: ${COLOR.GRAPHITE};
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-right: 20px;
+`;
+
+export const Runtime = styled.span`
+  background-color: ${COLOR.GRAPHITE};
+  padding: 2px 8px;
+  border-radius: 6px;
+`;
+export const Plot = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+`;
+
+export const FullDescription = styled.div`
+  display: grid;
+  gap: 20px;
+`;
