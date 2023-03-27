@@ -3,7 +3,7 @@ import { COLOR } from 'ui';
 
 export const StyledHomePage = styled.div`
   margin-left: 306px;
-  margin-top: 152px;
+  margin-top: 112px;
   color: ${COLOR.WHITE};
 `;
 
