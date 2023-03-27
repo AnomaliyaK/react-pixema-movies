@@ -26,10 +26,9 @@ export const fetchAllMovies = createAsyncThunk<
 >('movies/fetchAll', async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      // `https://restcountries.com/v3.1/currency/${params.currency}`
       `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=war&type=&plot=&y=${params.year}&p=`
     );
-
+    console.log(data);
     const transformedMovies = transformMovies(data);
     return transformedMovies;
   } catch (error) {

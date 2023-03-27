@@ -1,31 +1,30 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { transformMovieDetails } from 'mappers/transformMovieDetails';
-import { Movie, MovieDetails } from 'types';
+import { MovieDetails, MovieDetailsApi } from 'types';
 
 interface MovieDetailsState {
   movieDetails: MovieDetails;
   isLoading: boolean;
   error: string | null;
-  recommendations: Movie[];
+  // recommendations: Movie[];
 }
 
 const initialState: MovieDetailsState = {
   isLoading: false,
   error: null,
   movieDetails: {} as MovieDetails,
-  recommendations: [],
+  // recommendations: [],
 };
 
 export const fetchMovieDetails = createAsyncThunk<
   MovieDetails,
   { title: string },
   { rejectValue: string }
->('movieDetails/fetchMovieDetails', async (title, { rejectWithValue }) => {
+>('movieDetails/fetchMovieDetails', async (params, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(
-      //
-      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=&type=&plot=&y=&p=&plot=full&t=${title}`
+    const { data } = await axios.get<MovieDetailsApi>(
+      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=&type=&plot=&y=&p=&plot=full&t=${params.title}`
     );
 
     const transformedMovieDetails = transformMovieDetails(data);

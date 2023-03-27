@@ -1,4 +1,3 @@
-import { AsyncThunkAction, Dispatch, AnyAction } from '@reduxjs/toolkit';
 import { ErrorMessage, Loader } from 'components';
 import { MovieDetailsCard } from 'components/MovieDetailsCard/MovieDetailsCard';
 import React, { useEffect } from 'react';
@@ -11,7 +10,7 @@ export const MovieDetailsPage = () => {
   const { movieDetails, isLoading, error } = useAppSelector(
     (state) => state.movieDetails
   );
-  const { title } = useParams();
+  const { title = '' } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const handleback = () => {
@@ -19,12 +18,12 @@ export const MovieDetailsPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchMovieDetails({ title: 'Avengers: Infinity War' }));
+    dispatch(fetchMovieDetails({ title }));
   }, [dispatch, title]);
 
   return (
     <StyledDetailsPage>
-      <h1>{title}</h1>
+      {/* <h1>{title}</h1> */}
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
       {movieDetails && <MovieDetailsCard movieDetails={movieDetails} />}

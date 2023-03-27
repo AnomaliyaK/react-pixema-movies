@@ -8,7 +8,6 @@ import { ShowMoreButton, StyledHomePage } from './styles';
 export const HomePage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);
   const dispatch = useAppDispatch();
-  // const { email, creationTime, isAuth } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(fetchAllMovies({ year: 2020 }));
