@@ -1,11 +1,12 @@
+import { FormSignIn } from 'components/FormSignIn/FormSignIn';
 import React from 'react';
-import { Form } from '../../components/Form/Form';
+
+import { StyledSignInPage } from './styles';
 
 export const SignInPage = () => {
   return (
-    <div>
-      sign in
-      {/* <Form heading="Sign IN" /> */}
-    </div>
+    <StyledSignInPage>
+      <FormSignIn />
+    </StyledSignInPage>
   );
 };

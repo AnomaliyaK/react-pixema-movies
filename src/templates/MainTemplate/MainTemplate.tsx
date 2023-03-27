@@ -32,6 +32,7 @@ export const MainTemplate = () => {
 
   return (
     <StyledMainTemplate>
+      {/* модальное окно Filter */}
       <button onClick={toggleFilters}>Open Modal</button>
       {isOpen && <Filters title="FILTER" onClick={toggleFilters} />}
       <SlyledGroupNavLogo>
@@ -47,7 +48,8 @@ export const MainTemplate = () => {
       </SlyledGroupNavLogo>
       <StyledInput type="text" placeholder="Search" />
       <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
-      {/* данные о зарегистрированном пользователе */}
+      <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
+      {/* данные зарегистрированного пользователя */}
       {isAuth && (
         <>
           <p>{email}</p>

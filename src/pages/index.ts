@@ -8,6 +8,7 @@ import { SortingPage } from './SortingPage/SortingPage';
 import { SettingsPage } from './SettingsPage/SettingsPage';
 import { SignInPage } from './SignInPage/SignInPage';
 import { SignUpPage } from './SignUpPage/SignUpPage';
+import { ResetPasswordPage } from './ResetPasswordPage/ResetPasswordPage';
 
 export {
   HomePage,
@@ -20,4 +21,5 @@ export {
   SettingsPage,
   SignInPage,
   SignUpPage,
+  ResetPasswordPage,
 };

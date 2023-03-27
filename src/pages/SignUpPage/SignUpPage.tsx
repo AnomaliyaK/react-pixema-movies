@@ -7,7 +7,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useNavigate } from 'react-router-dom';
 
 import { CustomLink } from 'components/CustomLink/CustomLink';
-import { ROUTE } from 'router';
+import { ROUTE } from 'router/routes';
 
 // перенести потом в отдельный файл
 export interface AuthFormValues {
@@ -54,10 +54,9 @@ export const SignUpPage = () => {
         <button type="submit">Submit {isLoading && <Loader />}</button>
 
         {errorMessage && <span>{errorMessage}</span>}
-
-        <p>Already have an account?</p>
-        <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
       </form>
+      <p>Already have an account?</p>
+      <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
     </StyledSignUpPage>
   );
 };
