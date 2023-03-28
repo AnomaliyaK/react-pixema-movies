@@ -105,3 +105,6 @@ export const FullDescription = styled.div`
 export const GroupButton = styled.div`
   height: 56px;
 `;
+export const GroupSlider = styled.div``;
+
+export const TittleSlider = styled.h2``;

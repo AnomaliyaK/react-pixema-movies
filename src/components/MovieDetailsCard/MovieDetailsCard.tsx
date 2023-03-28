@@ -1,6 +1,5 @@
 import { FavoritesIcon, IMDbIcon, ShareIcon } from "assets";
-import { MovieDetailsItem } from "components/MovieDetailsItem/MovieDetailsItem";
-import React from "react";
+import { MovieDetailsItem, Slider } from "components";
 import { MovieDetails } from "types";
 
 import {
@@ -10,6 +9,7 @@ import {
   FullDescription,
   GenreMovie,
   GroupButton,
+  GroupSlider,
   IMDb,
   MainInfoMovie,
   Plot,
@@ -20,6 +20,7 @@ import {
   ShareButton,
   StyledMovieDetailsCard,
   TitleMovie,
+  TittleSlider,
 } from "./styles";
 
 interface MovieDetailsCardProps {
@@ -82,6 +83,10 @@ export const MovieDetailsCard = ({
           <MovieDetailsItem label="Writers" value={writers} />
         </FullDescription>
       </DescriptionMovie>
+      <GroupSlider>
+        <TittleSlider>Recommendations</TittleSlider>
+        <Slider />
+      </GroupSlider>
     </StyledMovieDetailsCard>
   );
 };

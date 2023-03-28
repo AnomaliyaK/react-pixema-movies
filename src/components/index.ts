@@ -6,9 +6,11 @@ import { FormResetPassword } from "./FormResetPassword/FormResetPassword";
 import { FormSignIn } from "./FormSignIn/FormSignIn";
 import { Loader } from "./Loader/Loader";
 import { MovieDetailsCard } from "./MovieDetailsCard/MovieDetailsCard";
+import { MovieDetailsItem } from "./MovieDetailsItem/MovieDetailsItem";
 import { MovieList } from "./MovieList/MovieList";
 import { Nav } from "./Nav/Nav";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
+import { Slider } from "./Slider/Slider";
 import { Spinner } from "./Spinner/Spinner";
 
 export {
@@ -20,8 +22,10 @@ export {
   FormSignIn,
   Loader,
   MovieDetailsCard,
+  MovieDetailsItem,
   MovieList,
   Nav,
   RequareAuth,
+  Slider,
   Spinner,
 };
