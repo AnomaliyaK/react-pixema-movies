@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Footer, Nav } from 'components';
-import {
-  LogoPixema,
-  SlyledGroupNavLogo,
-  StyledInput,
-  StyledMainTemplate,
-  WrapLogoPixema,
-} from './styles';
-import { Filters } from 'components/Filters/Filters';
-import { CustomLink } from 'components/CustomLink/CustomLink';
-import { ROUTE } from 'router';
-import { auth } from '../../firebase';
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
+import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Footer, Nav } from "components";
+import { SlyledGroupNavLogo, StyledInput, StyledMainTemplate, WrapLogoPixema } from "./styles";
+import { Filters } from "components/Filters/Filters";
+import { CustomLink } from "components/CustomLink/CustomLink";
+import { ROUTE } from "router";
+import { auth } from "../../firebase";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
+import { PixemaLogoDark } from "assets";
 
 export const MainTemplate = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,10 +32,7 @@ export const MainTemplate = () => {
       {isOpen && <Filters title="FILTER" onClick={toggleFilters} />}
       <SlyledGroupNavLogo>
         <WrapLogoPixema>
-          <LogoPixema
-            src="../../assets/icons/pixema-dark-icon.png"
-            alt="pixemaLogo"
-          />
+          <PixemaLogoDark />
         </WrapLogoPixema>
 
         <Nav />
@@ -49,6 +41,7 @@ export const MainTemplate = () => {
       <StyledInput type="text" placeholder="Search" />
       <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
       <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
+      <CustomLink to={ROUTE.RESET_PASSWORD}>ResetPassword</CustomLink>
       {/* данные зарегистрированного пользователя */}
       {isAuth && (
         <>
