@@ -1,9 +1,8 @@
-import React from 'react';
-import { ErrorMessage, Loader, MovieList, Spinner } from 'components';
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
-import { fetchAllMovies } from 'store/features/moviesSlice/moviesSlice';
-import { ShowMoreButton, StyledHomePage } from './styles';
+import React from "react";
+import { ErrorMessage, Loader, MovieList, Spinner } from "components";
+import { useEffect } from "react";
+import { ShowMoreButton, StyledHomePage } from "./styles";
+import { fetchAllMovies, useAppDispatch, useAppSelector } from "store";
 
 export const HomePage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);

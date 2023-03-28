@@ -1,23 +1,22 @@
-import { Loader } from 'components/Loader/Loader';
-import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
-import { fetchAllSearch } from 'store/features/searchSlice/searchSlice';
+import React, { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { Loader } from "components";
+import { fetchAllSearch, useAppDispatch, useAppSelector } from "store";
 
 export const SearchPage = () => {
   const { isLoading, results, error } = useAppSelector((state) => state.search);
-
   const { register } = useForm();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     // peru мы берем из хука useForm
-    dispatch(fetchAllSearch({ searchValue: 'peru' }));
+    dispatch(fetchAllSearch({ searchValue: "peru" }));
   }, [dispatch]);
+
   return (
     <div>
       <form>
-        <input type="text" {...register('searchValue')} />
+        <input type="text" {...register("searchValue")} />
       </form>
 
       {isLoading && <Loader />}

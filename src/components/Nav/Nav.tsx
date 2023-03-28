@@ -1,18 +1,27 @@
-import React from 'react';
-import { ROUTE } from '../../router/routes';
-import { CustomLink } from '../CustomLink/CustomLink';
-import { StyledNavigation } from './styles';
+import { FavoritesIcon, HomeIcon, SettingsIcon, TrendsIcon } from "assets";
+import { CustomLink } from "components";
+import { ROUTE } from "../../router/routes";
+import { StyledNavigation } from "./styles";
 
 export const Nav = () => {
   return (
     <StyledNavigation>
-      <CustomLink to={ROUTE.HOME}>Home</CustomLink>
-      <CustomLink to={ROUTE.TRENDS}>Trends</CustomLink>
-      <CustomLink to={ROUTE.FAVORITES}>Favorites</CustomLink>
-      <CustomLink to={ROUTE.SETTINGS}>Settings</CustomLink>
-      {/* <CustomLink to={ROUTE.SEARCH}>Search</CustomLink> */}
-      {/* <CustomLink to={ROUTE.SIGN_IN}>Sign in</CustomLink>*/}
-      {/* <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink> */}
+      <CustomLink to={ROUTE.HOME}>
+        <HomeIcon />
+        Home
+      </CustomLink>
+      <CustomLink to={ROUTE.TRENDS}>
+        <TrendsIcon />
+        Trends
+      </CustomLink>
+      <CustomLink to={ROUTE.FAVORITES}>
+        <FavoritesIcon />
+        Favorites
+      </CustomLink>
+      <CustomLink to={ROUTE.SETTINGS}>
+        <SettingsIcon />
+        Settings
+      </CustomLink>
     </StyledNavigation>
   );
 };

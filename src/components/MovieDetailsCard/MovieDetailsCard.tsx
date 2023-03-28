@@ -1,6 +1,7 @@
-import { MovieDetailsItem } from 'components/MovieDetailsItem/MovieDetailsItem';
-import React from 'react';
-import { MovieDetails } from 'types';
+import { FavoritesIcon, IMDbIcon, ShareIcon } from "assets";
+import { MovieDetailsItem } from "components/MovieDetailsItem/MovieDetailsItem";
+import React from "react";
+import { MovieDetails } from "types";
 
 import {
   Badges,
@@ -8,6 +9,7 @@ import {
   FavoriteButton,
   FullDescription,
   GenreMovie,
+  GroupButton,
   IMDb,
   MainInfoMovie,
   Plot,
@@ -18,7 +20,7 @@ import {
   ShareButton,
   StyledMovieDetailsCard,
   TitleMovie,
-} from './styles';
+} from "./styles";
 
 interface MovieDetailsCardProps {
   movieDetails: MovieDetails;
@@ -47,8 +49,14 @@ export const MovieDetailsCard = ({
     <StyledMovieDetailsCard>
       <PosterWithButton>
         <PosterDetails src={poster} alt={title} />
-        <FavoriteButton>favorite</FavoriteButton>
-        <ShareButton>share</ShareButton>
+        <GroupButton>
+          <FavoriteButton>
+            <FavoritesIcon />
+          </FavoriteButton>
+          <ShareButton>
+            <ShareIcon />
+          </ShareButton>
+        </GroupButton>
       </PosterWithButton>
       <DescriptionMovie>
         <MainInfoMovie>
@@ -57,7 +65,7 @@ export const MovieDetailsCard = ({
           <Badges>
             <Rating>{imdbRating}</Rating>
             <IMDb>
-              <img src="../../assets/icons/IMDb.png" alt="IMDb" /> {imdbRating}
+              <IMDbIcon /> {imdbRating}
             </IMDb>
             <Runtime>{runtime}</Runtime>
           </Badges>

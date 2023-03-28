@@ -1,6 +1,5 @@
 import { PixemaLogoDark } from "assets";
-import { CustomLink } from "components/CustomLink/CustomLink";
-import React from "react";
+import { CustomLink } from "components";
 import { Outlet } from "react-router-dom";
 import { ROUTE } from "router";
 import { StyledAuthTemplate } from "./styles";

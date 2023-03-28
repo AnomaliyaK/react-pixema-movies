@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { COLOR } from 'ui';
+import styled from "styled-components";
+import { COLOR } from "ui";
 
 export const StyledMovieDetailsCard = styled.div`
   display: grid;
@@ -16,17 +16,19 @@ export const PosterWithButton = styled.div`
 
 export const FavoriteButton = styled.button`
   width: 50%;
-  padding: 19px;
+  padding: 24px 19px;
   background-color: ${COLOR.GRAPHITE};
   border-radius: 10px 0 0 10px;
   border: none;
   border-right: 2px solid ${COLOR.BLACK};
   cursor: pointer;
   color: ${COLOR.LIGHT};
+  height: 100%;
 `;
 
 export const ShareButton = styled.button`
   width: 50%;
+  height: 100%;
   padding: 19px;
   background-color: ${COLOR.GRAPHITE};
   border-radius: 0 10px 10px 0;
@@ -99,4 +101,7 @@ export const Plot = styled.p`
 export const FullDescription = styled.div`
   display: grid;
   gap: 20px;
+`;
+export const GroupButton = styled.div`
+  height: 56px;
 `;

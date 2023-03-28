@@ -12,11 +12,10 @@ import {
   TrendsPage,
   ResetPasswordPage,
 } from "pages";
-import { MainTemplate } from "templates";
+import { AuthTemplate, MainTemplate } from "templates";
 
 // при импорте из папки перестает работать
 import { ROUTE } from "./routes";
-import { AuthTemplate } from "templates/AuthTemplate/AuthTemplate";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +32,6 @@ export const router = createBrowserRouter(
           <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
         </Route>
       </Route>
-
       <Route path={ROUTE.SIGN_IN} element={<AuthTemplate />}>
         <Route index element={<SignInPage />} />
         <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />

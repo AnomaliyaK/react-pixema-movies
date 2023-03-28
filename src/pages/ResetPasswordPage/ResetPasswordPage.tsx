@@ -1,6 +1,5 @@
-import { FormResetPassword } from 'components/FormResetPassword/FormResetPassword';
-import React from 'react';
-import { StyledResetPasswordPage } from './styles';
+import { FormResetPassword } from "components";
+import { StyledResetPasswordPage } from "./styles";
 
 export const ResetPasswordPage = () => {
   return (

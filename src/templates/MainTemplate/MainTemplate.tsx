@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Footer, Nav } from "components";
-import { SlyledGroupNavLogo, StyledInput, StyledMainTemplate, WrapLogoPixema } from "./styles";
-import { Filters } from "components/Filters/Filters";
-import { CustomLink } from "components/CustomLink/CustomLink";
+import { CustomLink, Filters, Footer, Nav } from "components";
+import {
+  GroupLink,
+  GroupNavLogo,
+  OpenModalButton,
+  SearchInput,
+  SignInLink,
+  StyledMainTemplate,
+} from "./styles";
 import { ROUTE } from "router";
-import { auth } from "../../firebase";
+import { FilterIcon, PixemaLogoDark } from "assets";
 import { onAuthStateChanged, User } from "firebase/auth";
-import { useAppDispatch, useAppSelector } from "store/hooks/hooks";
-import { PixemaLogoDark } from "assets";
+import { auth } from "../../firebase";
+import { useAppDispatch, useAppSelector } from "store";
 
 export const MainTemplate = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,29 +32,48 @@ export const MainTemplate = () => {
 
   return (
     <StyledMainTemplate>
-      {/* модальное окно Filter */}
-      <button onClick={toggleFilters}>Open Modal</button>
-      {isOpen && <Filters title="FILTER" onClick={toggleFilters} />}
-      <SlyledGroupNavLogo>
-        <WrapLogoPixema>
+      <GroupNavLogo>
+        <CustomLink to={ROUTE.HOME}>
           <PixemaLogoDark />
-        </WrapLogoPixema>
-
+        </CustomLink>
         <Nav />
         <Footer />
-      </SlyledGroupNavLogo>
-      <StyledInput type="text" placeholder="Search" />
-      <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
-      <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
-      <CustomLink to={ROUTE.RESET_PASSWORD}>ResetPassword</CustomLink>
+      </GroupNavLogo>
+      <SearchInput type="text" placeholder="Search" />
+
+      {/* модальное окно Filter */}
+      <OpenModalButton onClick={toggleFilters}>
+        <FilterIcon />
+      </OpenModalButton>
+      {isOpen && <Filters title="FILTER" onClick={toggleFilters} />}
       {/* данные зарегистрированного пользователя */}
-      {isAuth && (
+      {isAuth ? (
         <>
           <p>{email}</p>
           <p>Creation Time: {creationTime}</p>
         </>
+      ) : (
+        <GroupLink>
+          <SignInLink>
+            <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
+          </SignInLink>
+          <SignInLink>
+            <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
+          </SignInLink>
+        </GroupLink>
       )}
+
       <Outlet />
     </StyledMainTemplate>
   );
 };
+
+{
+  /* данные зарегистрированного пользователя */
+}
+// {isAuth && (
+//   <>
+//     <p>{email}</p>
+//     <p>Creation Time: {creationTime}</p>
+//   </>
+// )}
