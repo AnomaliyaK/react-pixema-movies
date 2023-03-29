@@ -20,6 +20,7 @@ export const WrapShowMoreButton = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   grid-template-areas: ". . b . .";
+  padding: 8px 24px;
   justify-items: center;
   align-items: center;
 `;
@@ -34,5 +35,5 @@ export const ShowMoreButton = styled.button`
   border-radius: 40px;
   border: none;
   cursor: pointer;
-  /* padding: 8px 24px;*/
+  padding: 8px 24px;
 `;

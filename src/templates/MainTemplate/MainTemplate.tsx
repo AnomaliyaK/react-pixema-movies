@@ -3,13 +3,11 @@ import { Outlet } from "react-router-dom";
 import { CustomLink, Filters, Footer, Nav, Spinner } from "components";
 import {
   GroupFooter,
-  GroupLink,
   GroupLogo,
   GroupNav,
   OpenModalButton,
   SearchInput,
   SignInLink,
-  SignUpLink,
   StyledMainTemplate,
   StyledOutlet,
 } from "./styles";
@@ -65,14 +63,9 @@ export const MainTemplate = () => {
           <p>Creation Time: {creationTime}</p>
         </>
       ) : (
-        <GroupLink>
-          <SignInLink>
-            <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
-          </SignInLink>
-          <SignUpLink>
-            <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
-          </SignUpLink>
-        </GroupLink>
+        <CustomLink to={ROUTE.SIGN_IN}>
+          <SignInLink>Sign In</SignInLink>
+        </CustomLink>
       )}
       <StyledOutlet>
         <Outlet />
@@ -80,13 +73,3 @@ export const MainTemplate = () => {
     </StyledMainTemplate>
   );
 };
-
-{
-  /* данные зарегистрированного пользователя */
-}
-// {isAuth && (
-//   <>
-//     <p>{email}</p>
-//     <p>Creation Time: {creationTime}</p>
-//   </>
-// )}

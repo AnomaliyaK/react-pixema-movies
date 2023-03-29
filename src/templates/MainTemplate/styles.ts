@@ -51,35 +51,24 @@ export const OpenModalButton = styled.button`
   border: none;
   cursor: pointer;
   /* position: fixed;
-  padding: 16px;
   */
 `;
-export const GroupLink = styled.div`
+
+export const SignInLink = styled.div`
   grid-area: c;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  gap: 2px;
+  width: 100%;
   text-align: center;
   font-size: 16px;
   color: ${COLOR.WHITE};
   justify-content: center;
   align-content: center;
+  background-color: ${COLOR.PRIMARY};
+  padding: 16px 0;
+  border-radius: 10px;
+  width: 100%;
+  /* position: fixed; */
+`;
 
-  /* position: fixed; */
-`;
-export const SignInLink = styled.span`
-  background-color: ${COLOR.PRIMARY};
-  padding: 16px;
-  border-radius: 10px 0 0 10px;
-  /* position: fixed; */
-`;
-export const SignUpLink = styled.span`
-  background-color: ${COLOR.PRIMARY};
-  padding: 16px;
-  border-radius: 0 10px 10px 0;
-  /* /* position: fixed; */
-`;
-// New style
 export const StyledOutlet = styled.div`
   grid-area: e;
 `;

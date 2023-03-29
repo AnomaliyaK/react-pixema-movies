@@ -1,9 +1,9 @@
-import React from 'react';
-import { generatePath, Link } from 'react-router-dom';
+import React from "react";
+import { generatePath, Link } from "react-router-dom";
 // import { ROUTE } from 'router';
-import { Movie } from 'types';
-import { ROUTE } from '../../router/routes';
-import { MovieTitle, Poster, StyledMovieItem } from './styles';
+import { Movie } from "types";
+import { ROUTE } from "../../router/routes";
+import { MovieTitle, Poster, StyledMovieItem, WrapMovieItem, WrapPoster } from "./styles";
 
 interface MovieItemProps {
   movie: Movie;
@@ -13,8 +13,12 @@ export const MovieItem = ({ movie: { title, poster } }: MovieItemProps) => {
   return (
     <StyledMovieItem>
       <Link to={generatePath(ROUTE.DETAILS, { title: title })}>
-        <Poster src={poster} alt="movie" />
-        <MovieTitle>{title}</MovieTitle>
+        <WrapMovieItem>
+          <WrapPoster>
+            <Poster src={poster} alt="movie" />
+          </WrapPoster>
+          <MovieTitle>{title}</MovieTitle>
+        </WrapMovieItem>
       </Link>
     </StyledMovieItem>
   );

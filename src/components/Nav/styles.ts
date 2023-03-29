@@ -13,4 +13,6 @@ export const CustomWrap = styled.div`
   grid-template-columns: 35px 1fr;
 `;
 
-export const Title = styled.span``;
+export const Title = styled.span`
+  color: ${COLOR.SECONDARY};
+`;

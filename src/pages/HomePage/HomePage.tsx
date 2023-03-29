@@ -20,7 +20,7 @@ export const HomePage = () => {
       <WrapShowMoreButton>
         <ShowMoreButton>
           Show more
-          <Spinner />
+          {/* <Spinner /> */}
         </ShowMoreButton>
       </WrapShowMoreButton>
     </StyledHomePage>
