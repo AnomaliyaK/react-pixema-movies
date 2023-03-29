@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { CustomLink, Filters, Footer, Nav } from "components";
+import { CustomLink, Filters, Footer, Nav, Spinner } from "components";
 import {
+  GroupFooter,
   GroupLink,
-  GroupNavLogo,
+  GroupLogo,
+  GroupNav,
   OpenModalButton,
   SearchInput,
   SignInLink,
+  SignUpLink,
   StyledMainTemplate,
+  StyledOutlet,
 } from "./styles";
 import { ROUTE } from "router";
 import { FilterIcon, PixemaLogoDark } from "assets";
@@ -32,13 +36,20 @@ export const MainTemplate = () => {
 
   return (
     <StyledMainTemplate>
-      <GroupNavLogo>
+      <GroupLogo>
         <CustomLink to={ROUTE.HOME}>
           <PixemaLogoDark />
         </CustomLink>
+      </GroupLogo>
+
+      <GroupNav>
         <Nav />
+      </GroupNav>
+
+      <GroupFooter>
         <Footer />
-      </GroupNavLogo>
+      </GroupFooter>
+
       <SearchInput type="text" placeholder="Search" />
 
       {/* модальное окно Filter */}
@@ -46,6 +57,7 @@ export const MainTemplate = () => {
         <FilterIcon />
       </OpenModalButton>
       {isOpen && <Filters title="FILTER" onClick={toggleFilters} />}
+
       {/* данные зарегистрированного пользователя */}
       {isAuth ? (
         <>
@@ -57,13 +69,14 @@ export const MainTemplate = () => {
           <SignInLink>
             <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
           </SignInLink>
-          <SignInLink>
+          <SignUpLink>
             <CustomLink to={ROUTE.SIGN_UP}>Sign up</CustomLink>
-          </SignInLink>
+          </SignUpLink>
         </GroupLink>
       )}
-
-      <Outlet />
+      <StyledOutlet>
+        <Outlet />
+      </StyledOutlet>
     </StyledMainTemplate>
   );
 };
