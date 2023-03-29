@@ -11,6 +11,7 @@ import { MovieList } from "./MovieList/MovieList";
 import { MovieItem } from "./MovieItem/MovieItem";
 import { Nav } from "./Nav/Nav";
 import { Portal } from "./Portal/Portal";
+import { PortalTarget } from "./Portal/Portal";
 
 import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { Slider } from "./Slider/Slider";
@@ -30,6 +31,7 @@ export {
   MovieItem,
   Nav,
   Portal,
+  PortalTarget,
   RequareAuth,
   Slider,
   Spinner,
