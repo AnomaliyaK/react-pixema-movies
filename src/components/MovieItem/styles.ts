@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { COLOR } from "ui";
 
 export const StyledMovieItem = styled.li`
   display: grid;
@@ -17,6 +18,5 @@ export const Poster = styled.img`
 export const MovieTitle = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: #ffffff;
-  /* background-color: #323537; */
+  color: ${COLOR.WHITE};
 `;

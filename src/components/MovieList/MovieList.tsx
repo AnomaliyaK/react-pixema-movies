@@ -1,6 +1,6 @@
 import { MovieItem } from "components";
 import { Movie } from "types";
-import { ListMovie } from "./styles";
+import { StyledMovieList } from "./styles";
 
 interface MovieListProps {
   movies: Movie[];
@@ -8,10 +8,10 @@ interface MovieListProps {
 
 export const MovieList = ({ movies }: MovieListProps) => {
   return (
-    <ListMovie>
+    <StyledMovieList>
       {movies.map((movie) => {
         return <MovieItem movie={movie} key={movie.id} />;
       })}
-    </ListMovie>
+    </StyledMovieList>
   );
 };

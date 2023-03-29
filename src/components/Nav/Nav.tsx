@@ -1,27 +1,38 @@
 import { FavoritesIcon, HomeIcon, SettingsIcon, TrendsIcon } from "assets";
 import { CustomLink } from "components";
 import { ROUTE } from "../../router/routes";
-import { StyledNavigation } from "./styles";
+import { CustomWrap, Navigation, Title } from "./styles";
 
 export const Nav = () => {
   return (
-    <StyledNavigation>
+    <Navigation>
       <CustomLink to={ROUTE.HOME}>
-        <HomeIcon />
-        Home
+        <CustomWrap>
+          <HomeIcon />
+          <Title>Home</Title>
+        </CustomWrap>
       </CustomLink>
+
       <CustomLink to={ROUTE.TRENDS}>
-        <TrendsIcon />
-        Trends
+        <CustomWrap>
+          <TrendsIcon />
+          <Title>Trends</Title>
+        </CustomWrap>
       </CustomLink>
+
       <CustomLink to={ROUTE.FAVORITES}>
-        <FavoritesIcon />
-        Favorites
+        <CustomWrap>
+          <FavoritesIcon />
+          <Title>Favorites</Title>
+        </CustomWrap>
       </CustomLink>
+
       <CustomLink to={ROUTE.SETTINGS}>
-        <SettingsIcon />
-        Settings
+        <CustomWrap>
+          <SettingsIcon />
+          <Title>Settings</Title>
+        </CustomWrap>
       </CustomLink>
-    </StyledNavigation>
+    </Navigation>
   );
 };

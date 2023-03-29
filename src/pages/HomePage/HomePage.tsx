@@ -1,7 +1,7 @@
 import React from "react";
 import { ErrorMessage, Loader, MovieList, Spinner } from "components";
 import { useEffect } from "react";
-import { ShowMoreButton, StyledHomePage } from "./styles";
+import { ShowMoreButton, StyledHomePage, WrapMovieList, WrapShowMoreButton } from "./styles";
 import { fetchAllMovies, useAppDispatch, useAppSelector } from "store";
 
 export const HomePage = () => {
@@ -16,11 +16,13 @@ export const HomePage = () => {
     <StyledHomePage>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      {movies && movies.length > 0 && <MovieList movies={movies} />}
-      <ShowMoreButton>
-        Show more
-        <Spinner />
-      </ShowMoreButton>
+      <WrapMovieList>{movies && movies.length > 0 && <MovieList movies={movies} />}</WrapMovieList>
+      <WrapShowMoreButton>
+        <ShowMoreButton>
+          Show more
+          <Spinner />
+        </ShowMoreButton>
+      </WrapShowMoreButton>
     </StyledHomePage>
   );
 };
