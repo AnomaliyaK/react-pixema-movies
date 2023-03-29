@@ -8,7 +8,10 @@ import { Loader } from "./Loader/Loader";
 import { MovieDetailsCard } from "./MovieDetailsCard/MovieDetailsCard";
 import { MovieDetailsItem } from "./MovieDetailsItem/MovieDetailsItem";
 import { MovieList } from "./MovieList/MovieList";
+import { MovieItem } from "./MovieItem/MovieItem";
 import { Nav } from "./Nav/Nav";
+import { Portal } from "./Portal/Portal";
+
 import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { Slider } from "./Slider/Slider";
 import { Spinner } from "./Spinner/Spinner";
@@ -24,7 +27,9 @@ export {
   MovieDetailsCard,
   MovieDetailsItem,
   MovieList,
+  MovieItem,
   Nav,
+  Portal,
   RequareAuth,
   Slider,
   Spinner,

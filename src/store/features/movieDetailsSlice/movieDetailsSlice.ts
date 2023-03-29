@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
-import { transformMovieDetails } from 'mappers/transformMovieDetails';
-import { MovieDetails, MovieDetailsApi } from 'types';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios, { AxiosError } from "axios";
+import { transformMovieDetails, transformMovies } from "mappers";
+import { Movie, MovieDetails, MovieDetailsApi } from "types";
 
 interface MovieDetailsState {
   movieDetails: MovieDetails;
@@ -21,10 +21,10 @@ export const fetchMovieDetails = createAsyncThunk<
   MovieDetails,
   { title: string },
   { rejectValue: string }
->('movieDetails/fetchMovieDetails', async (params, { rejectWithValue }) => {
+>("movieDetails/fetchMovieDetails", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get<MovieDetailsApi>(
-      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=&type=&plot=&y=&p=&plot=full&t=${params.title}`
+      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=&type=&plot=&y=&p=&plot=full&t=${params.title}`,
     );
 
     const transformedMovieDetails = transformMovieDetails(data);
@@ -36,8 +36,27 @@ export const fetchMovieDetails = createAsyncThunk<
   }
 });
 
+export const fetchMoviesRecomendation = createAsyncThunk<
+  Movie[],
+  { year: number },
+  { rejectValue: string }
+>("movies/fetchMoviesRecomendation", async (params, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(
+      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=world&type=&plot=&y=${params.year}&p=&plot=full&t=`,
+    );
+    console.log(data);
+    const transformedMovies = transformMovies(data);
+    return transformedMovies;
+  } catch (error) {
+    const { message } = error as AxiosError;
+
+    return rejectWithValue(message);
+  }
+});
+
 const movieDetailsSlice = createSlice({
-  name: 'movieDetails',
+  name: "movieDetails",
   initialState,
   reducers: {},
   extraReducers(builder) {

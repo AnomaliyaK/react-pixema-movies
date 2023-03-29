@@ -77,6 +77,13 @@ interface MovieDetails {
   writers: string;
 }
 
+interface AuthFormValues {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 export type {
   DataMovieApi,
   DataMovie,
@@ -85,4 +92,5 @@ export type {
   MovieDetailsApi,
   MovieDetails,
   RatingsApi,
+  AuthFormValues,
 };

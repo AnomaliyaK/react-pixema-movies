@@ -1,21 +1,10 @@
-import React from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { StyledSignUpPage } from './styles';
-import { useAppDispatch, useAppSelector } from 'store/hooks/hooks';
-import { fetchSignUpUser } from 'store/features/userSlice/userSlice';
-import { Loader } from 'components/Loader/Loader';
-import { useNavigate } from 'react-router-dom';
-
-import { CustomLink } from 'components/CustomLink/CustomLink';
-import { ROUTE } from 'router/routes';
-
-// перенести потом в отдельный файл
-export interface AuthFormValues {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import { SubmitHandler, useForm } from "react-hook-form";
+import { StyledSignUpPage } from "./styles";
+import { useNavigate } from "react-router-dom";
+import { AuthFormValues } from "types";
+import { CustomLink, Loader } from "components";
+import { ROUTE } from "router";
+import { fetchSignUpUser, useAppDispatch, useAppSelector } from "store";
 
 export const SignUpPage = () => {
   const { register, handleSubmit, reset } = useForm<AuthFormValues>();
@@ -26,7 +15,7 @@ export const SignUpPage = () => {
   const onSubmit: SubmitHandler<AuthFormValues> = async (authFormValues) => {
     await dispatch(fetchSignUpUser(authFormValues)).unwrap();
     await reset();
-    await navigate('/');
+    await navigate("/");
   };
 
   return (
@@ -35,21 +24,13 @@ export const SignUpPage = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <p>Name</p>
-        <input type="text" placeholder="Your name" {...register('name')} />
+        <input type="text" placeholder="Your name" {...register("name")} />
         <p>Email</p>
-        <input type="text" placeholder="Your email" {...register('email')} />
+        <input type="text" placeholder="Your email" {...register("email")} />
         <p>Password</p>
-        <input
-          type="password"
-          placeholder="Your password"
-          {...register('password')}
-        />
+        <input type="password" placeholder="Your password" {...register("password")} />
         <p>Confirm password</p>
-        <input
-          type="password"
-          placeholder="Confirm password"
-          {...register('confirmPassword')}
-        />
+        <input type="password" placeholder="Confirm password" {...register("confirmPassword")} />
 
         <button type="submit">Submit {isLoading && <Loader />}</button>
 

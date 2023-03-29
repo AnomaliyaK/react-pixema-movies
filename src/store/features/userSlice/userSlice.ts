@@ -1,16 +1,9 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  isRejectedWithValue,
-} from '@reduxjs/toolkit';
-import { auth } from '../../../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { AuthFormValues } from 'pages/SignUpPage/SignUpPage';
-import { FirebaseError } from 'firebase/app';
-import {
-  FirebaseErrorMessage,
-  getFirebaseErrorMessage,
-} from 'utils/firebaseAuthErrors';
+import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit";
+import { auth } from "../../../firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
+import { AuthFormValues } from "types";
+import { FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
 
 interface UserState {
   email: string | null;
@@ -21,16 +14,12 @@ interface UserState {
 }
 
 export const fetchSignUpUser = createAsyncThunk<
-  Pick<UserState, 'email' | 'creationTime'>,
+  Pick<UserState, "email" | "creationTime">,
   AuthFormValues,
   { rejectValue: FirebaseErrorMessage }
->('user/fetchSignUpUser', async ({ email, password }, { rejectWithValue }) => {
+>("user/fetchSignUpUser", async ({ email, password }, { rejectWithValue }) => {
   try {
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
 
     return {
       email: user.email,
@@ -51,7 +40,7 @@ const initialState: UserState = {
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {},
   extraReducers(builder) {

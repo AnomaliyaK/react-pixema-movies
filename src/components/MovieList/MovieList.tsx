@@ -1,9 +1,6 @@
-import React from 'react';
-import { generatePath, Link } from 'react-router-dom';
-import { Movie } from 'types';
-import { ROUTE } from '../../router/routes';
-import { MovieItem } from '../MovieItem/MovieItem';
-import { ListMovie } from './styles';
+import { MovieItem } from "components";
+import { Movie } from "types";
+import { ListMovie } from "./styles";
 
 interface MovieListProps {
   movies: Movie[];

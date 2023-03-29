@@ -1,5 +1,4 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
-
 import { RequareAuth } from "components";
 import {
   MovieDetailsPage,
@@ -13,9 +12,7 @@ import {
   ResetPasswordPage,
 } from "pages";
 import { AuthTemplate, MainTemplate } from "templates";
-
-// при импорте из папки перестает работать
-import { ROUTE } from "./routes";
+import { ROUTE } from "router";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

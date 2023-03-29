@@ -5,7 +5,8 @@ import {
   Movie,
   MovieDetailsApi,
   MovieDetails,
-} from './types';
+  AuthFormValues,
+} from "./types";
 
 export type {
   DataMovieApi,
@@ -14,4 +15,5 @@ export type {
   Movie,
   MovieDetailsApi,
   MovieDetails,
+  AuthFormValues,
 };

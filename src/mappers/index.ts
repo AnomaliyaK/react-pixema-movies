@@ -1,3 +1,4 @@
-import { transformMovies } from './transformMovies';
+import { transformMovies } from "./transformMovies";
+import { transformMovieDetails } from "./transformMovieDetails";
 
-export { transformMovies };
+export { transformMovies, transformMovieDetails };

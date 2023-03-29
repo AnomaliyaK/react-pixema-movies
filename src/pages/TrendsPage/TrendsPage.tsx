@@ -1,7 +1,7 @@
-import { Loader, MovieList } from "components";
-import { ShowMoreButton, StyledHomePage } from "pages/HomePage/styles";
+import { ErrorMessage, Loader, MovieList, Spinner } from "components";
 import React, { useEffect, useState } from "react";
 import { fetchTrendsMovies, useAppDispatch, useAppSelector } from "store";
+import { ShowMoreButton, StyledTrendsPage } from "./styles";
 
 export const TrendsPage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);
@@ -12,12 +12,14 @@ export const TrendsPage = () => {
   }, [dispatch]);
 
   return (
-    <StyledHomePage>
+    <StyledTrendsPage>
       {isLoading && <Loader />}
-      {/* span ниже сделать компонентом <ErrorMessage message={error}/>*/}
-      {error && <span>{error}</span>}
+      {error && <ErrorMessage message={error} />}
       {movies && movies.length > 0 && <MovieList movies={movies} />}
-      <ShowMoreButton>Show more</ShowMoreButton>
-    </StyledHomePage>
+      <ShowMoreButton>
+        Show more
+        <Spinner />
+      </ShowMoreButton>
+    </StyledTrendsPage>
   );
 };
