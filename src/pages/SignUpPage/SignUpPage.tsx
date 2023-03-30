@@ -1,5 +1,5 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { StyledSignUpPage } from "./styles";
+import { LinkSignIn, StyledSignUpPage, TextLink, Title } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { AuthFormValues } from "types";
 import { CustomLink, Loader } from "components";
@@ -20,7 +20,7 @@ export const SignUpPage = () => {
 
   return (
     <StyledSignUpPage>
-      <h1>Sign UP</h1>
+      <Title>Sign UP</Title>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <p>Name</p>
@@ -36,8 +36,13 @@ export const SignUpPage = () => {
 
         {errorMessage && <span>{errorMessage}</span>}
       </form>
-      <p>Already have an account?</p>
-      <CustomLink to={ROUTE.SIGN_IN}>Sign In</CustomLink>
+
+      <TextLink>
+        Already have an account?
+        <CustomLink to={ROUTE.SIGN_IN}>
+          <LinkSignIn>Sign In</LinkSignIn>
+        </CustomLink>
+      </TextLink>
     </StyledSignUpPage>
   );
 };

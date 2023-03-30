@@ -8,7 +8,7 @@ export const SignInPage = () => {
       <Title>Sign In</Title>
       <FormSignIn />
       <TextLink>
-        Don't have an account?{" "}
+        Don't have an account?
         <CustomLink to={ROUTE.SIGN_UP}>
           <LinkSignUp>Sign Up</LinkSignUp>
         </CustomLink>

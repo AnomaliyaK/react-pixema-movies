@@ -11,18 +11,32 @@ export const StyledAuthTemplate = styled.div`
     "a . . . . ."
     ". . b b . ."
     ". . c c . . ";
-  min-height: 100vh;
-  min-width: 100vh;
+  height: 100hv;
+  width: 100hv;
   padding: 40px 62px 64px;
   background-color: ${COLOR.BLACK};
   color: ${COLOR.WHITE};
   background: url(${BackgroundMovies});
   background-size: cover;
   background-repeat: no-repeat;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #252b49cc;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
 `;
 
 export const GroupLogo = styled.div`
   grid-area: a;
+  z-index: 2;
+
   /* position: fixed; */
 `;
 export const GroupFooter = styled.div`
@@ -30,9 +44,11 @@ export const GroupFooter = styled.div`
   display: grid;
   align-items: center;
   justify-items: center;
+  z-index: 2;
 
   /* position: fixed; */
 `;
 export const StyledOutlet = styled.div`
   grid-area: b;
+  z-index: 2;
 `;
