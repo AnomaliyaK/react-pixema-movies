@@ -4,6 +4,7 @@ import { Footer } from "./Footer/Footer";
 import { Filters } from "./Filters/Filters";
 import { FormResetPassword } from "./FormResetPassword/FormResetPassword";
 import { FormSignIn } from "./FormSignIn/FormSignIn";
+import { FormSignUp } from "./FormSignUp/FormSignUp";
 import { Loader } from "./Loader/Loader";
 import { MovieDetailsCard } from "./MovieDetailsCard/MovieDetailsCard";
 import { MovieDetailsItem } from "./MovieDetailsItem/MovieDetailsItem";
@@ -24,6 +25,7 @@ export {
   Footer,
   FormResetPassword,
   FormSignIn,
+  FormSignUp,
   Loader,
   MovieDetailsCard,
   MovieDetailsItem,

@@ -5,7 +5,7 @@ import { COLOR } from "ui";
 export const StyledAuthTemplate = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 182px 40px;
+  /* grid-gap: 182px 40px; */
   grid-template-rows: 56px 1fr 40px;
   grid-template-areas:
     "a . . . . ."

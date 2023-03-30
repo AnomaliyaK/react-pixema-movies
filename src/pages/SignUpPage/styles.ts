@@ -3,7 +3,7 @@ import { COLOR, Typography } from "ui";
 
 export const StyledSignUpPage = styled.div`
   display: grid;
-  gap: 40px;
+  gap: 36px;
   grid-template-rows: 36px 1fr 24px;
   width: 100%;
   height: 100%;
