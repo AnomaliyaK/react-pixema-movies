@@ -1,4 +1,5 @@
-import { COLOR } from './color';
-import { GlobalStyles } from './GlobalStyles';
+import { COLOR } from "./color";
+import { GlobalStyles } from "./GlobalStyles";
+import { Typography } from "./typography";
 
-export { COLOR, GlobalStyles };
+export { COLOR, GlobalStyles, Typography };

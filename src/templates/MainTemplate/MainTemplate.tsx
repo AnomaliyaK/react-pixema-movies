@@ -34,6 +34,7 @@ export const MainTemplate = () => {
 
   return (
     <StyledMainTemplate>
+      {/* <Container> */}
       <GroupLogo>
         <CustomLink to={ROUTE.HOME}>
           <PixemaLogoDark />
@@ -67,6 +68,8 @@ export const MainTemplate = () => {
           <SignInLink>Sign In</SignInLink>
         </CustomLink>
       )}
+      {/* </Container> */}
+
       <StyledOutlet>
         <Outlet />
       </StyledOutlet>

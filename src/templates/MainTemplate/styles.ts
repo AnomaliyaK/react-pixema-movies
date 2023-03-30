@@ -15,6 +15,7 @@ export const StyledMainTemplate = styled.div`
   padding: 40px 62px 64px;
   background-color: ${COLOR.BLACK};
   color: ${COLOR.WHITE};
+  /* position: fixed; */
 `;
 
 export const GroupLogo = styled.div`
@@ -28,6 +29,9 @@ export const GroupNav = styled.div`
 `;
 export const GroupFooter = styled.div`
   grid-area: f;
+  display: grid;
+  align-items: center;
+
   /* position: fixed; */
 `;
 
@@ -72,3 +76,4 @@ export const SignInLink = styled.div`
 export const StyledOutlet = styled.div`
   grid-area: e;
 `;
+// export const Container = styled.div``;

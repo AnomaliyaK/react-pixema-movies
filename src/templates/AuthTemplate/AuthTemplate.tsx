@@ -1,17 +1,25 @@
 import { PixemaLogoDark } from "assets";
-import { CustomLink } from "components";
+import { CustomLink, Footer } from "components";
 import { Outlet } from "react-router-dom";
 import { ROUTE } from "router";
-import { StyledAuthTemplate } from "./styles";
+import { GroupFooter, GroupLogo, StyledAuthTemplate, StyledOutlet } from "./styles";
 
 export const AuthTemplate = () => {
   return (
     <StyledAuthTemplate>
-      <CustomLink to={ROUTE.HOME}>
-        <PixemaLogoDark />
-      </CustomLink>
-      <Outlet />
-      <p>© All Rights Reserved</p>
+      <GroupLogo>
+        <CustomLink to={ROUTE.HOME}>
+          <PixemaLogoDark />
+        </CustomLink>
+      </GroupLogo>
+
+      <StyledOutlet>
+        <Outlet />
+      </StyledOutlet>
+
+      <GroupFooter>
+        <Footer />
+      </GroupFooter>
     </StyledAuthTemplate>
   );
 };

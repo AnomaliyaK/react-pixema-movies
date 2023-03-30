@@ -14,7 +14,7 @@ import { ReactComponent as SettingsIcon } from "./icons/settings-icon.svg";
 import { ReactComponent as ShareIcon } from "./icons/share-icon.svg";
 import { ReactComponent as TrendsIcon } from "./icons/trends-icon.svg";
 
-import BackgroundImage from "./images/background-image.png";
+import BackgroundMovies from "./images/background-movies-image.png";
 
 export {
   PixemaLogoDark,
@@ -32,5 +32,5 @@ export {
   SettingsIcon,
   ShareIcon,
   TrendsIcon,
-  BackgroundImage,
+  BackgroundMovies,
 };
