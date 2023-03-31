@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
+import { ButtonResetPassword, InputEmail, StyledFormResetPassword, SubTitle } from "./styles";
 
 export const FormResetPassword = () => {
   return (
-    <div>
-      <h1>Reset password</h1>
+    <StyledFormResetPassword>
       <form action="">
-        <p>Email</p>
-        <input type="text" placeholder="Your email" />
-        <button type="submit">Reset</button>
+        <SubTitle>Email</SubTitle>
+        <InputEmail type="text" placeholder="Your email" />
+        <ButtonResetPassword type="submit">Reset</ButtonResetPassword>
       </form>
-    </div>
+    </StyledFormResetPassword>
   );
 };

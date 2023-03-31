@@ -11,8 +11,9 @@ export const StyledAuthTemplate = styled.div`
     "a . . . . ."
     ". . b b . ."
     ". . c c . . ";
-  height: 100hv;
-  width: 100hv;
+  height: 100vh;
+  width: 100vw;
+  background-size: 100% 100%;
   padding: 40px 62px 64px;
   background-color: ${COLOR.BLACK};
   color: ${COLOR.WHITE};
@@ -51,4 +52,6 @@ export const GroupFooter = styled.div`
 export const StyledOutlet = styled.div`
   grid-area: b;
   z-index: 2;
+  /* justify-items: center; */
+  /* text-align: center; */
 `;

@@ -6,7 +6,7 @@ export const StyledSignUpPage = styled.div`
   gap: 36px;
   grid-template-rows: 36px 1fr 24px;
   width: 100%;
-  height: 100%;
+  height: 732px;
   background-color: ${COLOR.DARK};
   padding: 40px;
   border-radius: 10px;
