@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
-import { transformMovies } from 'mappers';
-import { Movie } from 'types';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios, { AxiosError } from "axios";
+import { transformMovies } from "mappers";
+import { Movie } from "types";
 
 interface MoviesState {
   movies: Movie[];
@@ -19,10 +19,10 @@ export const fetchTrendsMovies = createAsyncThunk<
   Movie[],
   { year: number },
   { rejectValue: string }
->('movies/fetchTrends', async (params, { rejectWithValue }) => {
+>("movies/fetchTrends", async (params, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=love&type=&plot=&y=${params.year}&p=`
+      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=love&type=&plot=&y=${params.year}&p=`,
     );
 
     const transformedMovies = transformMovies(data);
@@ -35,7 +35,7 @@ export const fetchTrendsMovies = createAsyncThunk<
 });
 
 const trendsSlice = createSlice({
-  name: 'movies',
+  name: "movies",
   initialState,
   reducers: {},
   extraReducers(builder) {

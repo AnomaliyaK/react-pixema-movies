@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios, { AxiosError } from "axios";
 
 interface SearchState {
   results: any[];
@@ -17,11 +17,11 @@ export const fetchAllSearch = createAsyncThunk<
   any[],
   { searchValue: string },
   { rejectValue: string }
->('search/fetchAll', async (params, { rejectWithValue }) => {
+>("search/fetchAll", async (params, { rejectWithValue }) => {
   try {
     // протипизировать метод get по-своему, те в этом файле все три any заменить на Movie[]
     const { data } = await axios.get<any[]>(
-      `https://restcountries.com/v3.1/name/${params.searchValue}`
+      `https://restcountries.com/v3.1/name/${params.searchValue}`,
     );
 
     // здесь мне надо const transformedMovies =   transformMovies (data)
@@ -34,7 +34,7 @@ export const fetchAllSearch = createAsyncThunk<
 });
 
 const searchSlice = createSlice({
-  name: 'search',
+  name: "search",
   initialState,
   reducers: {},
   extraReducers(builder) {

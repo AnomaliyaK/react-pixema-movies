@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios, { AxiosError } from 'axios';
-import { transformMovies } from 'mappers';
-import { Movie } from 'types';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios, { AxiosError } from "axios";
+import { transformMovies } from "mappers";
+import { Movie } from "types";
 
 interface MoviesState {
   movies: Movie[];
@@ -19,27 +19,26 @@ const initialState: MoviesState = {
   // totalResults:
 };
 
-export const fetchAllMovies = createAsyncThunk<
-  Movie[],
-  { year: number },
-  { rejectValue: string }
->('movies/fetchAll', async (params, { rejectWithValue }) => {
-  try {
-    const { data } = await axios.get(
-      `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=war&type=&plot=&y=${params.year}&p=`
-    );
-    console.log(data);
-    const transformedMovies = transformMovies(data);
-    return transformedMovies;
-  } catch (error) {
-    const { message } = error as AxiosError;
+export const fetchAllMovies = createAsyncThunk<Movie[], { year: number }, { rejectValue: string }>(
+  "movies/fetchAll",
+  async (params, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?i=tt3896198&apikey=c28df97b&s=war&type=&plot=&y=${params.year}&p=`,
+      );
+      console.log(data);
+      const transformedMovies = transformMovies(data);
+      return transformedMovies;
+    } catch (error) {
+      const { message } = error as AxiosError;
 
-    return rejectWithValue(message);
-  }
-});
+      return rejectWithValue(message);
+    }
+  },
+);
 
 const moviesSlice = createSlice({
-  name: 'movies',
+  name: "movies",
   initialState,
   reducers: {},
   extraReducers(builder) {

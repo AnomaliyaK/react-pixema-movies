@@ -1,8 +1,6 @@
-import { MovieDetails, MovieDetailsApi } from 'types';
+import { MovieDetails, MovieDetailsApi } from "types";
 
-export const transformMovieDetails = (
-  movieDetails: MovieDetailsApi
-): MovieDetails => {
+export const transformMovieDetails = (movieDetails: MovieDetailsApi): MovieDetails => {
   return {
     title: movieDetails.Title,
     id: movieDetails.imdbID,
