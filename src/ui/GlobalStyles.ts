@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+import { themeColor } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
+
+
 
 *{
     box-sizing: border-box;
@@ -13,4 +16,6 @@ export const GlobalStyles = createGlobalStyle`
 body {
     font-family: 'Exo 2', sans-serif;
     font-weight: 600;
-}`;
+}
+${themeColor}
+`;

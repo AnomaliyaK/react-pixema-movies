@@ -22,7 +22,8 @@ export const themeColor = css`
     --primary: #7b61ff;
     --primaryy_light: #917cff;
     --secondary: #80858b;
-    --black: #ffffff;
+    --black: #000000;
+    /* --black: #ffffff; */
     --dark: #242426;
     --graphite: #ffffff;
     --error: #ff5154;
