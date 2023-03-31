@@ -3,8 +3,8 @@ import { COLOR } from "ui";
 
 export const StyledSettingsPage = styled.div`
   display: grid;
+  height: 100%;
   gap: 40px;
-  margin-left: 306px;
-  margin-top: 112px;
-  color: ${COLOR.WHITE};
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "a a a a . ";
 `;

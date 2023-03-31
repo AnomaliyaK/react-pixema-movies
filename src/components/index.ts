@@ -5,6 +5,7 @@ import { Filters } from "./Filters/Filters";
 import { FormResetPassword } from "./FormResetPassword/FormResetPassword";
 import { FormSignIn } from "./FormSignIn/FormSignIn";
 import { FormSignUp } from "./FormSignUp/FormSignUp";
+import { FormSettings } from "./FormSettings/FormSettings";
 import { Loader } from "./Loader/Loader";
 import { MovieDetailsCard } from "./MovieDetailsCard/MovieDetailsCard";
 import { MovieDetailsItem } from "./MovieDetailsItem/MovieDetailsItem";
@@ -26,6 +27,7 @@ export {
   FormResetPassword,
   FormSignIn,
   FormSignUp,
+  FormSettings,
   Loader,
   MovieDetailsCard,
   MovieDetailsItem,

@@ -15,9 +15,10 @@ export const StyledAuthTemplate = styled.div`
   width: 100vw;
   background-size: 100% 100%;
   padding: 40px 62px 64px;
-  background-color: ${COLOR.BLACK};
+
   color: ${COLOR.WHITE};
   background: url(${BackgroundMovies});
+  background-color: ${COLOR.BLACK};
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -25,7 +26,7 @@ export const StyledAuthTemplate = styled.div`
     content: "";
     width: 100%;
     height: 100%;
-    background-color: #252b49cc;
+    background-color: rgba(0, 0, 0, 0.5);
     display: block;
     position: absolute;
     top: 0;
