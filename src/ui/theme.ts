@@ -2,32 +2,34 @@ import { css } from "styled-components";
 
 export type Theme = "dark" | "light";
 
-export const ThemeColor = css`
-html [theme="dark"] {
+export const themeColor = css`
+  html [theme="dark"] {
     --primary: #7b61ff;
-    --primary-bright: #917CFF;
-    --secondary:#80858b;
-    --black:#000000;
+    --primary_light: #917cff;
+    --secondary: #80858b;
+    --black: #000000;
     --dark: #242426;
-    --white: #ffffff;
     --graphite: #323537;
-    --error:#FF5154;
-    --light: #AFB2B6;
-    --yellow: "#F3A608";
-    --green: #F45D2D;    
-}
-html [theme="light"] {
+    --error: #ff5154;
+    --light: #afb2b6;
+    --white: #ffffff;
+    --green: #00a340;
+    --yellow: #f3a608;
+    --orange: #f45d2d;
+  }
+
+  html [theme="light"] {
     --primary: #7b61ff;
-    --primary-bright: #917CFF;
-    --secondary:#80858b;
-    --black:#FFFFFF;
-    --dark: #242426
+    --primaryy_light: #917cff;
+    --secondary: #80858b;
+    --black: #ffffff;
+    --dark: #242426;
+    --graphite: #ffffff;
+    --error: #ff5154;
+    --light: #afb2b6;
     --white: #000000;
-    --graphite: #FFFFFF;
-    --error:#FF5154 ;
-    --light: #AFB2B6;
-    --green: #00A340;
-    --yellow: "#F3A608";
-    --orange: #F45D2D;
-}
+    --green: #00a340;
+    --yellow: #f3a608;
+    --orange: #f45d2d;
+  }
 `;
