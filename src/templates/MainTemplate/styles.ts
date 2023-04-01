@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { Typography } from "ui";
 import { COLOR } from "ui/color";
+import { MEDIA } from "ui/media";
 
 export const StyledMainTemplate = styled.div`
   display: grid;
@@ -16,6 +18,8 @@ export const StyledMainTemplate = styled.div`
   background-color: ${COLOR.BLACK};
   color: ${COLOR.WHITE};
   /* position: fixed; */
+  ${MEDIA.$_1024} {
+  }
 `;
 
 export const GroupLogo = styled.div`
@@ -25,7 +29,21 @@ export const GroupLogo = styled.div`
 
 export const GroupNav = styled.div`
   grid-area: d;
+
   /* position: fixed; */
+`;
+export const ToggleThemeButtons = styled.div`
+  margin-top: 40px;
+  ${Typography.S3};
+  font-weight: 500;
+  color: ${COLOR.WHITE};
+  justify-content: center;
+  align-content: center;
+  background-color: ${COLOR.PRIMARY};
+  padding: 16px 0;
+  border-radius: 10px;
+  text-align: center;
+  width: 70%;
 `;
 export const GroupFooter = styled.div`
   grid-area: f;
@@ -41,7 +59,7 @@ export const SearchInput = styled.input`
   border-radius: 10px;
   border: none;
   padding: 0 20px;
-  font-size: 16px;
+  ${Typography.S3};
   font-weight: 500;
   color: ${COLOR.SECONDARY};
   /* position: fixed; */
@@ -62,7 +80,8 @@ export const SignInLink = styled.div`
   grid-area: c;
   width: 100%;
   text-align: center;
-  font-size: 16px;
+  ${Typography.S3};
+  font-weight: 500;
   color: ${COLOR.WHITE};
   justify-content: center;
   align-content: center;

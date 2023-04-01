@@ -10,6 +10,7 @@ import {
   SignInLink,
   StyledMainTemplate,
   StyledOutlet,
+  ToggleThemeButtons,
 } from "./styles";
 import { ROUTE } from "router";
 import { FilterIcon, PixemaLogoDark } from "assets";
@@ -54,7 +55,7 @@ export const MainTemplate = () => {
 
       <GroupNav>
         <Nav />
-        <button onClick={toggleTheme}>Toggle Theme</button>
+        <ToggleThemeButtons onClick={toggleTheme}>Toggle Theme</ToggleThemeButtons>
       </GroupNav>
 
       <GroupFooter>

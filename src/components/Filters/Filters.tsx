@@ -1,5 +1,19 @@
 import { Portal, PortalTarget } from "components";
 import React from "react";
+import {
+  BattonGroup,
+  ButtonClearFilter,
+  ButtonShowResults,
+  CloseFilter,
+  FormFilters,
+  Input,
+  InputGroup,
+  StyledFilters,
+  SubTitle,
+  Title,
+  TitleGroup,
+} from "./styles";
+import { CloseIcon } from "assets";
 
 interface FiltersProps {
   title: string;
@@ -9,18 +23,35 @@ interface FiltersProps {
 export const Filters = ({ title, onClick }: FiltersProps) => {
   return (
     <Portal target={PortalTarget.FILTERS}>
-      <div onClick={onClick}>
-        <h1>{title}</h1>
+      <StyledFilters onClick={onClick}>
+        <FormFilters action="">
+          <TitleGroup>
+            <Title>{title}</Title>
+            <CloseFilter>
+              <CloseIcon />
+            </CloseFilter>
+          </TitleGroup>
+          <InputGroup>
+            <div>
+              <SubTitle>Full or short movie name</SubTitle>
+              <Input type="text" placeholder="Your text" />
+            </div>
+            <div>
+              <SubTitle>Years</SubTitle>
+              <Input type="text" placeholder="Year" />
+            </div>
+            <div>
+              <SubTitle>Movie Types</SubTitle>
+              <Input type="text" placeholder="Year" />
+            </div>
+          </InputGroup>
 
-        <p>Sort by</p>
-        <p>Full or short movie name</p>
-        <input type="text" placeholder="Your text" />
-        <p>Years</p>
-        <input type="text" placeholder="From" />
-        <input type="text" placeholder="To" />
-        <button>Clear filter</button>
-        <button>Show results</button>
-      </div>
+          <BattonGroup>
+            <ButtonClearFilter>Clear filter</ButtonClearFilter>
+            <ButtonShowResults>Show results</ButtonShowResults>
+          </BattonGroup>
+        </FormFilters>
+      </StyledFilters>
     </Portal>
   );
 };
