@@ -1,11 +1,9 @@
 import { css } from "styled-components";
 
-// export type Theme = "dark" | "light";
-
-export const themeColor = css`
-  html [theme="dark"] {
+export const themeColors = css`
+  [theme="dark"] {
     --primary: #7b61ff;
-    --primary_light: #917cff;
+    --primary-light: #917cff;
     --secondary: #80858b;
     --black: #000000;
     --dark: #242426;
@@ -18,14 +16,13 @@ export const themeColor = css`
     --orange: #f45d2d;
   }
 
-  html [theme="light"] {
+  [theme="light"] {
     --primary: #7b61ff;
-    --primaryy_light: #917cff;
+    --primaryy-light: #917cff;
     --secondary: #80858b;
-    --black: #000000;
-    /* --black: #ffffff; */
-    --dark: #242426;
-    --graphite: #ffffff;
+    --black: #ffffff;
+    --dark: #80858b;
+    --graphite: #afb2b6;
     --error: #ff5154;
     --light: #afb2b6;
     --white: #000000;

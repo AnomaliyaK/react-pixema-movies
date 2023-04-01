@@ -75,7 +75,7 @@ export const TextTheme = styled.div`
   font-weight: 500;
   color: ${COLOR.LIGHT};
 `;
-export const SwitchTheme = styled.div`
+export const SwitchTheme = styled.button`
   grid-area: m;
   text-align: end;
 `;

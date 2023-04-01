@@ -69,7 +69,7 @@ export const SignInLink = styled.div`
   background-color: ${COLOR.PRIMARY};
   padding: 16px 0;
   border-radius: 10px;
-  width: 100%;
+
   /* position: fixed; */
 `;
 

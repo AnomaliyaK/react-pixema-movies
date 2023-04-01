@@ -33,6 +33,7 @@ export const InputConfirmPassword = styled.input`
 export const ButtonSubmit = styled.button`
   width: 100%;
   border-radius: 10px;
+  border: none;
   background-color: ${COLOR.PRIMARY};
   padding: 16px;
   ${Typography.S3};

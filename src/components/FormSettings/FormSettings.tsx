@@ -63,7 +63,7 @@ export const FormSettings = () => {
               <TextTheme>Use dark thema</TextTheme>
             </NameTheme>
 
-            <SwitchTheme>переключатель темы</SwitchTheme>
+            <SwitchTheme>Toggle Theme</SwitchTheme>
           </ColorModeGroup>
         </div>
         <BattonGroup>

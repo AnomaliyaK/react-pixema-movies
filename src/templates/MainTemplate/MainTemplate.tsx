@@ -20,10 +20,15 @@ import { useAppDispatch, useAppSelector } from "store";
 export const MainTemplate = () => {
   // переключение темы
   const [theme, setTheme] = useState("dark");
+
   useEffect(() => {
     document.documentElement.setAttribute("theme", theme);
   }, [theme]);
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
+  // открытие фильтра
   const [isOpen, setIsOpen] = useState(false);
   const toggleFilters = () => {
     setIsOpen((prev) => !prev);
@@ -49,6 +54,7 @@ export const MainTemplate = () => {
 
       <GroupNav>
         <Nav />
+        <button onClick={toggleTheme}>Toggle Theme</button>
       </GroupNav>
 
       <GroupFooter>
