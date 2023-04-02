@@ -13,6 +13,14 @@ interface UserState {
   isAuth: boolean;
 }
 
+const initialState: UserState = {
+  email: null,
+  creationTime: null,
+  isLoading: false,
+  errorMessage: null,
+  isAuth: false,
+};
+
 export const fetchSignUpUser = createAsyncThunk<
   Pick<UserState, "email" | "creationTime">,
   AuthFormValues,
@@ -30,14 +38,6 @@ export const fetchSignUpUser = createAsyncThunk<
     return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
   }
 });
-
-const initialState: UserState = {
-  email: null,
-  creationTime: null,
-  isLoading: false,
-  errorMessage: null,
-  isAuth: false,
-};
 
 const userSlice = createSlice({
   name: "user",

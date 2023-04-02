@@ -1,16 +1,22 @@
 import React from "react";
-import { ErrorMessage, Loader, MovieList, Spinner } from "components";
 import { useEffect } from "react";
+import { ErrorMessage, Loader, MovieList, Spinner } from "components";
+import { fetchAllMovies, getMovies, useAppDispatch, useAppSelector } from "store";
 import { ShowMoreButton, StyledHomePage, WrapMovieList, WrapShowMoreButton } from "./styles";
-import { fetchAllMovies, useAppDispatch, useAppSelector } from "store";
+import { fetchNextPageMovies, nextMoviePage } from "store/features/moviesSlice/moviesSlice";
 
 export const HomePage = () => {
-  const { isLoading, movies, error } = useAppSelector((state) => state.movies);
+  const { isLoading, movies, error, page } = useAppSelector(getMovies);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllMovies({ year: 2020 }));
+    dispatch(fetchAllMovies({ page }));
   }, [dispatch]);
+
+  const handleMovies = () => {
+    dispatch(nextMoviePage(true));
+    dispatch(fetchNextPageMovies({ page }));
+  };
 
   return (
     <StyledHomePage>
@@ -18,9 +24,9 @@ export const HomePage = () => {
       {error && <ErrorMessage message={error} />}
       <WrapMovieList>{movies && movies.length > 0 && <MovieList movies={movies} />}</WrapMovieList>
       <WrapShowMoreButton>
-        <ShowMoreButton>
+        <ShowMoreButton onClick={handleMovies}>
           Show more
-          {/* <Spinner /> */}
+          {isLoading && <Spinner />}
         </ShowMoreButton>
       </WrapShowMoreButton>
     </StyledHomePage>

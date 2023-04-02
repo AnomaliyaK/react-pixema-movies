@@ -84,13 +84,4 @@ interface AuthFormValues {
   confirmPassword: string;
 }
 
-export type {
-  DataMovieApi,
-  DataMovie,
-  MovieApi,
-  Movie,
-  MovieDetailsApi,
-  MovieDetails,
-  RatingsApi,
-  AuthFormValues,
-};
+export type { DataMovieApi, DataMovie, MovieApi, Movie, MovieDetailsApi, MovieDetails, RatingsApi, AuthFormValues };

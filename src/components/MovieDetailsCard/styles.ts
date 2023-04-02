@@ -6,7 +6,6 @@ export const StyledMovieDetailsCard = styled.div`
   grid-template-columns: 266px 1fr;
   gap: 42px;
   color: ${COLOR.WHITE};
-  width: 1186px;
 `;
 export const PosterWithButton = styled.div`
   width: 266px;

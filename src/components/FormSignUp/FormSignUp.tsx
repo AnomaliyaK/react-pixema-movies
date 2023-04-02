@@ -28,11 +28,7 @@ export const FormSignUp = () => {
         <SubTitle>Password</SubTitle>
         <Input type="password" placeholder="Your password" {...register("password")} />
         <SubTitle>Confirm password</SubTitle>
-        <InputConfirmPassword
-          type="password"
-          placeholder="Confirm password"
-          {...register("confirmPassword")}
-        />
+        <InputConfirmPassword type="password" placeholder="Confirm password" {...register("confirmPassword")} />
 
         <ButtonSubmit type="submit">Submit {isLoading && <Loader />}</ButtonSubmit>
 

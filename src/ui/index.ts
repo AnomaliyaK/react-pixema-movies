@@ -1,6 +1,7 @@
 import { COLOR } from "./color";
+import { themeColors } from "./theme";
 import { GlobalStyles } from "./GlobalStyles";
 import { Typography } from "./typography";
-// import { themeColor } from "./theme";
+import { MEDIA } from "./media";
 
-export { COLOR, GlobalStyles, Typography };
+export { COLOR, MEDIA, GlobalStyles, Typography, themeColors };

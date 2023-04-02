@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { COLOR } from "ui";
-import { MEDIA } from "ui/media";
+import { COLOR, MEDIA } from "ui";
 
 export const StyledHomePage = styled.div`
   width: 100%;

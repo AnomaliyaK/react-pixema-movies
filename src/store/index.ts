@@ -10,6 +10,8 @@ import { fetchAllSearch } from "./features/searchSlice/searchSlice";
 import { fetchTrendsMovies } from "./features/trendsSlice/trendsSlice";
 import { fetchSignUpUser } from "./features/userSlice/userSlice";
 import type { RootState, AppDispatch } from "./store";
+import { getUserAuth } from "./selectors/getUserAuth";
+import { getMovies } from "./selectors/getMovies";
 
 export {
   useAppDispatch,
@@ -26,4 +28,6 @@ export {
   store,
   RootState,
   AppDispatch,
+  getUserAuth,
+  getMovies,
 };
