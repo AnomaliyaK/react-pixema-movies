@@ -21,12 +21,12 @@ export const router = createBrowserRouter(
         <Route index element={<HomePage />} />
         <Route path={ROUTE.DETAILS} element={<MovieDetailsPage />} />
         <Route path={ROUTE.TRENDS} element={<TrendsPage />} />
-        <Route path={ROUTE.SETTINGS} element={<SettingsPage />} />
         <Route path={ROUTE.SORTING} element={<SortingPage />} />
         {/* <Route path={ROUTE.FILTERS} element={<FiltersPage />} /> */}
         {/* <Route path={ROUTE.SEARCH} element={<SearchPage />} /> */}
         <Route element={<RequareAuth />}>
           <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
+          <Route path={ROUTE.SETTINGS} element={<SettingsPage />} />
         </Route>
       </Route>
       <Route path={ROUTE.SIGN_IN} element={<AuthTemplate />}>

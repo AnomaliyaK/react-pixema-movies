@@ -21,7 +21,6 @@ export const WrapShowMoreButton = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   grid-template-areas: ". . b . .";
-  /* padding: 8px 24px; */
   justify-items: center;
   align-items: center;
 `;

@@ -1,7 +1,7 @@
 import { ErrorMessage, Loader, MovieList, Spinner } from "components";
 import React, { useEffect, useState } from "react";
 import { fetchTrendsMovies, useAppDispatch, useAppSelector } from "store";
-import { ShowMoreButton, StyledTrendsPage } from "./styles";
+import { ShowMoreButton, StyledTrendsPage, WrapMovieList, WrapShowMoreButton } from "./styles";
 
 export const TrendsPage = () => {
   const { isLoading, movies, error } = useAppSelector((state) => state.movies);
@@ -15,11 +15,13 @@ export const TrendsPage = () => {
     <StyledTrendsPage>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      {movies && movies.length > 0 && <MovieList movies={movies} />}
-      <ShowMoreButton>
-        Show more
-        <Spinner />
-      </ShowMoreButton>
+      <WrapMovieList> {movies && movies.length > 0 && <MovieList movies={movies} />}</WrapMovieList>
+      <WrapShowMoreButton>
+        <ShowMoreButton>
+          Show more
+          {/* <Spinner /> */}
+        </ShowMoreButton>
+      </WrapShowMoreButton>
     </StyledTrendsPage>
   );
 };
