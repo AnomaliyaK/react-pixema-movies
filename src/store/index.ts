@@ -6,19 +6,20 @@ import movieDetailsReducer from "./features/movieDetailsSlice/movieDetailsSlice"
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { fetchAllMovies } from "./features/moviesSlice/moviesSlice";
 import { fetchMovieDetails } from "./features/movieDetailsSlice/movieDetailsSlice";
-import { fetchAllSearch } from "./features/searchSlice/searchSlice";
+import { fetchMoviesBySearch } from "./features/searchSlice/searchSlice";
 import { fetchTrendsMovies } from "./features/trendsSlice/trendsSlice";
 import { fetchSignUpUser } from "./features/userSlice/userSlice";
 import type { RootState, AppDispatch } from "./store";
 import { getUserAuth } from "./selectors/getUserAuth";
 import { getMovies } from "./selectors/getMovies";
+import { getMoviesBySearch } from "./selectors/searchSelector";
 
 export {
   useAppDispatch,
   useAppSelector,
   fetchAllMovies,
   fetchMovieDetails,
-  fetchAllSearch,
+  fetchMoviesBySearch,
   fetchTrendsMovies,
   fetchSignUpUser,
   moviesReducer,
@@ -30,4 +31,5 @@ export {
   AppDispatch,
   getUserAuth,
   getMovies,
+  getMoviesBySearch,
 };

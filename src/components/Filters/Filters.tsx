@@ -34,7 +34,7 @@ export const Filters = ({ title, onClick }: FiltersProps) => {
           <InputGroup>
             <div>
               <SubTitle>Full or short movie name</SubTitle>
-              <Input type="text" placeholder="Your text" />
+              <Input placeholder="Your text" type="text" />
             </div>
             <div>
               <SubTitle>Years</SubTitle>

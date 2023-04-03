@@ -1,34 +1,43 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Loader } from "components";
-import { fetchAllSearch, useAppDispatch, useAppSelector } from "store";
+import { ErrorMessage, Loader, MovieList, Spinner } from "components";
+import { getMoviesBySearch, useAppDispatch, useAppSelector } from "store";
+import {
+  fetchMoviesBySearch,
+  fetchNextPageMoviesBySearch,
+  nextPageMoviesBySearch,
+} from "store/features/searchSlice/searchSlice";
+import { ShowMoreButton, StyledSearchPage, WrapMovieList, WrapShowMoreButton } from "./styles";
 
 export const SearchPage = () => {
-  const { isLoading, results, error } = useAppSelector((state) => state.search);
-  const { register } = useForm();
+  const { isLoading, movies, error, searchValue } = useAppSelector(getMoviesBySearch);
+  // const { register } = useForm();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // peru мы берем из хука useForm
-    dispatch(fetchAllSearch({ searchValue: "peru" }));
-  }, [dispatch]);
+    if (searchValue.s || searchValue.y || searchValue.type) dispatch(fetchMoviesBySearch(searchValue));
+  }, [dispatch, searchValue]);
+
+  const handleSearchByMovies = () => {
+    dispatch(nextPageMoviesBySearch(true));
+    dispatch(fetchNextPageMoviesBySearch(searchValue));
+  };
 
   return (
-    <div>
-      <form>
+    <StyledSearchPage>
+      {isLoading && <Loader />}
+      {error && <ErrorMessage message={error} />}
+      <WrapMovieList> {movies && movies.length > 0 && <MovieList movies={movies} />}</WrapMovieList>
+      <WrapShowMoreButton>
+        <ShowMoreButton onClick={handleSearchByMovies}>
+          Show more
+          {isLoading && <Spinner />}
+        </ShowMoreButton>
+      </WrapShowMoreButton>
+      {/* <form>
         <input type="text" {...register("searchValue")} />
       </form>
-
-      {isLoading && <Loader />}
-      {/* span ниже сделать компонентом <ErrorMessage message={error}/>*/}
-      {error && <span>{error}</span>}
-      {results && results.length > 0 && (
-        <ul>
-          {results.map((movie) => {
-            return <li>{movie.title}</li>;
-          })}
-        </ul>
-      )}
-    </div>
+*/}
+    </StyledSearchPage>
   );
 };
