@@ -4,7 +4,7 @@ import { transformMovies } from "mappers";
 import { Movie } from "types";
 
 interface TrendsState {
-  trends: Movie[];
+  movies: Movie[];
   page: number;
   year: number;
   isLoading: boolean;
@@ -12,7 +12,7 @@ interface TrendsState {
 }
 
 const initialState: TrendsState = {
-  trends: [],
+  movies: [],
   page: 1,
   year: 2022,
   isLoading: false,
@@ -69,7 +69,7 @@ const trendsSlice = createSlice({
     });
     builder.addCase(fetchTrendsMovies.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.trends = payload;
+      state.movies = payload;
     });
     builder.addCase(fetchTrendsMovies.rejected, (state, { payload }) => {
       if (payload) {
@@ -83,7 +83,7 @@ const trendsSlice = createSlice({
     });
     builder.addCase(fetchNextPageTrendsMovies.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.trends = [...state.trends, ...payload];
+      state.movies = [...state.movies, ...payload];
       state.error = null;
     });
     builder.addCase(fetchNextPageTrendsMovies.rejected, (state, { payload }) => {

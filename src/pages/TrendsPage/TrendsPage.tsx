@@ -6,7 +6,7 @@ import { getTrendsMovies } from "store/selectors/getTrendsMovies";
 import { fetchNextPageTrendsMovies, nextTrendsMoviePage } from "store/features/trendsSlice/trendsSlice";
 
 export const TrendsPage = () => {
-  const { isLoading, trends, error, page, year } = useAppSelector(getTrendsMovies);
+  const { isLoading, movies, error, page, year } = useAppSelector(getTrendsMovies);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const TrendsPage = () => {
     <StyledTrendsPage>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      <WrapMovieList> {trends && trends.length > 0 && <MovieList movies={trends} />}</WrapMovieList>
+      <WrapMovieList> {movies && movies.length > 0 && <MovieList movies={movies} />}</WrapMovieList>
       <WrapShowMoreButton>
         <ShowMoreButton onClick={handleTrendsMovies}>
           Show more

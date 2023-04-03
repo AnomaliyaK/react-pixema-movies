@@ -32,7 +32,7 @@ export const Title = styled.span`
   grid-area: c;
   ${Typography.H2}
 `;
-export const CloseFilter = styled.button`
+export const CloseFilterButton = styled.button`
   grid-area: d;
   background-color: ${COLOR.DARK};
   border: none;
@@ -84,4 +84,10 @@ export const ButtonShowResults = styled.button`
   padding: 16px;
   ${Typography.S3};
   cursor: pointer;
+`;
+
+export const StyledError = styled.p`
+  margin-top: 10px;
+  ${Typography.S2}
+  color:${COLOR.ERROR}
 `;

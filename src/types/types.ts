@@ -12,7 +12,7 @@ interface DataMovie {
 
 interface MovieApi {
   Title: string;
-  Year: number;
+  Year: string;
   imdbID: string;
   Type: string;
   Poster: string;
@@ -20,7 +20,7 @@ interface MovieApi {
 
 interface Movie {
   title: string;
-  year: number;
+  year: string;
   id: string;
   type: string;
   poster: string;
@@ -88,8 +88,13 @@ interface SearchValue {
   s: string;
   y: string;
   type: string;
-  page: number;
+  // page: number;
 }
+interface Option {
+  readonly value: OptionType;
+  readonly label: string;
+}
+type OptionType = "movie" | "series" | "episode";
 
 export type {
   DataMovieApi,
@@ -101,4 +106,6 @@ export type {
   RatingsApi,
   AuthFormValues,
   SearchValue,
+  Option,
+  OptionType,
 };

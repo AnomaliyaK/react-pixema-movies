@@ -10,6 +10,7 @@ import {
   SortingPage,
   TrendsPage,
   ResetPasswordPage,
+  SearchPage,
 } from "pages";
 import { AuthTemplate, MainTemplate } from "templates";
 import { ROUTE } from "router";
@@ -22,8 +23,7 @@ export const router = createBrowserRouter(
         <Route path={ROUTE.DETAILS} element={<MovieDetailsPage />} />
         <Route path={ROUTE.TRENDS} element={<TrendsPage />} />
         <Route path={ROUTE.SORTING} element={<SortingPage />} />
-        {/* <Route path={ROUTE.FILTERS} element={<FiltersPage />} /> */}
-        {/* <Route path={ROUTE.SEARCH} element={<SearchPage />} /> */}
+        <Route path={ROUTE.SEARCH} element={<SearchPage />} />
         <Route element={<RequareAuth />}>
           <Route path={ROUTE.FAVORITES} element={<FavoritesPage />} />
           <Route path={ROUTE.SETTINGS} element={<SettingsPage />} />

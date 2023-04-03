@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { CustomLink, Filters, Footer, Nav, Spinner } from "components";
+import { CustomLink, Filters, Footer, InputSearch, Nav } from "components";
 import {
   GroupFooter,
   GroupLogo,
   GroupNav,
-  OpenModalButton,
-  SearchInput,
+  SearchInputGroup,
   SignInLink,
   StyledMainTemplate,
   StyledOutlet,
   ToggleThemeButtons,
 } from "./styles";
 import { ROUTE } from "router";
-import { FilterIcon, PixemaLogoDark } from "assets";
+import { PixemaLogoDark } from "assets";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useAppDispatch, useAppSelector } from "store";
+import { useToggle } from "hooks";
 
 export const MainTemplate = () => {
   // переключение темы
@@ -30,10 +30,7 @@ export const MainTemplate = () => {
   };
 
   // открытие фильтра
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleFilters = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const [isOpen, toggleModal] = useToggle();
   const dispatch = useAppDispatch();
   const { email, creationTime, isAuth } = useAppSelector((state) => state.user);
 
@@ -61,14 +58,11 @@ export const MainTemplate = () => {
       <GroupFooter>
         <Footer />
       </GroupFooter>
+      <SearchInputGroup>
+        <InputSearch toggleModal={toggleModal} />
+      </SearchInputGroup>
 
-      <SearchInput type="text" placeholder="Search" />
-
-      {/* модальное окно Filter */}
-      <OpenModalButton onClick={toggleFilters}>
-        <FilterIcon />
-      </OpenModalButton>
-      {isOpen && <Filters title="FILTER" onClick={toggleFilters} />}
+      <Filters title="FILTER" isOpen={isOpen} toggleModal={toggleModal} />
 
       {/* данные зарегистрированного пользователя */}
       {isAuth ? (
@@ -81,8 +75,6 @@ export const MainTemplate = () => {
           <SignInLink>Sign In</SignInLink>
         </CustomLink>
       )}
-      {/* </Container> */}
-
       <StyledOutlet>
         <Outlet />
       </StyledOutlet>
