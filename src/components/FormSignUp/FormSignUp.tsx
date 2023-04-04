@@ -7,6 +7,9 @@ import { ButtonSubmit, ErrorMessage, Input, InputConfirmPassword, StyledFormSign
 import { emailValidate, nameValidate, passwordValidate } from "services";
 
 export const FormSignUp = () => {
+  const { isLoading, errorMessage } = useAppSelector(getUserAuth);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -15,9 +18,6 @@ export const FormSignUp = () => {
     getValues,
     formState: { errors },
   } = useForm<AuthFormValues>();
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const { isLoading, errorMessage } = useAppSelector(getUserAuth);
 
   const onSubmit: SubmitHandler<AuthFormValues> = async (user) => {
     await dispatch(fetchSignUpUser(user)).unwrap();

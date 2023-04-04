@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ROUTE } from "router/routes";
 import {
   ButtonSignIn,
+  ErrorMessage,
   InputEmail,
   InputPassword,
   ResetPassword,
@@ -13,6 +14,8 @@ import {
 import { useNavigate } from "react-router-dom";
 import { getUserAuth, useAppDispatch, useAppSelector } from "store";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { fetchSignInUser } from "store/features/userSlice/userSlice";
+import { emailValidate, passwordValidate } from "services";
 
 interface FormValues {
   email: string;
@@ -20,46 +23,40 @@ interface FormValues {
 }
 
 export const FormSignIn = () => {
-  // const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  // const navigate = useNavigate();
-  // const dispatch = useAppDispatch();
-  // const { isLoading } = useAppSelector(getUserAuth);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const { isLoading, errorMessage } = useAppSelector(getUserAuth);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormValues>();
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   reset,
-  //   formState: { errors },
-  // } = useForm<FormValues>();
+  const onSubmit: SubmitHandler<FormValues> = (user) => {
+    dispatch(fetchSignInUser(user))
+      .unwrap()
+      .then(() => {
+        navigate(ROUTE.HOME);
+      });
+  };
 
   // const userAuthSave = JSON.parse(localStorage.getItem("userAuth")!);
   // if (userAuthSave) {
   //   userAuthSave.isAuth = true;
   // }
 
-  // закончить
-
-  // const onSubmit: SubmitHandler<FormValues> = (userAuth) => {
-  //   setErrorMessage(null);
-  //   dispatch(signInUser(userAuth))
-  //     .unwrap()
-  //     .then(() => {
-  //       localStorage.length > 0 && localStorage.setItem("userInfo", JSON.stringify(userInfoToSave));
-  //       navigate(`${ROUTE.HOME}`);
-  //     })
-  //     .catch((error) => {
-  //       setErrorMessage(error);
-  //       reset();
-  //     });
-  // };
-
   return (
     <StyledFormSignIn>
-      <form action="">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <SubTitle>Email</SubTitle>
-        <InputEmail type="text" placeholder="Your email" />
+        <InputEmail type="email" placeholder="Your email" {...register("email", emailValidate())} />
+        {errors.email?.message && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+
         <SubTitle>Password</SubTitle>
-        <InputPassword type="password" placeholder="Your password" />
+        <InputPassword type="password" placeholder="Your password" {...register("password", passwordValidate())} />
+        {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+
         <ResetPassword>
           <CustomLink to={ROUTE.RESET_PASSWORD}>
             <ResetPasswordText>Forgot password?</ResetPasswordText>
@@ -67,6 +64,7 @@ export const FormSignIn = () => {
         </ResetPassword>
 
         <ButtonSignIn type="submit">Sign in</ButtonSignIn>
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </form>
     </StyledFormSignIn>
   );

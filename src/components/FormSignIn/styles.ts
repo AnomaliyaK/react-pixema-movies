@@ -48,3 +48,7 @@ export const ButtonSignIn = styled.button`
 export const ResetPasswordText = styled.div`
   color: ${COLOR.SECONDARY};
 `;
+export const ErrorMessage = styled.span`
+  color: ${COLOR.ERROR};
+  ${Typography.S3};
+`;

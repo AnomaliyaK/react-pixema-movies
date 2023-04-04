@@ -26,3 +26,11 @@ export const ButtonResetPassword = styled.button`
   border-radius: 10px;
   background-color: ${COLOR.PRIMARY};
 `;
+
+export const Message = styled.span`
+  color: ${COLOR.WHITE};
+`;
+export const ErrorMessage = styled.p`
+  color: ${COLOR.ERROR};
+  ${Typography.S3};
+`;

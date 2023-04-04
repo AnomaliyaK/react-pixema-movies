@@ -1,6 +1,13 @@
-import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit";
+import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { auth } from "../../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  updateEmail,
+  updatePassword,
+} from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { AuthFormValues } from "types";
 import { FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
@@ -11,6 +18,8 @@ interface UserState {
   isLoading: boolean;
   errorMessage: string | null;
   isAuth: boolean;
+  isPendingAuth: boolean;
+  isResetPassword: boolean;
 }
 
 const initialState: UserState = {
@@ -19,6 +28,8 @@ const initialState: UserState = {
   isLoading: false,
   errorMessage: null,
   isAuth: false,
+  isPendingAuth: false,
+  isResetPassword: false,
 };
 
 export const fetchSignUpUser = createAsyncThunk<
@@ -39,10 +50,78 @@ export const fetchSignUpUser = createAsyncThunk<
   }
 });
 
+export const fetchSignInUser = createAsyncThunk<
+  { email: string; creationTime: string },
+  { email: string; password: string },
+  { rejectValue: FirebaseErrorMessage }
+>("user/fetchSignInUser", async ({ email, password }, { rejectWithValue }) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+    const userEmail = userCredential.user.email as string;
+    const creationTime = userCredential.user.metadata.creationTime as string;
+
+    return { creationTime, email: userEmail };
+  } catch (error) {
+    const firebaseError = error as FirebaseError;
+    return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
+  }
+});
+
+export const fetchResetPassword = createAsyncThunk<undefined, { email: string }, { rejectValue: FirebaseErrorMessage }>(
+  "user/fetchResetPassword",
+  async ({ email }, { rejectWithValue }) => {
+    try {
+      const auth = getAuth();
+      sendPasswordResetEmail(auth, email);
+    } catch (error) {
+      const firebaseError = error as FirebaseError;
+      return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
+    }
+  },
+);
+
+export const fetchUpdateEmail = createAsyncThunk<void, { email: string }, { rejectValue: FirebaseErrorMessage }>(
+  "user/fetchUpdateEmail",
+  async ({ email }, { rejectWithValue }) => {
+    try {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (user !== null) {
+        await updateEmail(user, email);
+      }
+    } catch (error) {
+      const firebaseError = error as FirebaseError;
+      return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
+    }
+  },
+);
+
+export const fetchUpdatePassword = createAsyncThunk<
+  void,
+  { newPassword: string },
+  { rejectValue: FirebaseErrorMessage }
+>("user/fetchUpdatePassword", async ({ newPassword }, { rejectWithValue }) => {
+  try {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user !== null) {
+      await updatePassword(user, newPassword);
+    }
+  } catch (error) {
+    const firebaseError = error as FirebaseError;
+    return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
+  }
+});
+
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    updateUserUserName: (state, action: PayloadAction<string>) => {
+      if (action.payload) state.email = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchSignUpUser.pending, (state) => {
       state.isLoading = true;
@@ -57,6 +136,74 @@ const userSlice = createSlice({
     builder.addCase(fetchSignUpUser.rejected, (state, { payload }) => {
       if (payload) {
         state.isLoading = false;
+        state.errorMessage = payload;
+      }
+    });
+
+    builder.addCase(fetchSignInUser.pending, (state) => {
+      state.errorMessage = null;
+      state.isAuth = false;
+      state.isPendingAuth = true;
+    });
+    builder.addCase(fetchSignInUser.fulfilled, (state, { payload }) => {
+      state.isAuth = true;
+      state.errorMessage = null;
+      state.email = payload.email;
+      state.creationTime = payload.creationTime;
+      state.isPendingAuth = false;
+    });
+    builder.addCase(fetchSignInUser.rejected, (state, { payload }) => {
+      if (payload) {
+        state.errorMessage = payload;
+        state.isAuth = false;
+        state.isPendingAuth = false;
+      }
+    });
+    builder.addCase(fetchResetPassword.pending, (state) => {
+      state.isPendingAuth = true;
+      state.isAuth = false;
+      state.errorMessage = null;
+      state.isResetPassword = false;
+    });
+    builder.addCase(fetchResetPassword.fulfilled, (state) => {
+      state.isPendingAuth = false;
+      state.errorMessage = null;
+      state.isAuth = false;
+      state.isResetPassword = true;
+    });
+    builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isPendingAuth = false;
+
+        state.isAuth = false;
+        state.isResetPassword = false;
+      }
+    });
+    builder.addCase(fetchUpdateEmail.pending, (state) => {
+      state.isPendingAuth = true;
+      state.errorMessage = null;
+    });
+    builder.addCase(fetchUpdateEmail.fulfilled, (state) => {
+      state.isPendingAuth = false;
+      state.errorMessage = null;
+    });
+    builder.addCase(fetchUpdateEmail.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isPendingAuth = false;
+        state.errorMessage = payload;
+      }
+    });
+    builder.addCase(fetchUpdatePassword.pending, (state) => {
+      state.isPendingAuth = true;
+      state.errorMessage = null;
+    });
+    builder.addCase(fetchUpdatePassword.fulfilled, (state) => {
+      state.isPendingAuth = false;
+      state.errorMessage = null;
+    });
+    builder.addCase(fetchUpdatePassword.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isPendingAuth = false;
         state.errorMessage = payload;
       }
     });
