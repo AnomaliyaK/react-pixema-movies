@@ -7,7 +7,9 @@ import { onAuthStateChanged, User } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useAppDispatch, useAppSelector } from "store";
 import { useToggle } from "hooks";
+import { getUserAuth } from "store";
 import {
+  Email,
   GroupFooter,
   GroupLogo,
   GroupNav,
@@ -32,7 +34,7 @@ export const MainTemplate = () => {
   // открытие фильтра
   const [isOpen, toggleModal] = useToggle();
   const dispatch = useAppDispatch();
-  const { email, creationTime, isAuth } = useAppSelector((state) => state.user);
+  const { email, isAuth } = useAppSelector(getUserAuth);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -66,8 +68,7 @@ export const MainTemplate = () => {
       {/* данные зарегистрированного пользователя */}
       {isAuth ? (
         <>
-          <p>{email}</p>
-          <p>Creation Time: {creationTime}</p>
+          <Email>{email}</Email>
         </>
       ) : (
         <CustomLink to={ROUTE.SIGN_IN}>

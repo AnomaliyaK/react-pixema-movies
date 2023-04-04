@@ -65,3 +65,7 @@ export const SignInLink = styled.div`
 export const StyledOutlet = styled.div`
   grid-area: e;
 `;
+export const Email = styled.div`
+  display: grid;
+  align-items: center;
+`;

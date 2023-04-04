@@ -17,6 +17,7 @@ import { getUserAuth } from "./selectors/userAuthSelector";
 import { getMovies } from "./selectors/moviesSelector";
 import { getMoviesBySearch } from "./selectors/searchSelector";
 import { getTrendsMovies } from "./selectors/trendsMoviesSelector";
+import { getMovieDetails } from "store/selectors/movieDetailsSelector";
 import {
   deleteMoviesParameters,
   setMovieTitle,
@@ -49,6 +50,7 @@ export {
   getMovies,
   getMoviesBySearch,
   getTrendsMovies,
+  getMovieDetails,
   deleteMoviesParameters,
   setMovieTitle,
   setMovieType,

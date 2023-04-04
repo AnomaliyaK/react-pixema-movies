@@ -4,13 +4,15 @@ import { StyledMovieList } from "./styles";
 
 interface MovieListProps {
   movies: Movie[];
+  // isFavorites?: boolean;
+  isTrends?: boolean;
 }
 
-export const MovieList = ({ movies }: MovieListProps) => {
+export const MovieList = ({ movies, isTrends }: MovieListProps) => {
   return (
     <StyledMovieList>
       {movies.map((movie) => {
-        return <MovieItem movie={movie} key={movie.id} />;
+        return <MovieItem trends={isTrends} movie={movie} key={movie.id} />;
       })}
     </StyledMovieList>
   );

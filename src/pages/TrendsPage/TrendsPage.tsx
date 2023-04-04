@@ -5,7 +5,7 @@ import { fetchNextPageTrendsMovies } from "store";
 import { ShowMoreButton, StyledTrendsPage, WrapMovieList, WrapShowMoreButton } from "./styles";
 
 export const TrendsPage = () => {
-  const { isLoading, movies, error, page, year } = useAppSelector(getTrendsMovies);
+  const { isLoading, trends, error, page, year } = useAppSelector(getTrendsMovies);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const TrendsPage = () => {
     <StyledTrendsPage>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      <WrapMovieList> {movies && movies.length > 0 && <MovieList movies={movies} />}</WrapMovieList>
+      <WrapMovieList> {trends && trends.length > 0 && <MovieList movies={trends} />}</WrapMovieList>
       <WrapShowMoreButton>
         <ShowMoreButton onClick={handleTrendsMovies}>
           Show more

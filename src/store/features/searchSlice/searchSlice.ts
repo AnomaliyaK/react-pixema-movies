@@ -7,13 +7,13 @@ interface SearchValue {
   s: string;
   y: string;
   type: Option | string;
-  // page: number;
 }
 interface SearchState {
   movies: Movie[];
   isLoading: boolean;
   error: string | null;
   searchValue: SearchValue;
+  page: number;
 }
 
 const initialState: SearchState = {
@@ -21,6 +21,7 @@ const initialState: SearchState = {
   isLoading: false,
   error: null,
   searchValue: { s: "", y: "", type: "" },
+  page: 1,
 };
 
 export const fetchMoviesBySearch = createAsyncThunk<Movie[], SearchValue, { rejectValue: string }>(

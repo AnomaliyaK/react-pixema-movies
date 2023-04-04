@@ -38,3 +38,7 @@ export const ButtonSubmit = styled.button`
   border-radius: 10px;
   border: none;
 `;
+export const ErrorMessage = styled.p`
+  color: ${COLOR.ERROR};
+  ${Typography.S3};
+`;

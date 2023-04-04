@@ -15,7 +15,7 @@ import { ReactComponent as ShareIcon } from "./icons/share-icon.svg";
 import { ReactComponent as TrendsIcon } from "./icons/trends-icon.svg";
 
 import BackgroundMovies from "./images/background-movies-image.png";
-
+import PosterNotFound from "./images/poster-not-found.png";
 export {
   PixemaLogoDark,
   PixemaLogoLight,
@@ -33,4 +33,5 @@ export {
   ShareIcon,
   TrendsIcon,
   BackgroundMovies,
+  PosterNotFound,
 };

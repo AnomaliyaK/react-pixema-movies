@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ErrorMessage, Loader, MovieDetailsCard } from "components";
-import { fetchMovieDetails, useAppDispatch, useAppSelector } from "store";
+import { fetchMovieDetails, getMovieDetails, useAppDispatch, useAppSelector } from "store";
 import { StyledDetailsPage } from "./styles";
 
 export const MovieDetailsPage = () => {
-  const { movieDetails, isLoading, error } = useAppSelector((state) => state.movieDetails);
+  const { movieDetails, isLoading, error } = useAppSelector(getMovieDetails);
   const { title = "" } = useParams();
   const dispatch = useAppDispatch();
 

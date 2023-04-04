@@ -41,3 +41,11 @@ export const MovieTitle = styled.span`
     line-height: 20px;
   }
 `;
+export const TrendsLabel = styled.div`
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 6px 8px;
+  background-color: ${COLOR.PRIMARY};
+  border-radius: 6px;
+`;
