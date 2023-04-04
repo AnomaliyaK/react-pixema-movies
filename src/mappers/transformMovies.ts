@@ -1,4 +1,4 @@
-import { DataMovie, DataMovieApi, Movie } from "types";
+import { DataMovieApi, Movie } from "types";
 
 export const transformAPI = (dataMovies: DataMovieApi) => {
   return Object.values(dataMovies).map(({ Search, totalResults, Response }) => ({
@@ -7,11 +7,6 @@ export const transformAPI = (dataMovies: DataMovieApi) => {
     response: Response,
   }));
 };
-
-// export const transformMovies = (dataMovies: DataMovieApi): Movie[] => {
-//   const transformedAPI = transformAPI(dataMovies);
-//   return transformedAPI.map(({ movie }) => movie.Year);
-// };
 
 export const transformMovies = (dataMovies: DataMovieApi): Movie[] => {
   return dataMovies.Search.map(({ Title, Year, imdbID, Type, Poster }) => ({

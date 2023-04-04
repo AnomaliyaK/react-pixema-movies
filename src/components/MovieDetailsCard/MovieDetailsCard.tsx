@@ -1,7 +1,6 @@
 import { FavoritesIcon, IMDbIcon, ShareIcon } from "assets";
 import { MovieDetailsItem, Slider } from "components";
 import { MovieDetails } from "types";
-
 import {
   Badges,
   DescriptionMovie,
@@ -30,7 +29,6 @@ interface MovieDetailsCardProps {
 export const MovieDetailsCard = ({
   movieDetails: {
     title,
-    id,
     genre,
     runtime,
     imdbRating,

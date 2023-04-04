@@ -1,8 +1,7 @@
-import React from "react";
-import { fetchSignUpUser, useAppDispatch, useAppSelector } from "store";
-import { AuthFormValues } from "types";
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { fetchSignUpUser, useAppDispatch, useAppSelector } from "store";
+import { AuthFormValues } from "types";
 import { Loader } from "components";
 import { ButtonSubmit, Input, InputConfirmPassword, StyledFormSignUp, SubTitle } from "./styles";
 

@@ -1,11 +1,9 @@
-import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { ROUTE } from "router";
-import { useAppDispatch } from "store";
-import { deleteMoviesParameters, setMovieTitle, wipeOutMovies } from "store/features/searchSlice/searchSlice";
-import { Input, InputSearchForm, OpenModalButton } from "./styles";
 import { FilterIcon } from "assets";
+import { ROUTE } from "router";
+import { deleteMoviesParameters, setMovieTitle, useAppDispatch, wipeOutMovies } from "store";
+import { Input, InputSearchForm, OpenModalButton } from "./styles";
 
 interface InputSearchProps {
   toggleModal: (value: boolean) => void;

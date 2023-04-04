@@ -5,36 +5,36 @@ export const StyledFormSignUp = styled.div`
   width: 100%;
 `;
 export const SubTitle = styled.div`
-  ${Typography.S3};
   margin-bottom: 8px;
+  ${Typography.S3};
 `;
 export const Input = styled.input`
-  background-color: ${COLOR.GRAPHITE};
   width: 100%;
+  padding: 16px 20px;
+  margin-bottom: 24px;
   ${Typography.S3};
+  font-weight: 500;
   color: ${COLOR.SECONDARY};
+  background-color: ${COLOR.GRAPHITE};
   border-radius: 10px;
   border: none;
-  padding: 16px 20px;
-  font-weight: 500;
-  margin-bottom: 24px;
 `;
 export const InputConfirmPassword = styled.input`
-  background-color: ${COLOR.GRAPHITE};
   width: 100%;
+  padding: 16px 20px;
+  margin-bottom: 40px;
   ${Typography.S3};
+  font-weight: 500;
   color: ${COLOR.SECONDARY};
+  background-color: ${COLOR.GRAPHITE};
   border-radius: 10px;
   border: none;
-  padding: 16px 20px;
-  font-weight: 500;
-  margin-bottom: 40px;
 `;
 export const ButtonSubmit = styled.button`
   width: 100%;
-  border-radius: 10px;
-  border: none;
-  background-color: ${COLOR.PRIMARY};
   padding: 16px;
   ${Typography.S3};
+  background-color: ${COLOR.PRIMARY};
+  border-radius: 10px;
+  border: none;
 `;

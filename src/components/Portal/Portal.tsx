@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import ReactDOM from "react-dom";
 
 export enum PortalTarget {
@@ -7,7 +7,7 @@ export enum PortalTarget {
 }
 
 interface PortalProps {
-  children?: ReactNode;
+  children: ReactNode;
   target: PortalTarget;
 }
 

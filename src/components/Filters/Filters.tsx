@@ -1,12 +1,23 @@
-import { Portal, PortalTarget } from "components";
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { CloseIcon } from "assets";
+import { CustomSelect, InputFilter, Portal, PortalTarget } from "components";
+import { Option } from "types";
+import { ROUTE } from "router";
+import {
+  useAppDispatch,
+  deleteMoviesParameters,
+  setMovieTitle,
+  setMovieType,
+  setMovieYear,
+  wipeOutMovies,
+} from "store";
 import {
   BattonGroup,
   ButtonClearFilter,
   ButtonShowResults,
   CloseFilterButton,
   FormFilters,
-  Input,
   InputGroup,
   StyledError,
   StyledFilters,
@@ -14,36 +25,11 @@ import {
   Title,
   TitleGroup,
 } from "./styles";
-import { CloseIcon } from "assets";
-import { useAppDispatch } from "store";
-import { useNavigate } from "react-router-dom";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { ROUTE } from "router";
-import {
-  deleteMoviesParameters,
-  setMovieTitle,
-  setMovieType,
-  setMovieYear,
-  wipeOutMovies,
-} from "store/features/searchSlice/searchSlice";
-import { CustomSelect } from "components/CustomSelect/CustomSelect";
 
 interface FiltersProps {
-  title: string;
   isOpen: boolean;
   toggleModal: (value: boolean) => void;
 }
-export interface Option {
-  readonly value: OptionType;
-  readonly label: string;
-}
-type OptionType = "movie" | "series" | "episode";
-
-const options: Option[] = [
-  { value: "series", label: "series" },
-  { value: "movie", label: "movie" },
-  { value: "episode", label: "episode" },
-];
 
 interface FormFilterValues {
   s: string;
@@ -51,7 +37,13 @@ interface FormFilterValues {
   type: Option;
 }
 
-export const Filters = ({ title, isOpen, toggleModal }: FiltersProps) => {
+const options: Option[] = [
+  { value: "series", label: "series" },
+  { value: "movie", label: "movie" },
+  { value: "episode", label: "episode" },
+];
+
+export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
   const closeFilters = () => {
     toggleModal(false);
   };
@@ -84,9 +76,9 @@ export const Filters = ({ title, isOpen, toggleModal }: FiltersProps) => {
         <StyledFilters>
           <FormFilters onSubmit={handleSubmit(onSubmit)}>
             <TitleGroup>
-              <Title>{title}</Title>
-              <CloseFilterButton onClick={closeFilters}>
-                <CloseIcon />
+              <Title>Filters</Title>
+              <CloseFilterButton>
+                <CloseIcon onClick={closeFilters} />
               </CloseFilterButton>
             </TitleGroup>
             <InputGroup>
@@ -97,17 +89,19 @@ export const Filters = ({ title, isOpen, toggleModal }: FiltersProps) => {
                   control={control}
                   name="s"
                   rules={{
-                    required: "title is required",
+                    required: "movie name is required",
                     pattern: {
                       value: /[A-Za-z]/,
-                      message: "the field contain only letters",
+                      message: "movie name contain only letters",
                     },
                     maxLength: {
                       value: 15,
-                      message: "the field should contain no more than 15 letters",
+                      message: "movie name should contain no more than 15 letters",
                     },
                   }}
-                  render={({ field: { ref, ...rest } }) => <Input {...rest} placeholder="Your text" type="text" />}
+                  render={({ field: { ref, ...rest } }) => (
+                    <InputFilter {...rest} placeholder="Your text" type="text" />
+                  )}
                 />
                 {errors.s?.message && <StyledError>{errors.s.message}</StyledError>}
               </div>
@@ -125,7 +119,7 @@ export const Filters = ({ title, isOpen, toggleModal }: FiltersProps) => {
                       message: "Please enter a valid year",
                     },
                   }}
-                  render={({ field: { ref, ...rest } }) => <Input {...rest} placeholder="Year" type="text" />}
+                  render={({ field: { ref, ...rest } }) => <InputFilter {...rest} placeholder="Year" type="text" />}
                 />
                 {errors.y?.message && <StyledError>{errors.y.message}</StyledError>}
               </div>

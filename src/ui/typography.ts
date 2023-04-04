@@ -59,7 +59,7 @@ const S2 = css`
 
 const S3 = css`
   font-size: 16px;
-  font-weight: 600px;
+  font-weight: 600;
   line-height: 24px;
   color: ${COLOR.WHITE};
 `;

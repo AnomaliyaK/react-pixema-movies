@@ -1,6 +1,6 @@
 import { FavoritesIcon, HomeIcon, SettingsIcon, TrendsIcon } from "assets";
 import { CustomLink } from "components";
-import { ROUTE } from "../../router/routes";
+import { ROUTE } from "router";
 import { CustomWrap, Navigation, Title } from "./styles";
 
 export const Nav = () => {

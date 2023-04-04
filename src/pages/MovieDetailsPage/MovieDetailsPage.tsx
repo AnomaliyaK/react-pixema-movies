@@ -1,6 +1,6 @@
-import { ErrorMessage, Loader, MovieDetailsCard } from "components";
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { ErrorMessage, Loader, MovieDetailsCard } from "components";
 import { fetchMovieDetails, useAppDispatch, useAppSelector } from "store";
 import { StyledDetailsPage } from "./styles";
 
@@ -26,5 +26,4 @@ export const MovieDetailsPage = () => {
 // const handleback = () => {
 //   navigate(-1);
 // };
-
 // return   {/* <button onClick={handleback}>Back</button> */}

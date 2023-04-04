@@ -1,4 +1,3 @@
-import React from "react";
 import { MovieDetailsItemLabel, MovieDetailsItemValue, StyledMovieDetailsItem } from "./styles";
 
 interface MovieDetailsItemProps {

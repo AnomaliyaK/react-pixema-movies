@@ -1,6 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { CustomLink, Filters, Footer, InputSearch, Nav } from "components";
+import { ROUTE } from "router";
+import { PixemaLogoDark } from "assets";
+import { onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useAppDispatch, useAppSelector } from "store";
+import { useToggle } from "hooks";
 import {
   GroupFooter,
   GroupLogo,
@@ -11,12 +17,6 @@ import {
   StyledOutlet,
   ToggleThemeButtons,
 } from "./styles";
-import { ROUTE } from "router";
-import { PixemaLogoDark } from "assets";
-import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useAppDispatch, useAppSelector } from "store";
-import { useToggle } from "hooks";
 
 export const MainTemplate = () => {
   // переключение темы
@@ -43,7 +43,6 @@ export const MainTemplate = () => {
 
   return (
     <StyledMainTemplate>
-      {/* <Container> */}
       <GroupLogo>
         <CustomLink to={ROUTE.HOME}>
           <PixemaLogoDark />
@@ -62,7 +61,7 @@ export const MainTemplate = () => {
         <InputSearch toggleModal={toggleModal} />
       </SearchInputGroup>
 
-      <Filters title="FILTER" isOpen={isOpen} toggleModal={toggleModal} />
+      <Filters isOpen={isOpen} toggleModal={toggleModal} />
 
       {/* данные зарегистрированного пользователя */}
       {isAuth ? (

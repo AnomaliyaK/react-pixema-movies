@@ -5,7 +5,6 @@ import { COLOR } from "ui";
 export const StyledAuthTemplate = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  /* grid-gap: 182px 40px; */
   grid-template-rows: 56px 1fr 40px;
   grid-template-areas:
     "a . . . . ."
@@ -13,10 +12,9 @@ export const StyledAuthTemplate = styled.div`
     ". . c c . . ";
   height: 100vh;
   width: 100vw;
-  background-size: 100% 100%;
   padding: 40px 62px 64px;
-
   color: ${COLOR.WHITE};
+  background-size: 100% 100%;
   background: url(${BackgroundMovies});
   background-color: ${COLOR.BLACK};
   background-size: cover;
@@ -38,8 +36,6 @@ export const StyledAuthTemplate = styled.div`
 export const GroupLogo = styled.div`
   grid-area: a;
   z-index: 2;
-
-  /* position: fixed; */
 `;
 export const GroupFooter = styled.div`
   grid-area: c;
@@ -47,12 +43,8 @@ export const GroupFooter = styled.div`
   align-items: center;
   justify-items: center;
   z-index: 2;
-
-  /* position: fixed; */
 `;
 export const StyledOutlet = styled.div`
   grid-area: b;
   z-index: 2;
-  /* justify-items: center; */
-  /* text-align: center; */
 `;

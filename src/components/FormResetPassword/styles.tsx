@@ -5,24 +5,24 @@ export const StyledFormResetPassword = styled.div`
   width: 100%;
 `;
 export const SubTitle = styled.div`
-  ${Typography.S3};
   margin-bottom: 8px;
+  ${Typography.S3};
 `;
 export const InputEmail = styled.input`
-  background-color: ${COLOR.GRAPHITE};
   width: 100%;
+  padding: 16px 20px;
+  margin-bottom: 24px;
   ${Typography.S3};
+  font-weight: 500;
   color: ${COLOR.SECONDARY};
+  background-color: ${COLOR.GRAPHITE};
   border-radius: 10px;
   border: none;
-  padding: 16px 20px;
-  font-weight: 500;
-  margin-bottom: 24px;
 `;
 export const ButtonResetPassword = styled.button`
   width: 100%;
-  border-radius: 10px;
-  background-color: ${COLOR.PRIMARY};
   padding: 16px;
   ${Typography.S3};
+  border-radius: 10px;
+  background-color: ${COLOR.PRIMARY};
 `;

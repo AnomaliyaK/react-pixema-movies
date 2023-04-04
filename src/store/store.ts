@@ -1,11 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-// белый экран при импорте из index.ts
-import moviesReducer from "./features/moviesSlice/moviesSlice";
-import trendsReducer from "./features/trendsSlice/trendsSlice";
-import searchReducer from "./features/searchSlice/searchSlice";
-import userReducer from "./features/userSlice/userSlice";
-import movieDetailsReducer from "./features/movieDetailsSlice/movieDetailsSlice";
+import { movieDetailsReducer, moviesReducer, searchReducer, trendsReducer, userReducer } from "store";
 
 export const store = configureStore({
   reducer: {
@@ -14,7 +8,6 @@ export const store = configureStore({
     search: searchReducer,
     user: userReducer,
     movieDetails: movieDetailsReducer,
-    // добавить и для всех остальных страниц favorites,search и тд
   },
 });
 

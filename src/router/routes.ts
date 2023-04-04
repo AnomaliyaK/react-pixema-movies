@@ -4,7 +4,6 @@ export enum ROUTE {
   TRENDS = "trends",
   FAVORITES = "favorites",
   SETTINGS = "settings",
-  SORTING = "sorting",
   FILTERS = "filters",
   SEARCH = "search",
   SIGN_IN = "sign-in",

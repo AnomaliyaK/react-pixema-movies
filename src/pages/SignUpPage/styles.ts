@@ -7,10 +7,10 @@ export const StyledSignUpPage = styled.div`
   grid-template-rows: 36px 1fr 24px;
   width: 100%;
   height: 735px;
-  background-color: ${COLOR.DARK};
   padding: 40px;
-  border-radius: 10px;
   color: ${COLOR.WHITE};
+  background-color: ${COLOR.DARK};
+  border-radius: 10px;
 `;
 export const Title = styled.h2`
   ${Typography.H2}

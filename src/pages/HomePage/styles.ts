@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import { COLOR, MEDIA } from "ui";
+import { COLOR, MEDIA, Typography } from "ui";
 
 export const StyledHomePage = styled.div`
-  width: 100%;
-  height: 100%;
   display: grid;
   grid-template-rows: 1fr 40px;
   gap: 40px;
   grid-template-areas:
     "a"
     "b";
+  width: 100%;
+  height: 100%;
 `;
 export const WrapMovieList = styled.div`
   grid-area: a;
@@ -27,14 +27,13 @@ export const ShowMoreButton = styled.button`
   grid-area: b;
   height: 100%;
   width: 60%;
-  background-color: ${COLOR.GRAPHITE};
-  color: ${COLOR.WHITE};
-  font-size: 16px;
+  padding: 8px 24px;
+  ${Typography.S3}
   font-weight: 500;
+  background-color: ${COLOR.GRAPHITE};
   border-radius: 40px;
   border: none;
   cursor: pointer;
-  padding: 8px 24px;
 
   ${MEDIA.$_1440} {
     width: 100%;

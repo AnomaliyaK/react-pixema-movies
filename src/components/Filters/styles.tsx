@@ -2,23 +2,21 @@ import styled from "styled-components";
 import { COLOR, Typography } from "ui";
 
 export const StyledFilters = styled.div`
-  width: 518px;
-  background-color: ${COLOR.DARK};
-  color: ${COLOR.WHITE};
   position: fixed;
   top: 0;
   right: 0;
+  z-index: 99;
+  width: 518px;
   min-height: 100vh;
   padding: 48px 40px;
-  z-index: 99;
+  color: ${COLOR.WHITE};
+  background-color: ${COLOR.DARK};
 `;
 export const FormFilters = styled.form`
-  height: 100%;
   display: grid;
   gap: 111px;
-
   grid-template-rows: 36px 1fr 56px;
-  /* grid-template-rows: repeat(5, 1fr); */
+  height: 100%;
 `;
 
 export const TitleGroup = styled.div`
@@ -34,9 +32,9 @@ export const Title = styled.span`
 `;
 export const CloseFilterButton = styled.button`
   grid-area: d;
+  text-align: end;
   background-color: ${COLOR.DARK};
   border: none;
-  text-align: end;
   cursor: pointer;
 `;
 export const InputGroup = styled.div`
@@ -45,19 +43,8 @@ export const InputGroup = styled.div`
 `;
 
 export const SubTitle = styled.div`
-  ${Typography.S3};
   margin-bottom: 8px;
-`;
-
-export const Input = styled.input`
-  background-color: ${COLOR.GRAPHITE};
-  width: 100%;
   ${Typography.S3};
-  color: ${COLOR.SECONDARY};
-  border-radius: 10px;
-  border: none;
-  padding: 16px 20px;
-  font-weight: 500;
 `;
 
 export const BattonGroup = styled.div`
@@ -69,20 +56,20 @@ export const BattonGroup = styled.div`
 
 export const ButtonClearFilter = styled.button`
   grid-area: a;
-  border-radius: 10px;
-  border: none;
-  background-color: ${COLOR.GRAPHITE};
   padding: 16px;
   ${Typography.S3};
+  background-color: ${COLOR.GRAPHITE};
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
 `;
 export const ButtonShowResults = styled.button`
   grid-area: b;
-  border-radius: 10px;
-  border: none;
-  background-color: ${COLOR.PRIMARY};
   padding: 16px;
   ${Typography.S3};
+  background-color: ${COLOR.PRIMARY};
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
 `;
 

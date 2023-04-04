@@ -1,5 +1,5 @@
-import { MovieList } from "components";
 import React, { useEffect, useState } from "react";
+import { MovieList } from "components";
 
 export const FavoritesPage = () => {
   const [movies, setMovies] = useState<any[]>([]);

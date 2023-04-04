@@ -1,19 +1,12 @@
-import React from "react";
 import Select, { SingleValue } from "react-select";
 import { selectStyles } from "./styles";
+import { Option } from "types";
 
 interface SelectProps {
   options: Option[];
   value: Option;
   onChange: (option: Option) => void;
 }
-
-export interface Option {
-  readonly value: OptionType;
-  readonly label: string;
-}
-
-type OptionType = "movie" | "series" | "episode";
 
 export const CustomSelect = ({ onChange, options, value }: SelectProps) => {
   const handleChange = (option: SingleValue<Option>): void => {

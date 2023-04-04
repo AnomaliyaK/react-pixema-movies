@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { Typography } from "ui";
-import { COLOR } from "ui/color";
-import { MEDIA } from "ui/media";
+import { COLOR, MEDIA, Typography } from "ui";
 
 export const Navigation = styled.nav`
   display: grid;
   gap: 40px;
   ${Typography.S1};
   color: ${COLOR.SECONDARY};
+
   ${MEDIA.$_1024} {
     ${Typography.S3};
   }

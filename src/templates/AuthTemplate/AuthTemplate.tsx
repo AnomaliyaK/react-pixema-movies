@@ -1,6 +1,6 @@
+import { Outlet } from "react-router-dom";
 import { PixemaLogoDark } from "assets";
 import { CustomLink, Footer } from "components";
-import { Outlet } from "react-router-dom";
 import { ROUTE } from "router";
 import { GroupFooter, GroupLogo, StyledAuthTemplate, StyledOutlet } from "./styles";
 
