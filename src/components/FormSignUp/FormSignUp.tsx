@@ -3,8 +3,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { fetchSignUpUser, getUserAuth, useAppDispatch, useAppSelector } from "store";
 import { AuthFormValues } from "types";
 import { Loader } from "components";
-import { ButtonSubmit, ErrorMessage, Input, InputConfirmPassword, StyledFormSignUp, SubTitle } from "./styles";
 import { emailValidate, nameValidate, passwordValidate } from "services";
+import { ButtonSubmit, ErrorMessage, Input, InputConfirmPassword, StyledFormSignUp, SubTitle } from "./styles";
 
 export const FormSignUp = () => {
   const { isLoading, errorMessage } = useAppSelector(getUserAuth);

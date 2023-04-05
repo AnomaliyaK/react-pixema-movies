@@ -20,6 +20,7 @@ import { PortalTarget } from "./Portal/Portal";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { Slider } from "./Slider/Slider";
 import { Spinner } from "./Spinner/Spinner";
+import { UserInfo } from "./UserInfo/UserInfo";
 
 export {
   CustomLink,
@@ -44,4 +45,5 @@ export {
   RequareAuth,
   Slider,
   Spinner,
+  UserInfo,
 };

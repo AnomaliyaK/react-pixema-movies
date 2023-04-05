@@ -2,9 +2,9 @@ import React from "react";
 import { ButtonResetPassword, ErrorMessage, InputEmail, Message, StyledFormResetPassword, SubTitle } from "./styles";
 import { useToggle } from "hooks";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "store";
+import { fetchResetPassword, useAppDispatch } from "store";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { fetchResetPassword } from "store/features/userSlice/userSlice";
+
 import { emailValidate } from "services";
 
 interface FormValues {

@@ -1,6 +1,9 @@
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { CustomLink } from "components/CustomLink/CustomLink";
-import React, { useState } from "react";
-import { ROUTE } from "router/routes";
+import { fetchSignInUser, getUserAuth, useAppDispatch, useAppSelector } from "store";
+import { emailValidate, passwordValidate } from "services";
+import { ROUTE } from "router";
 import {
   ButtonSignIn,
   ErrorMessage,
@@ -11,11 +14,6 @@ import {
   StyledFormSignIn,
   SubTitle,
 } from "./styles";
-import { useNavigate } from "react-router-dom";
-import { getUserAuth, useAppDispatch, useAppSelector } from "store";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { fetchSignInUser } from "store/features/userSlice/userSlice";
-import { emailValidate, passwordValidate } from "services";
 
 interface FormValues {
   email: string;

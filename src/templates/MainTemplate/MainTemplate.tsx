@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { CustomLink, Filters, Footer, InputSearch, Nav } from "components";
+import { CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
 import { ROUTE } from "router";
-import { PixemaLogoDark } from "assets";
+import { ArrowRightIcon, PixemaLogoDark } from "assets";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useAppDispatch, useAppSelector } from "store";
 import { useToggle } from "hooks";
 import { getUserAuth } from "store";
 import {
-  Email,
+  // Email,
   GroupFooter,
   GroupLogo,
   GroupNav,
   SearchInputGroup,
-  SignInLink,
+  // SignInLink,
   StyledMainTemplate,
   StyledOutlet,
   ToggleThemeButtons,
 } from "./styles";
 
 export const MainTemplate = () => {
-  // переключение темы
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
@@ -31,10 +30,8 @@ export const MainTemplate = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
-  // открытие фильтра
   const [isOpen, toggleModal] = useToggle();
   const dispatch = useAppDispatch();
-  const { email, isAuth } = useAppSelector(getUserAuth);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -65,16 +62,8 @@ export const MainTemplate = () => {
 
       <Filters isOpen={isOpen} toggleModal={toggleModal} />
 
-      {/* данные зарегистрированного пользователя */}
-      {isAuth ? (
-        <>
-          <Email>{email}</Email>
-        </>
-      ) : (
-        <CustomLink to={ROUTE.SIGN_IN}>
-          <SignInLink>Sign In</SignInLink>
-        </CustomLink>
-      )}
+      <UserInfo />
+
       <StyledOutlet>
         <Outlet />
       </StyledOutlet>

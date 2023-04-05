@@ -13,6 +13,7 @@ import { ReactComponent as IMDbIcon } from "./icons/IMDb-icon.svg";
 import { ReactComponent as SettingsIcon } from "./icons/settings-icon.svg";
 import { ReactComponent as ShareIcon } from "./icons/share-icon.svg";
 import { ReactComponent as TrendsIcon } from "./icons/trends-icon.svg";
+import { ReactComponent as UserIcon } from "./icons/user-icon.svg";
 
 import BackgroundMovies from "./images/background-movies-image.png";
 import PosterNotFound from "./images/poster-not-found.png";
@@ -34,4 +35,5 @@ export {
   TrendsIcon,
   BackgroundMovies,
   PosterNotFound,
+  UserIcon,
 };

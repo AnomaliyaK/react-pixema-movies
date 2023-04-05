@@ -11,6 +11,8 @@ import { fetchMovieDetails } from "./features/movieDetailsSlice/movieDetailsSlic
 import { fetchMoviesBySearch } from "./features/searchSlice/searchSlice";
 import { fetchTrendsMovies } from "./features/trendsSlice/trendsSlice";
 import { fetchSignUpUser } from "./features/userSlice/userSlice";
+import { fetchSignInUser } from "./features/userSlice/userSlice";
+import { fetchResetPassword } from "./features/userSlice/userSlice";
 import { fetchNextPageTrendsMovies, nextTrendsMoviePage } from "./features/trendsSlice/trendsSlice";
 import type { RootState, AppDispatch } from "./store";
 import { getUserAuth } from "./selectors/userAuthSelector";
@@ -36,6 +38,8 @@ export {
   fetchMoviesBySearch,
   fetchTrendsMovies,
   fetchSignUpUser,
+  fetchSignInUser,
+  fetchResetPassword,
   fetchNextPageTrendsMovies,
   nextTrendsMoviePage,
   moviesReducer,
