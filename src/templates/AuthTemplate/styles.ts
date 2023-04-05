@@ -1,6 +1,6 @@
 import { BackgroundMovies } from "assets";
 import styled from "styled-components";
-import { COLOR } from "ui";
+import { COLOR, MEDIA } from "ui";
 
 export const StyledAuthTemplate = styled.div`
   display: grid;
@@ -19,6 +19,19 @@ export const StyledAuthTemplate = styled.div`
   background-color: ${COLOR.BLACK};
   background-size: cover;
   background-repeat: no-repeat;
+  ${MEDIA.$_1280} {
+    grid-template-areas:
+      "a . . . . ."
+      ". b b b b ."
+      ". c c c c . ";
+  }
+  ${MEDIA.$_768} {
+    padding: 40px 24px 64px;
+    grid-template-areas:
+      "a . . . . ."
+      "b b b b b b"
+      "c c c c c c";
+  }
 
   &::after {
     content: "";
@@ -46,5 +59,8 @@ export const GroupFooter = styled.div`
 `;
 export const StyledOutlet = styled.div`
   grid-area: b;
+  display: grid;
   z-index: 2;
+  justify-items: center;
+  align-items: center;
 `;

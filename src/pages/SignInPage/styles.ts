@@ -11,6 +11,7 @@ export const StyledSignInPage = styled.div`
   color: ${COLOR.WHITE};
   background-color: ${COLOR.DARK};
   border-radius: 10px;
+  align-items: center;
 `;
 export const Title = styled.h2`
   ${Typography.H2}

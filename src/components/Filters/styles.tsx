@@ -11,6 +11,9 @@ export const StyledFilters = styled.div`
   padding: 48px 40px;
   color: ${COLOR.WHITE};
   background-color: ${COLOR.DARK};
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 export const FormFilters = styled.form`
   display: grid;

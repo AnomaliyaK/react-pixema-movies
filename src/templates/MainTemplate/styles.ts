@@ -18,7 +18,52 @@ export const StyledMainTemplate = styled.div`
   color: ${COLOR.WHITE};
   background-color: ${COLOR.BLACK};
 
+  ${MEDIA.$_1440} {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 128px 64px;
+    grid-template-areas:
+      "a b b c "
+      "d e e e "
+      "f e e e ";
+  }
+  ${MEDIA.$_1280} {
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 48px 32px;
+    padding: 40px 176px 56px;
+    grid-template-areas:
+      "a a b b b b b c "
+      "e e e e e e e e"
+      "e e e e e e e e";
+  }
   ${MEDIA.$_1024} {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 56px 1fr 40px;
+    padding: 40px 40px 56px;
+    grid-gap: 48px 32px;
+    grid-template-areas:
+      "a a b b b c "
+      "e e e e e e"
+      "e e e e e e";
+  }
+  ${MEDIA.$_768} {
+    grid-template-columns: repeat(6, 1fr);
+    padding: 40px 40px 56px;
+    grid-gap: 48px 32px;
+    grid-template-areas:
+      "a a b b b c "
+      "e e e e e e"
+      "e e e e e e";
+  }
+  @media (max-width: 500px) {
+    grid-template-rows: 56px 1fr 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 56px 56px 1fr 40px;
+    grid-template-areas:
+      "a  c  "
+      "b b "
+      "e e "
+      "e e ";
+    padding: 40px 120px 56px;
   }
 `;
 
@@ -28,6 +73,9 @@ export const GroupLogo = styled.div`
 
 export const GroupNav = styled.div`
   grid-area: d;
+  ${MEDIA.$_1280} {
+    display: none;
+  }
 `;
 export const ToggleThemeButtons = styled.div`
   justify-content: center;
@@ -45,6 +93,9 @@ export const GroupFooter = styled.div`
   grid-area: f;
   display: grid;
   align-items: center;
+  ${MEDIA.$_1280} {
+    display: none;
+  }
 `;
 
 export const SearchInputGroup = styled.div`
@@ -61,6 +112,9 @@ export const SignInLink = styled.div`
   text-align: center;
   background-color: ${COLOR.PRIMARY};
   border-radius: 10px;
+  ${MEDIA.$_1280} {
+    display: none;
+  }
 `;
 export const StyledOutlet = styled.div`
   grid-area: e;
@@ -68,4 +122,7 @@ export const StyledOutlet = styled.div`
 export const Email = styled.div`
   display: grid;
   align-items: center;
+  ${MEDIA.$_1280} {
+    display: none;
+  }
 `;

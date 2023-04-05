@@ -9,6 +9,11 @@ export const StyledMovieItem = styled.li`
   ${MEDIA.$_1024} {
     gap: 20px;
   }
+
+  @media (max-width: 500px) {
+    /* width: 70%; */
+    justify-items: center;
+  }
 `;
 export const WrapMovieItem = styled.div`
   display: grid;
@@ -36,9 +41,9 @@ export const MovieTitle = styled.span`
   ${Typography.S2};
 
   ${MEDIA.$_1024} {
-    font-size: 14px;
+    /* font-size: 14px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 20px; */
   }
 `;
 export const TrendsLabel = styled.div`

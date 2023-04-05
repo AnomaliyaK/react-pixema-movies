@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLOR, Typography } from "ui";
+import { COLOR, MEDIA, Typography } from "ui";
 
 export const StyledFormSettings = styled.div`
   grid-area: a;
@@ -23,6 +23,13 @@ export const ProfileGroup = styled.div`
   padding: 40px;
   background-color: ${COLOR.DARK};
   border-radius: 10px;
+  ${MEDIA.$_768} {
+    gap: 32px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      " e "
+      " f ";
+  }
 `;
 export const NameGroup = styled.div`
   grid-area: e;
@@ -38,6 +45,14 @@ export const PasswordGroup = styled.div`
   padding: 40px;
   background-color: ${COLOR.DARK};
   border-radius: 10px;
+  ${MEDIA.$_768} {
+    gap: 32px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      " x "
+      " y "
+      "z";
+  }
 `;
 export const PasswordGroupInput = styled.div`
   grid-area: x;
@@ -45,6 +60,9 @@ export const PasswordGroupInput = styled.div`
 export const NewPasswordGroup = styled.div`
   grid-area: y;
   margin-bottom: 24px;
+  ${MEDIA.$_768} {
+    margin-bottom: 0;
+  }
 `;
 export const ConfirmPasswordGroup = styled.div`
   grid-area: z;
@@ -90,6 +108,9 @@ export const BattonGroup = styled.div`
   gap: 40px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: " . . c d ";
+  ${MEDIA.$_1024} {
+    grid-template-areas: " c c d d ";
+  }
 `;
 export const ButtonCancel = styled.button`
   grid-area: c;
