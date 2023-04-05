@@ -11,6 +11,6 @@ export const SettingsPage = () => {
       <FormSettings />
     </StyledSettingsPage>
   ) : (
-    <Navigate to={ROUTE.HOME + ROUTE.SIGN_IN} />
+    <Navigate to={ROUTE.SIGN_IN} />
   );
 };

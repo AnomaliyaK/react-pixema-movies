@@ -25,7 +25,7 @@ interface FormValues {
 export const FormSignIn = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { isLoading, errorMessage } = useAppSelector(getUserAuth);
+  const { errorMessage } = useAppSelector(getUserAuth);
   const {
     register,
     handleSubmit,
