@@ -2,22 +2,21 @@ import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
 import { ROUTE } from "router";
-import { ArrowRightIcon, PixemaLogoDark } from "assets";
-import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useAppDispatch, useAppSelector } from "store";
+import { PixemaLogoDark } from "assets";
+// import { onAuthStateChanged, User } from "firebase/auth";
+// import { auth } from "../../firebase";
+import { useAppDispatch } from "store";
 import { useToggle } from "hooks";
-import { getUserAuth } from "store";
+
 import {
-  // Email,
   GroupFooter,
   GroupLogo,
   GroupNav,
   SearchInputGroup,
-  // SignInLink,
   StyledMainTemplate,
   StyledOutlet,
   ToggleThemeButtons,
+  UserInfoWrap,
 } from "./styles";
 
 export const MainTemplate = () => {
@@ -33,12 +32,12 @@ export const MainTemplate = () => {
   const [isOpen, toggleModal] = useToggle();
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      // dispatch(setUserAuth(user)); закончить этот action
-      console.log(user);
-    });
-  }, [dispatch]);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  // dispatch(setUserAuth(user)); закончить этот action
+  // console.log(user);
+  //   });
+  // }, [dispatch]);
 
   return (
     <StyledMainTemplate>
@@ -62,7 +61,9 @@ export const MainTemplate = () => {
 
       <Filters isOpen={isOpen} toggleModal={toggleModal} />
 
-      <UserInfo />
+      <UserInfoWrap>
+        <UserInfo />
+      </UserInfoWrap>
 
       <StyledOutlet>
         <Outlet />
