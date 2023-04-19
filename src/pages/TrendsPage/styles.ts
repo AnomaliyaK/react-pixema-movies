@@ -27,7 +27,6 @@ export const WrapShowMoreButton = styled.div`
 export const ShowMoreButton = styled.button`
   grid-area: b;
   height: 100%;
-  width: 60%;
   padding: 8px 24px;
   ${Typography.S3}
   font-weight: 500;

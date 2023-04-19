@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { CloseIcon } from "assets";
 import { CustomSelect, InputFilter, Portal, PortalTarget } from "components";
-import { Option } from "types";
+// import { Option } from "types";
 import { ROUTE } from "router";
 import {
   useAppDispatch,
@@ -31,7 +31,13 @@ interface FiltersProps {
   toggleModal: (value: boolean) => void;
 }
 
-interface FormFilterValues {
+interface Option {
+  readonly value: OptionType;
+  readonly label: string;
+}
+type OptionType = "movie" | "series" | "episode";
+
+interface SearchValue {
   s: string;
   y: string;
   type: Option;
@@ -50,13 +56,13 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FormFilterValues> = (filter) => {
+  const onSubmit: SubmitHandler<SearchValue> = (searchValue) => {
     navigate(ROUTE.SEARCH);
     dispatch(deleteMoviesParameters());
     dispatch(wipeOutMovies());
-    dispatch(setMovieTitle(filter.s));
-    dispatch(setMovieYear(filter.y));
-    dispatch(setMovieType(filter.type));
+    dispatch(setMovieTitle(searchValue.s));
+    dispatch(setMovieYear(searchValue.y));
+    dispatch(setMovieType(searchValue.type));
   };
 
   const handleResetFilter = () => {
@@ -68,7 +74,7 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormFilterValues>();
+  } = useForm<SearchValue>();
 
   return (
     <Portal target={PortalTarget.FILTERS}>

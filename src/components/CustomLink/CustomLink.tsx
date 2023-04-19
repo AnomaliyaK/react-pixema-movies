@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { NavLink, useMatch } from "react-router-dom";
 import { ROUTE } from "router";
+import { StyledCustomLink } from "./styles";
 
 interface CustomLinkProps {
   children: ReactNode;
@@ -8,6 +9,10 @@ interface CustomLinkProps {
 }
 
 export const CustomLink = ({ children, to }: CustomLinkProps) => {
-  const match = useMatch(to);
-  return <NavLink to={to}>{children}</NavLink>;
+  const isActive = useMatch(to);
+  return (
+    <StyledCustomLink to={to} $isActive={isActive}>
+      {children}
+    </StyledCustomLink>
+  );
 };

@@ -8,6 +8,11 @@ import { fetchSignOut } from "store/features/userSlice/userSlice";
 
 export const UserInfo = () => {
   const { email, isAuth } = useAppSelector(getUserAuth);
+
+  const userAuth = JSON.parse(localStorage.getItem("userAuth")!);
+  if (userAuth) {
+    userAuth.isAuth = false;
+  }
   // const [toggle, setToggle] = useToggle(false);
   const dispatch = useAppDispatch();
   const handleOut = () => {

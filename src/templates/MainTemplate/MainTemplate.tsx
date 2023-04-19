@@ -5,7 +5,7 @@ import { ROUTE } from "router";
 import { PixemaLogoDark } from "assets";
 // import { onAuthStateChanged, User } from "firebase/auth";
 // import { auth } from "../../firebase";
-import { useAppDispatch } from "store";
+// import { useAppDispatch } from "store";
 import { useToggle } from "hooks";
 
 import {
@@ -30,14 +30,7 @@ export const MainTemplate = () => {
   };
 
   const [isOpen, toggleModal] = useToggle();
-  const dispatch = useAppDispatch();
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  // dispatch(setUserAuth(user)); закончить этот action
-  // console.log(user);
-  //   });
-  // }, [dispatch]);
+  // const dispatch = useAppDispatch();
 
   return (
     <StyledMainTemplate>
@@ -71,3 +64,10 @@ export const MainTemplate = () => {
     </StyledMainTemplate>
   );
 };
+
+// useEffect(() => {
+//   onAuthStateChanged(auth, (user) => {
+// dispatch(setUserAuth(user)); закончить этот action
+// console.log(user);
+//   });
+// }, [dispatch]);
