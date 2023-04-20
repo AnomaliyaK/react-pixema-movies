@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import { transformMovies } from "mappers";
+import { getRandomThemeMovie } from "services";
 import { Movie } from "types";
 
 interface MoviesState {
@@ -8,6 +9,7 @@ interface MoviesState {
   page: number;
   isLoading: boolean;
   error: string | null;
+  themeMovies: ReturnType<typeof getRandomThemeMovie>;
 }
 
 const initialState: MoviesState = {
@@ -15,14 +17,15 @@ const initialState: MoviesState = {
   page: 1,
   isLoading: false,
   error: null,
+  themeMovies: getRandomThemeMovie(),
 };
 
-export const fetchAllMovies = createAsyncThunk<Movie[], { page: number }, { rejectValue: string }>(
+export const fetchAllMovies = createAsyncThunk<Movie[], { themeMovies: string }, { rejectValue: string }>(
   "movies/fetchAllMovies",
   async (params, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `https://www.omdbapi.com/?s=world&type=&plot=&y=&apikey=c28df97b&page=${params.page}`,
+        `https://www.omdbapi.com/?s=${params.themeMovies}&type=&plot=&y=&apikey=c28df97b&page=`,
       );
       const transformedMovies = transformMovies(data);
       return transformedMovies;
@@ -33,22 +36,23 @@ export const fetchAllMovies = createAsyncThunk<Movie[], { page: number }, { reje
   },
 );
 
-export const fetchNextPageMovies = createAsyncThunk<Movie[], { page: number }, { rejectValue: string }>(
-  "movies/fetchNextPageMovies",
-  async (params, { rejectWithValue }) => {
-    try {
-      const { data } = await axios.get(
-        `https://www.omdbapi.com/?s=world&type=&plot=&y=&apikey=c28df97b&page=${params.page + 1}`,
-      );
+export const fetchNextPageMovies = createAsyncThunk<
+  Movie[],
+  { themeMovies: string; page: number },
+  { rejectValue: string }
+>("movies/fetchNextPageMovies", async (params, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(
+      `https://www.omdbapi.com/?s=${params.themeMovies}&type=&plot=&y=&apikey=c28df97b&page=${params.page + 1}`,
+    );
 
-      const transformedMovies = transformMovies(data);
-      return transformedMovies;
-    } catch (error) {
-      const { message } = error as AxiosError;
-      return rejectWithValue(message);
-    }
-  },
-);
+    const transformedMovies = transformMovies(data);
+    return transformedMovies;
+  } catch (error) {
+    const { message } = error as AxiosError;
+    return rejectWithValue(message);
+  }
+});
 
 const moviesSlice = createSlice({
   name: "movies",

@@ -14,22 +14,29 @@ export const FavoriteButton = styled.button`
   width: 50%;
   height: 100%;
   padding: 24px 19px;
-  color: ${COLOR.LIGHT};
+  fill: ${COLOR.LIGHT};
   background-color: ${COLOR.GRAPHITE};
   border-radius: 10px 0 0 10px;
   border: none;
   border-right: 2px solid ${COLOR.BLACK};
   cursor: pointer;
+
+  &:hover {
+    background-color: ${COLOR.PRIMARY};
+  }
 `;
 export const ShareButton = styled.button`
   width: 50%;
   height: 100%;
   padding: 19px;
-  color: ${COLOR.LIGHT};
+  fill: ${COLOR.LIGHT};
   background-color: ${COLOR.GRAPHITE};
   border-radius: 0 10px 10px 0;
   border: none;
   cursor: pointer;
+  &:hover {
+    background-color: ${COLOR.PRIMARY};
+  }
 `;
 export const PosterDetails = styled.img`
   width: 266px;

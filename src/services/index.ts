@@ -1,3 +1,4 @@
 import { emailValidate, nameValidate, passwordValidate } from "./validateFunctions";
+import { getRandomThemeMovie } from "./randomThemeMovies";
 
-export { emailValidate, nameValidate, passwordValidate };
+export { emailValidate, nameValidate, passwordValidate, getRandomThemeMovie };

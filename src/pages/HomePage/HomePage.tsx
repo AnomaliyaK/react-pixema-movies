@@ -4,16 +4,16 @@ import { fetchAllMovies, fetchNextPageMovies, getMovies, nextMoviePage, useAppDi
 import { ShowMoreButton, StyledHomePage, WrapMovieList, WrapShowMoreButton } from "./styles";
 
 export const HomePage = () => {
-  const { isLoading, movies, error, page } = useAppSelector(getMovies);
+  const { isLoading, movies, error, page, themeMovies } = useAppSelector(getMovies);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllMovies({ page }));
+    dispatch(fetchAllMovies({ themeMovies }));
   }, [dispatch]);
 
   const handleMovies = () => {
     dispatch(nextMoviePage(true));
-    dispatch(fetchNextPageMovies({ page }));
+    dispatch(fetchNextPageMovies({ themeMovies, page }));
   };
 
   return (
