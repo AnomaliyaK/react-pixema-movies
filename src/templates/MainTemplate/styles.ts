@@ -46,18 +46,18 @@ export const StyledMainTemplate = styled.div`
       "e e e e e e";
   }
   ${MEDIA.$_768} {
-    grid-template-columns: repeat(6, 1fr);
-    padding: 40px 40px 56px;
-    grid-gap: 48px 32px;
-    grid-template-areas:
-      "a a b b b c "
-      "e e e e e e"
-      "e e e e e e";
-  }
-  @media (max-width: 500px) {
     display: grid;
+    grid-template-columns: repeat(2, 272px);
+    grid-template-rows: 56px 56px 1fr 40px;
+    grid-template-areas:
+      "a  c  "
+      "b b "
+      "e e "
+      "e e ";
     justify-content: center;
-    width: 272px;
+  }
+  ${MEDIA.$_530} {
+    display: grid;
     grid-template-columns: repeat(2, 136px);
     grid-template-rows: 56px 56px 1fr 40px;
     grid-template-areas:
@@ -66,6 +66,7 @@ export const StyledMainTemplate = styled.div`
       "e e "
       "e e ";
     padding: 40px 40px 56px;
+    justify-content: center;
   }
 `;
 

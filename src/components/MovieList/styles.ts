@@ -20,7 +20,7 @@ export const StyledMovieList = styled.ul`
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
-  @media (max-width: 500px) {
+  ${MEDIA.$_530} {
     grid-template-columns: repeat(1, 1fr);
     gap: 32px;
   }

@@ -8,8 +8,6 @@ export const StyledHomePage = styled.div`
   grid-template-areas:
     "a"
     "b";
-  width: 100%;
-  height: 100%;
 `;
 export const WrapMovieList = styled.div`
   grid-area: a;
@@ -26,6 +24,10 @@ export const WrapShowMoreButton = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: " . b .";
   }
+  ${MEDIA.$_768} {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "b";
+  }
 `;
 export const ShowMoreButton = styled.button`
   grid-area: b;
@@ -38,6 +40,7 @@ export const ShowMoreButton = styled.button`
   border: none;
   cursor: pointer;
 
-  ${MEDIA.$_1440} {
+  ${MEDIA.$_768} {
+    width: 100%;
   }
 `;

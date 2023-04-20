@@ -10,9 +10,8 @@ export const StyledMovieItem = styled.li`
     gap: 20px;
   }
 
-  @media (max-width: 500px) {
-    /* width: 70%; */
-    justify-items: center;
+  ${MEDIA.$_530} {
+    /* justify-items: center; */
   }
 `;
 export const WrapMovieItem = styled.div`
@@ -26,7 +25,19 @@ export const WrapMovieItem = styled.div`
   }
 `;
 
-export const WrapPoster = styled.div``;
+export const WrapPoster = styled.div`
+  max-height: 357px;
+  max-width: 266px;
+
+  ${MEDIA.$_768} {
+    max-height: 365px;
+    max-width: 272px;
+  }
+  ${MEDIA.$_530} {
+    max-width: 100%;
+    max-height: 100%;
+  }
+`;
 
 export const Poster = styled.img`
   width: 100%;
@@ -41,9 +52,6 @@ export const MovieTitle = styled.span`
   ${Typography.S2};
 
   ${MEDIA.$_1024} {
-    /* font-size: 14px;
-    font-weight: 500;
-    line-height: 20px; */
   }
 `;
 export const TrendsLabel = styled.div`
