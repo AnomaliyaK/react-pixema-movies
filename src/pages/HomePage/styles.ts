@@ -40,6 +40,10 @@ export const ShowMoreButton = styled.button`
   border: none;
   cursor: pointer;
 
+  ${MEDIA.$_1440} {
+    width: 100%;
+  }
+
   ${MEDIA.$_768} {
     width: 100%;
   }

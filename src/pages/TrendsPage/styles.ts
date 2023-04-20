@@ -9,8 +9,8 @@ export const StyledTrendsPage = styled.div`
   grid-template-areas:
     "a"
     "b";
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 `;
 export const WrapMovieList = styled.div`
   grid-area: a;
@@ -23,6 +23,14 @@ export const WrapShowMoreButton = styled.div`
   grid-template-areas: ". . b . .";
   justify-items: center;
   align-items: center;
+  ${MEDIA.$_1440} {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: " . b .";
+  }
+  ${MEDIA.$_768} {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "b";
+  }
 `;
 export const ShowMoreButton = styled.button`
   grid-area: b;
@@ -37,6 +45,9 @@ export const ShowMoreButton = styled.button`
   padding: 8px 24px;
 
   ${MEDIA.$_1440} {
+    width: 100%;
+  }
+  ${MEDIA.$_768} {
     width: 100%;
   }
 `;
