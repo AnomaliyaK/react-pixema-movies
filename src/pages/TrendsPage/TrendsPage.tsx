@@ -5,16 +5,16 @@ import { fetchNextPageTrendsMovies } from "store";
 import { ShowMoreButton, StyledTrendsPage, WrapMovieList, WrapShowMoreButton } from "./styles";
 
 export const TrendsPage = () => {
-  const { isLoading, trends, error, page, year } = useAppSelector(getTrendsMovies);
+  const { isLoading, trends, error, page, year, themeMovies } = useAppSelector(getTrendsMovies);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchTrendsMovies({ year }));
+    dispatch(fetchTrendsMovies({ themeMovies, year }));
   }, [dispatch]);
 
   const handleTrendsMovies = () => {
     dispatch(nextTrendsMoviePage(true));
-    dispatch(fetchNextPageTrendsMovies({ page }));
+    dispatch(fetchNextPageTrendsMovies({ themeMovies, year, page }));
   };
 
   return (
