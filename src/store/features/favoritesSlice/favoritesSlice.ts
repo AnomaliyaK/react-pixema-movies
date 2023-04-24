@@ -14,9 +14,8 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addFavorites(state, { payload }: PayloadAction<MovieDetails>) {
-      // const isAdded = state.favorites.find((movie) => movie.id === payload.id);
-      // if (!isAdded) state.favorites.push(payload);
-      state.favorites.push(payload);
+      const isAdded = state.favorites.find((movie) => movie.id === payload.id);
+      if (!isAdded) state.favorites.push(payload);
       localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
     deleteFavorites(state, { payload }: PayloadAction<string>) {

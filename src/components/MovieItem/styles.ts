@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { COLOR, MEDIA, Typography } from "ui";
 
 export const StyledMovieItem = styled.li`
+  position: relative;
   display: grid;
   gap: 24px;
   width: 100%;
@@ -60,19 +61,20 @@ export const MovieTitle = styled.span`
   }
 `;
 export const TrendLabel = styled.div`
-  position: absolute;
+  position: fixed;
   left: 20px;
   top: 20px;
-  padding: 6px 8px;
+  padding: 4px 13px;
   background-color: ${COLOR.PRIMARY};
   border-radius: 6px;
 `;
 
 export const FavoriteLabel = styled.div`
-  /* position: absolute; */
-  left: 20px;
+  position: absolute;
+  right: 20px;
   top: 20px;
-  padding: 6px 8px;
-  background-color: ${COLOR.PRIMARY};
+  padding: 4px 13px;
+  background-color: ${COLOR.GRAPHITE};
+  fill: ${COLOR.PRIMARY};
   border-radius: 6px;
 `;

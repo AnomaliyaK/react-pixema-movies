@@ -10,7 +10,7 @@ export const StyledMovieDetailsCard = styled.div`
 export const PosterWithButton = styled.div`
   width: 266px;
 `;
-export const FavoriteButton = styled.button`
+export const AddFavoriteButton = styled.button`
   width: 50%;
   height: 100%;
   padding: 24px 19px;
@@ -21,10 +21,27 @@ export const FavoriteButton = styled.button`
   border-right: 2px solid ${COLOR.BLACK};
   cursor: pointer;
 
-  /* &:hover {
-    background-color: ${COLOR.PRIMARY};
-  } */
+  &:active {
+    fill: ${COLOR.PRIMARY};
+  }
 `;
+
+export const DeleteFavoriteButton = styled.button`
+  width: 50%;
+  height: 100%;
+  padding: 24px 19px;
+  fill: ${COLOR.PRIMARY};
+  background-color: ${COLOR.GRAPHITE};
+  border-radius: 10px 0 0 10px;
+  border: none;
+  border-right: 2px solid ${COLOR.BLACK};
+  cursor: pointer;
+
+  &:active {
+    fill: ${COLOR.LIGHT};
+  }
+`;
+
 export const ShareButton = styled.button`
   width: 50%;
   height: 100%;

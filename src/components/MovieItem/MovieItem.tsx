@@ -6,20 +6,20 @@ import { FavoritesIcon, PosterNotFound, TrendsIcon } from "assets";
 
 interface MovieItemProps {
   movie: Movie;
-  isTrend?: boolean;
-  isFavorite?: boolean;
+  isTrends?: boolean;
+  isFavorites?: boolean;
 }
 
-export const MovieItem = ({ movie: { title, poster, id }, isTrend, isFavorite }: MovieItemProps) => {
+export const MovieItem = ({ movie: { title, poster, id }, isTrends, isFavorites }: MovieItemProps) => {
   return (
     <StyledMovieItem>
       <Link to={generatePath(ROUTE.DETAILS, { title: title })}>
-        {isTrend && (
+        {isTrends && (
           <TrendLabel>
             <TrendsIcon />
           </TrendLabel>
         )}
-        {isFavorite && (
+        {isFavorites && (
           <FavoriteLabel>
             <FavoritesIcon />
           </FavoriteLabel>

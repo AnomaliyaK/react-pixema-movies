@@ -1,10 +1,11 @@
 import { FavoritesIcon, IMDbIcon, ShareIcon } from "assets";
-import { MovieDetailsItem, Slider } from "components";
+import { Loader, MovieDetailsItem, Slider } from "components";
 import { Movie, MovieDetails } from "types";
 import {
+  AddFavoriteButton,
   Badges,
+  DeleteFavoriteButton,
   DescriptionMovie,
-  FavoriteButton,
   FullDescription,
   GenreMovie,
   GroupButton,
@@ -21,12 +22,17 @@ import {
   TitleMovie,
   TittleSlider,
 } from "./styles";
-import { addFavorites, deleteFavorites, getMovieDetails, getUserAuth, useAppDispatch, useAppSelector } from "store";
+import {
+  addFavorites,
+  deleteFavorites,
+  getFavoritesMovies,
+  getMovieDetails,
+  getUserAuth,
+  useAppDispatch,
+  useAppSelector,
+} from "store";
 import { useNavigate } from "react-router-dom";
-import { useToggle } from "hooks";
-import { useState } from "react";
 import { ROUTE } from "router";
-import { COLOR } from "ui";
 
 interface MovieDetailsCardProps {
   movieDetails: MovieDetails;
@@ -56,27 +62,34 @@ export const MovieDetailsCard = ({
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { movieDetails, isLoading } = useAppSelector(getMovieDetails);
-  const [buttonColor, setButtonColor] = useState(COLOR.LIGHT);
-  const [isOpen, setToggle] = useToggle(false);
+  const { favorites } = useAppSelector(getFavoritesMovies);
 
   const handleAddFavorite = (): void => {
     isAuth ? dispatch(addFavorites(movieDetails)) : navigate(ROUTE.SIGN_IN);
-    setButtonColor(COLOR.PRIMARY);
-    setToggle();
   };
 
   const handleDeleteFavorite = (): void => {
     dispatch(deleteFavorites(movieDetails.id));
   };
 
+  const isFavorite = (): boolean => favorites.some((favorite) => favorite.id === movieDetails.id);
+
   return (
     <StyledMovieDetailsCard>
+      {isLoading && <Loader />}
       <PosterWithButton>
         <PosterDetails src={poster} alt={title} />
         <GroupButton>
-          <FavoriteButton type="button" onClick={handleAddFavorite} style={{ fill: buttonColor }}>
-            <FavoritesIcon />
-          </FavoriteButton>
+          {isFavorite() ? (
+            <DeleteFavoriteButton type="button" onClick={handleDeleteFavorite}>
+              <FavoritesIcon />
+            </DeleteFavoriteButton>
+          ) : (
+            <AddFavoriteButton type="button" onClick={handleAddFavorite}>
+              <FavoritesIcon />
+            </AddFavoriteButton>
+          )}
+
           <ShareButton>
             <ShareIcon />
           </ShareButton>
@@ -113,3 +126,15 @@ export const MovieDetailsCard = ({
     </StyledMovieDetailsCard>
   );
 };
+
+// {
+//   isFavorite() ? (
+//     <RemoveFromFavoritesButton onClick={handleRemoveFromFavorites}>
+//       <FavoritesMark />
+//     </RemoveFromFavoritesButton>
+//   ) : (
+//     <SaveToFavoritesButton onClick={handleAddToFavorites}>
+//       <FavoritesMark />
+//     </SaveToFavoritesButton>
+//   );
+// }
