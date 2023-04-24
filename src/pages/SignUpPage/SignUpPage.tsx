@@ -1,4 +1,4 @@
-import { LinkSignIn, StyledSignUpPage, TextLink, Title } from "./styles";
+import { LinkSignIn, LinkSignUp, StyledSignUpPage, TextLink, Title } from "./styles";
 import { CustomLink, FormSignUp } from "components";
 import { ROUTE } from "router";
 
@@ -9,9 +9,9 @@ export const SignUpPage = () => {
       <FormSignUp />
       <TextLink>
         Already have an account?
-        <CustomLink to={ROUTE.SIGN_IN}>
-          <LinkSignIn>Sign In</LinkSignIn>
-        </CustomLink>
+        <LinkSignUp to={"../"}>
+          <LinkSignIn> Sign In</LinkSignIn>
+        </LinkSignUp>
       </TextLink>
     </StyledSignUpPage>
   );

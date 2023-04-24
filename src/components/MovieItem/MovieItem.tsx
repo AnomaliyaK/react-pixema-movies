@@ -13,7 +13,7 @@ interface MovieItemProps {
 export const MovieItem = ({ movie: { title, poster, id }, isTrends, isFavorites }: MovieItemProps) => {
   return (
     <StyledMovieItem>
-      <Link to={generatePath(ROUTE.DETAILS, { title: title })}>
+      <Link to={generatePath(ROUTE.HOME + ROUTE.DETAILS, { title: title })}>
         {isTrends && (
           <TrendLabel>
             <TrendsIcon />

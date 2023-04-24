@@ -126,15 +126,3 @@ export const MovieDetailsCard = ({
     </StyledMovieDetailsCard>
   );
 };
-
-// {
-//   isFavorite() ? (
-//     <RemoveFromFavoritesButton onClick={handleRemoveFromFavorites}>
-//       <FavoritesMark />
-//     </RemoveFromFavoritesButton>
-//   ) : (
-//     <SaveToFavoritesButton onClick={handleAddToFavorites}>
-//       <FavoritesMark />
-//     </SaveToFavoritesButton>
-//   );
-// }

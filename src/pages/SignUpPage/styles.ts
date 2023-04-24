@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { COLOR, Typography } from "ui";
 
@@ -23,5 +24,11 @@ export const TextLink = styled.p`
 `;
 
 export const LinkSignIn = styled.span`
+  color: ${COLOR.PRIMARY};
+`;
+
+export const LinkSignUp = styled(Link)`
+  ${Typography.S3}
+  text-decoration: none;
   color: ${COLOR.PRIMARY};
 `;

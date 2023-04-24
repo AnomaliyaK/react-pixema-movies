@@ -58,8 +58,9 @@ const movieDetailsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchMovieDetails.pending, (state, { payload }) => {
+    builder.addCase(fetchMovieDetails.pending, (state) => {
       state.isLoading = true;
+      state.error = null;
     });
     builder.addCase(fetchMovieDetails.fulfilled, (state, { payload }) => {
       state.isLoading = false;

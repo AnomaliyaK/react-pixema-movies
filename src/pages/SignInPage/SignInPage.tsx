@@ -10,7 +10,7 @@ export const SignInPage = () => {
       <TextLink>
         Don't have an account?
         <CustomLink to={ROUTE.SIGN_UP}>
-          <LinkSignUp>Sign Up</LinkSignUp>
+          <LinkSignUp> Sign Up</LinkSignUp>
         </CustomLink>
       </TextLink>
     </StyledSignInPage>
