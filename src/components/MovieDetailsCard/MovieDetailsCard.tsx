@@ -1,5 +1,5 @@
 import { FavoritesIcon, IMDbIcon, ShareIcon } from "assets";
-import { Loader, MovieDetailsItem, Slider } from "components";
+import { Loader, MovieDetailsItem, SliderRecomendation } from "components";
 import { Movie, MovieDetails } from "types";
 import {
   AddFavoriteButton,
@@ -20,7 +20,6 @@ import {
   ShareButton,
   StyledMovieDetailsCard,
   TitleMovie,
-  TittleSlider,
 } from "./styles";
 import {
   addFavorites,
@@ -31,7 +30,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "store";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 
 interface MovieDetailsCardProps {
@@ -65,7 +64,7 @@ export const MovieDetailsCard = ({
   const { favorites } = useAppSelector(getFavoritesMovies);
 
   const handleAddFavorite = (): void => {
-    isAuth ? dispatch(addFavorites(movieDetails)) : navigate(ROUTE.SIGN_IN);
+    isAuth ? dispatch(addFavorites(movieDetails)) : navigate(ROUTE.HOME + ROUTE.SIGN_IN);
   };
 
   const handleDeleteFavorite = (): void => {
@@ -89,7 +88,6 @@ export const MovieDetailsCard = ({
               <FavoritesIcon />
             </AddFavoriteButton>
           )}
-
           <ShareButton>
             <ShareIcon />
           </ShareButton>
@@ -120,8 +118,7 @@ export const MovieDetailsCard = ({
         </FullDescription>
       </DescriptionMovie>
       <GroupSlider>
-        <TittleSlider>Recommendations</TittleSlider>
-        <Slider />
+        <SliderRecomendation movies={movies} />
       </GroupSlider>
     </StyledMovieDetailsCard>
   );

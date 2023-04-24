@@ -24,7 +24,7 @@ export const themeColors = css`
     --dark: #80858b;
     --graphite: #afb2b6;
     --error: #ff5154;
-    --light: #afb2b6;
+    --light: #80858b;
     --white: #000000;
     --green: #00a340;
     --yellow: #f3a608;

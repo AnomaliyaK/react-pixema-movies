@@ -38,7 +38,7 @@ export const DeleteFavoriteButton = styled.button`
   cursor: pointer;
 
   &:active {
-    fill: ${COLOR.LIGHT};
+    fill: ${COLOR.SECONDARY};
   }
 `;
 
@@ -112,5 +112,3 @@ export const GroupButton = styled.div`
   height: 56px;
 `;
 export const GroupSlider = styled.div``;
-
-export const TittleSlider = styled.h2``;

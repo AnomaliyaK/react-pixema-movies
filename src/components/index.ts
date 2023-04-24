@@ -18,7 +18,8 @@ import { Nav } from "./Nav/Nav";
 import { Portal } from "./Portal/Portal";
 import { PortalTarget } from "./Portal/Portal";
 import { RequareAuth } from "./RequareAuth/RequareAuth";
-import { Slider } from "./Slider/Slider";
+import { SliderRecomendation } from "./SliderRecomendation/SliderRecomendation";
+import { Slide } from "./Slide/Slide";
 import { Spinner } from "./Spinner/Spinner";
 import { UserInfo } from "./UserInfo/UserInfo";
 
@@ -43,7 +44,8 @@ export {
   Portal,
   PortalTarget,
   RequareAuth,
-  Slider,
+  SliderRecomendation,
+  Slide,
   Spinner,
   UserInfo,
 };
