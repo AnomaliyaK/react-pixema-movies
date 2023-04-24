@@ -21,9 +21,9 @@ export const FavoriteButton = styled.button`
   border-right: 2px solid ${COLOR.BLACK};
   cursor: pointer;
 
-  &:hover {
+  /* &:hover {
     background-color: ${COLOR.PRIMARY};
-  }
+  } */
 `;
 export const ShareButton = styled.button`
   width: 50%;

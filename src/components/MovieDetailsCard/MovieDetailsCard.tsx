@@ -1,6 +1,6 @@
 import { FavoritesIcon, IMDbIcon, ShareIcon } from "assets";
 import { MovieDetailsItem, Slider } from "components";
-import { MovieDetails } from "types";
+import { Movie, MovieDetails } from "types";
 import {
   Badges,
   DescriptionMovie,
@@ -21,12 +21,20 @@ import {
   TitleMovie,
   TittleSlider,
 } from "./styles";
+import { addFavorites, deleteFavorites, getMovieDetails, getUserAuth, useAppDispatch, useAppSelector } from "store";
+import { useNavigate } from "react-router-dom";
+import { useToggle } from "hooks";
+import { useState } from "react";
+import { ROUTE } from "router";
+import { COLOR } from "ui";
 
 interface MovieDetailsCardProps {
   movieDetails: MovieDetails;
+  movies: Movie[];
 }
 
 export const MovieDetailsCard = ({
+  movies,
   movieDetails: {
     title,
     genre,
@@ -44,12 +52,29 @@ export const MovieDetailsCard = ({
     writers,
   },
 }: MovieDetailsCardProps) => {
+  const { isAuth } = useAppSelector(getUserAuth);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { movieDetails, isLoading } = useAppSelector(getMovieDetails);
+  const [buttonColor, setButtonColor] = useState(COLOR.LIGHT);
+  const [isOpen, setToggle] = useToggle(false);
+
+  const handleAddFavorite = (): void => {
+    isAuth ? dispatch(addFavorites(movieDetails)) : navigate(ROUTE.SIGN_IN);
+    setButtonColor(COLOR.PRIMARY);
+    setToggle();
+  };
+
+  const handleDeleteFavorite = (): void => {
+    dispatch(deleteFavorites(movieDetails.id));
+  };
+
   return (
     <StyledMovieDetailsCard>
       <PosterWithButton>
         <PosterDetails src={poster} alt={title} />
         <GroupButton>
-          <FavoriteButton>
+          <FavoriteButton type="button" onClick={handleAddFavorite} style={{ fill: buttonColor }}>
             <FavoritesIcon />
           </FavoriteButton>
           <ShareButton>

@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { MEDIA } from "ui";
 
 export const StyledFavoritesPage = styled.div`
-  display: grid;
+  /* display: grid;
   height: 100%;
   justify-items: center;
-  align-items: center;
+  align-items: center; */
 `;
 
 export const WrapNotFavoriteMovies = styled.div`

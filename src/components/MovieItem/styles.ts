@@ -69,7 +69,7 @@ export const TrendLabel = styled.div`
 `;
 
 export const FavoriteLabel = styled.div`
-  position: absolute;
+  /* position: absolute; */
   left: 20px;
   top: 20px;
   padding: 6px 8px;
