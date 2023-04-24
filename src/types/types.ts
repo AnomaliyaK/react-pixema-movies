@@ -62,6 +62,7 @@ interface RatingsApi {
 interface MovieDetails {
   title: string;
   id: string;
+  type: string;
   genre: string;
   runtime: string;
   imdbRating: string;

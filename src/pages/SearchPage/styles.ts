@@ -23,11 +23,18 @@ export const WrapShowMoreButton = styled.div`
   grid-template-areas: ". . b . .";
   justify-items: center;
   align-items: center;
+  ${MEDIA.$_1440} {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: " . b .";
+  }
+  ${MEDIA.$_768} {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "b";
+  }
 `;
 export const ShowMoreButton = styled.button`
   grid-area: b;
   height: 100%;
-  width: 60%;
   padding: 8px 24px;
   ${Typography.S3}
   font-weight: 500;
@@ -37,6 +44,9 @@ export const ShowMoreButton = styled.button`
   cursor: pointer;
 
   ${MEDIA.$_1440} {
+    width: 100%;
+  }
+  ${MEDIA.$_768} {
     width: 100%;
   }
 `;

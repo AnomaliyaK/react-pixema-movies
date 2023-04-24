@@ -4,13 +4,13 @@ import { ErrorMessage, Loader, MovieList, Spinner } from "components";
 import { getMoviesBySearch, useAppDispatch, useAppSelector } from "store";
 import {
   fetchMoviesBySearch,
-  // fetchNextPageMoviesBySearch,
-  // nextPageMoviesBySearch,
+  fetchNextPageMoviesBySearch,
+  nextPageMoviesBySearch,
 } from "store/features/searchSlice/searchSlice";
 import { ShowMoreButton, StyledSearchPage, WrapMovieList, WrapShowMoreButton } from "./styles";
 
 export const SearchPage = () => {
-  const { isLoading, movies, error, searchValue } = useAppSelector(getMoviesBySearch);
+  const { isLoading, movies, error, searchValue, page } = useAppSelector(getMoviesBySearch);
   // const { register } = useForm();
   const dispatch = useAppDispatch();
 
@@ -18,10 +18,10 @@ export const SearchPage = () => {
     if (searchValue.s || searchValue.y || searchValue.type) dispatch(fetchMoviesBySearch(searchValue));
   }, [dispatch, searchValue]);
 
-  // const handleSearchByMovies = () => {
-  //   dispatch(nextPageMoviesBySearch(true));
-  //   dispatch(fetchNextPageMoviesBySearch(searchValue));
-  // };
+  const handleSearchByMovies = () => {
+    dispatch(nextPageMoviesBySearch(true));
+    dispatch(fetchNextPageMoviesBySearch({ searchValue, page }));
+  };
 
   return (
     <StyledSearchPage>
@@ -29,9 +29,7 @@ export const SearchPage = () => {
       {error && <ErrorMessage message={error} />}
       <WrapMovieList> {movies && movies.length > 0 && <MovieList movies={movies} />}</WrapMovieList>
       <WrapShowMoreButton>
-        <ShowMoreButton
-        //  onClick={handleSearchByMovies}
-        >
+        <ShowMoreButton onClick={handleSearchByMovies}>
           Show more
           {isLoading && <Spinner />}
         </ShowMoreButton>

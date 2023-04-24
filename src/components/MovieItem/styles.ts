@@ -5,13 +5,18 @@ export const StyledMovieItem = styled.li`
   display: grid;
   gap: 24px;
   width: 100%;
+  transition: 0.6s;
+
+  &:hover {
+    scale: 1.05;
+    transition: 0.3s;
+  }
 
   ${MEDIA.$_1024} {
     gap: 20px;
   }
 
   ${MEDIA.$_530} {
-    /* justify-items: center; */
   }
 `;
 export const WrapMovieItem = styled.div`
@@ -54,7 +59,16 @@ export const MovieTitle = styled.span`
   ${MEDIA.$_1024} {
   }
 `;
-export const TrendsLabel = styled.div`
+export const TrendLabel = styled.div`
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 6px 8px;
+  background-color: ${COLOR.PRIMARY};
+  border-radius: 6px;
+`;
+
+export const FavoriteLabel = styled.div`
   position: absolute;
   left: 20px;
   top: 20px;

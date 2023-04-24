@@ -4,6 +4,7 @@ export const transformMovieDetails = (movieDetails: MovieDetailsApi): MovieDetai
   return {
     title: movieDetails.Title,
     id: movieDetails.imdbID,
+    type: movieDetails.Type,
     genre: movieDetails.Genre,
     runtime: movieDetails.Runtime,
     imdbRating: movieDetails.imdbRating,

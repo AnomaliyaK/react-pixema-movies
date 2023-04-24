@@ -13,6 +13,7 @@ import { Loader } from "./Loader/Loader";
 import { MovieDetailsCard } from "./MovieDetailsCard/MovieDetailsCard";
 import { MovieDetailsItem } from "./MovieDetailsItem/MovieDetailsItem";
 import { MovieList } from "./MovieList/MovieList";
+import { FavoriteMoviesList } from "./FavoriteMoviesList/FavoriteMoviesList";
 import { MovieItem } from "./MovieItem/MovieItem";
 import { Nav } from "./Nav/Nav";
 import { Portal } from "./Portal/Portal";
@@ -38,6 +39,7 @@ export {
   MovieDetailsCard,
   MovieDetailsItem,
   MovieList,
+  FavoriteMoviesList,
   MovieItem,
   Nav,
   Portal,

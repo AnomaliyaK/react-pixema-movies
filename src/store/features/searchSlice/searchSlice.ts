@@ -41,23 +41,24 @@ export const fetchMoviesBySearch = createAsyncThunk<Movie[], SearchValue, { reje
   },
 );
 
-// export const fetchNextPageMoviesBySearch = createAsyncThunk<Movie[], SearchValue, { rejectValue: string }>(
-//   "search/fetchNextPageMoviesBySearch",
-//   async (params, { rejectWithValue }) => {
-//     try {
-//       const { data } = await axios.get(
-//         `https://www.omdbapi.com/?s=${params.s}&type=${params.type}&plot=&y=${params.y}&apikey=c28df97b&page=${
-//           params.page + 1
-//         }`,
-//       );
-//       const transformedMovies = transformMovies(data);
-//       return transformedMovies;
-//     } catch (error) {
-//       const { message } = error as AxiosError;
-//       return rejectWithValue(message);
-//     }
-//   },
-// );
+export const fetchNextPageMoviesBySearch = createAsyncThunk<
+  Movie[],
+  { searchValue: SearchValue; page: number },
+  { rejectValue: string }
+>("search/fetchNextPageMoviesBySearch", async (params, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(
+      `https://www.omdbapi.com/?s=${params.searchValue.s}&type=${params.searchValue.type}&plot=&y=${
+        params.searchValue.y
+      }&apikey=c28df97b&page=${params.page + 1}`,
+    );
+    const transformedMovies = transformMovies(data);
+    return transformedMovies;
+  } catch (error) {
+    const { message } = error as AxiosError;
+    return rejectWithValue(message);
+  }
+});
 
 const searchSlice = createSlice({
   name: "search",
@@ -85,9 +86,9 @@ const searchSlice = createSlice({
         y: "",
       };
     },
-    // nextPageMoviesBySearch(state, { payload }) {
-    //   payload ? (state.searchValue.page = state.searchValue.page + 1) : (state.searchValue.page = 1);
-    // },
+    nextPageMoviesBySearch(state, { payload }) {
+      payload ? (state.page = state.page + 1) : (state.page = 1);
+    },
   },
 
   extraReducers(builder) {
@@ -105,21 +106,21 @@ const searchSlice = createSlice({
         state.error = payload;
       }
     });
-    // builder.addCase(fetchNextPageMoviesBySearch.pending, (state) => {
-    //   state.isLoading = true;
-    //   state.error = null;
-    // });
-    // builder.addCase(fetchNextPageMoviesBySearch.fulfilled, (state, { payload }) => {
-    //   state.isLoading = false;
-    //   state.movies = [...state.movies, ...payload];
-    //   state.error = null;
-    // });
-    // builder.addCase(fetchNextPageMoviesBySearch.rejected, (state, { payload }) => {
-    //   if (payload) {
-    //     state.isLoading = false;
-    //     state.error = payload;
-    //   }
-    // });
+    builder.addCase(fetchNextPageMoviesBySearch.pending, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    });
+    builder.addCase(fetchNextPageMoviesBySearch.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.movies = [...state.movies, ...payload];
+      state.error = null;
+    });
+    builder.addCase(fetchNextPageMoviesBySearch.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isLoading = false;
+        state.error = payload;
+      }
+    });
   },
 });
 export const {
@@ -128,7 +129,7 @@ export const {
   setMovieType,
   deleteMoviesParameters,
   wipeOutMovies,
-  // nextPageMoviesBySearch,
+  nextPageMoviesBySearch,
 } = searchSlice.actions;
 
 export default searchSlice.reducer;
