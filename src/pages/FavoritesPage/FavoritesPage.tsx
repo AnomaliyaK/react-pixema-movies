@@ -11,7 +11,6 @@ export const FavoritesPage = () => {
   return isAuth ? (
     <StyledFavoritesPage>
       {favorites?.length > 0 ? (
-        // <FavoriteMoviesList />
         <MovieList movies={favorites} isFavorites />
       ) : (
         <WrapNotFavoriteMovies>

@@ -21,7 +21,7 @@ export const TrendsPage = () => {
     <StyledTrendsPage>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      <WrapMovieList> {trends && trends.length > 0 && <MovieList movies={trends} />}</WrapMovieList>
+      <WrapMovieList> {trends && trends.length > 0 && <MovieList movies={trends} isTrends />}</WrapMovieList>
       <WrapShowMoreButton>
         <ShowMoreButton onClick={handleTrendsMovies}>
           Show more

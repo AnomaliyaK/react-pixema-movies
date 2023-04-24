@@ -23,7 +23,6 @@ export const LogOutButton = styled.button`
   display: grid;
   justify-items: center;
   align-items: center;
-  color: ${COLOR.LIGHT};
   background-color: ${COLOR.BLACK};
   border: none;
 `;
@@ -44,6 +43,6 @@ export const WrapLogOut = styled.div`
   align-items: center;
   height: 30px;
   width: 24px;
-  border-left: 2px solid ${COLOR.WHITE};
+  border-left: 2.5px solid ${COLOR.PRIMARY};
   cursor: pointer;
 `;

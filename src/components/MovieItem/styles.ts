@@ -61,11 +61,12 @@ export const MovieTitle = styled.span`
   }
 `;
 export const TrendLabel = styled.div`
-  position: fixed;
+  position: absolute;
   left: 20px;
   top: 20px;
-  padding: 4px 13px;
+  padding: 6px 11px;
   background-color: ${COLOR.PRIMARY};
+  fill: ${COLOR.WHITE};
   border-radius: 6px;
 `;
 
