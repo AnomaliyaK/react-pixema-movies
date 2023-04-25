@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ErrorMessage, Loader, MovieDetailsCard } from "components";
 import { fetchAllMovies, fetchMovieDetails, getMovieDetails, getMovies, useAppDispatch, useAppSelector } from "store";
-import { StyledDetailsPage, WrapDetails } from "./styles";
+import { StyledDetailsPage } from "./styles";
 
 export const MovieDetailsPage = () => {
   const { movieDetails, isLoading, error } = useAppSelector(getMovieDetails);
@@ -23,11 +23,7 @@ export const MovieDetailsPage = () => {
     <StyledDetailsPage>
       {isLoading && <Loader />}
       {error && <ErrorMessage message={error} />}
-      {movieDetails && (
-        <WrapDetails>
-          <MovieDetailsCard movieDetails={movieDetails} movies={movies} />
-        </WrapDetails>
-      )}
+      {movieDetails && <MovieDetailsCard movieDetails={movieDetails} movies={movies} />}
     </StyledDetailsPage>
   );
 };

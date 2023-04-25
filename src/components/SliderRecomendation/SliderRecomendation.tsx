@@ -4,7 +4,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "assets";
-import { Arrows, NextButton, PreviousButton, Slick, SlideContainer, Title, TitleSlider } from "./styles";
+import {
+  Arrows,
+  NextButton,
+  PreviousButton,
+  Slick,
+  SlideContainer,
+  StyledSliderRecomendation,
+  Title,
+  TitleSlider,
+} from "./styles";
 import { Movie } from "types";
 import { Slide } from "components";
 
@@ -40,17 +49,17 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
   };
 
   return (
-    <>
+    <StyledSliderRecomendation>
       <Title>
         <TitleSlider>Recommendations</TitleSlider>
-        <Arrows>
+        {/* <Arrows>
           <PreviousButton className="prev_btn">
             <ArrowLeftIcon />
           </PreviousButton>
           <NextButton className="next_btn">
             <ArrowRightIcon />
           </NextButton>
-        </Arrows>
+        </Arrows> */}
       </Title>
       <SlideContainer>
         <Slick>
@@ -61,6 +70,6 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
           </Slider>
         </Slick>
       </SlideContainer>
-    </>
+    </StyledSliderRecomendation>
   );
 };

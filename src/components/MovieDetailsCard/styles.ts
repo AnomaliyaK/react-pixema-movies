@@ -3,12 +3,17 @@ import { COLOR, Typography } from "ui";
 
 export const StyledMovieDetailsCard = styled.div`
   display: grid;
-  grid-template-columns: 266px 1fr;
-  gap: 42px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 503px;
+  grid-template-areas:
+    "a b b b . "
+    ". c c c c ";
+  gap: 56px 42px;
   color: ${COLOR.WHITE};
 `;
 export const PosterWithButton = styled.div`
-  width: 266px;
+  grid-area: a;
+  max-width: 266px;
 `;
 export const AddFavoriteButton = styled.button`
   width: 50%;
@@ -56,15 +61,17 @@ export const ShareButton = styled.button`
   }
 `;
 export const PosterDetails = styled.img`
-  width: 266px;
-  height: 356px;
+  width: 100%;
+  max-width: 266px;
+  max-height: 356px;
   margin-bottom: 32px;
   border-radius: 20px;
   border: none;
 `;
 export const DescriptionMovie = styled.div`
-  display: grid;
-  gap: 40px;
+  grid-area: b;
+  /* display: grid;
+  gap: 40px; */
 `;
 export const MainInfoMovie = styled.div`
   display: grid;
@@ -111,4 +118,6 @@ export const FullDescription = styled.div`
 export const GroupButton = styled.div`
   height: 56px;
 `;
-export const GroupSlider = styled.div``;
+export const GroupSlider = styled.div`
+  grid-area: c;
+`;
