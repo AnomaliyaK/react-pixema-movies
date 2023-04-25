@@ -6,9 +6,9 @@ interface SlideProps {
   movie: Movie;
 }
 
-export const Slide = ({ movie: { title, poster, id } }: SlideProps) => {
+export const Slide = ({ movie: { title, poster } }: SlideProps) => {
   return (
-    <SlideMovie to={`/details/${id}`}>
+    <SlideMovie to={`/details/${title}`}>
       <SlidePoster src={poster} />
       <Title>{title}</Title>
     </SlideMovie>

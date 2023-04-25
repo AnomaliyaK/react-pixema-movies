@@ -70,8 +70,8 @@ export const PosterDetails = styled.img`
 `;
 export const DescriptionMovie = styled.div`
   grid-area: b;
-  /* display: grid;
-  gap: 40px; */
+  display: grid;
+  gap: 40px;
 `;
 export const MainInfoMovie = styled.div`
   display: grid;

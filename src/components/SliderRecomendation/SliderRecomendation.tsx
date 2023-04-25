@@ -24,7 +24,7 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
   const settings = {
     centerMode: true,
     centerPadding: "10px",
-    slidesToShow: 3,
+    slidesToShow: 4,
     speed: 500,
     margin: 10,
     slidesToScroll: 1,
@@ -41,13 +41,12 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
       {
         breakpoint: 480,
         settings: {
-          arrows: false,
+          // arrows: false,
           slidesToShow: 1,
         },
       },
     ],
   };
-
   return (
     <StyledSliderRecomendation>
       <Title>

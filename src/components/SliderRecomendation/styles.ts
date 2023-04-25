@@ -11,9 +11,10 @@ export const Arrows = styled.div``;
 export const PreviousButton = styled.button``;
 export const NextButton = styled.button``;
 
-export const SlideContainer = styled.div`
-  display: grid;
-  max-width: 1184px;
+export const SlideContainer = styled.div``;
+
+export const SliderContsiner = styled.div`
+  width: 100%;
 `;
 
 export const Slick = styled.div`
