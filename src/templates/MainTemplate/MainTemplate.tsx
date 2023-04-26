@@ -3,11 +3,10 @@ import { Outlet } from "react-router-dom";
 import { CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
 import { ROUTE } from "router";
 import { PixemaLogoDark } from "assets";
-// import { onAuthStateChanged, User } from "firebase/auth";
-// import { auth } from "../../firebase";
-// import { useAppDispatch } from "store";
 import { useToggle } from "hooks";
-
+import { setAuth, unsetAuth, useAppDispatch } from "store";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../firebase";
 import {
   GroupFooter,
   GroupLogo,
@@ -20,8 +19,19 @@ import {
 } from "./styles";
 
 export const MainTemplate = () => {
-  const [theme, setTheme] = useState("dark");
+  const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(setAuth(user));
+      } else {
+        dispatch(unsetAuth());
+      }
+    });
+  }, [dispatch]);
+
+  const [theme, setTheme] = useState("dark");
   useEffect(() => {
     document.documentElement.setAttribute("theme", theme);
   }, [theme]);
@@ -30,7 +40,6 @@ export const MainTemplate = () => {
   };
 
   const [isOpen, toggleModal] = useToggle();
-  // const dispatch = useAppDispatch();
 
   return (
     <StyledMainTemplate>
@@ -64,10 +73,3 @@ export const MainTemplate = () => {
     </StyledMainTemplate>
   );
 };
-
-// useEffect(() => {
-//   onAuthStateChanged(auth, (user) => {
-// dispatch(setUserAuth(user)); закончить этот action
-// console.log(user);
-//   });
-// }, [dispatch]);

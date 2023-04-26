@@ -130,3 +130,8 @@ export const ButtonSave = styled.button`
   background-color: ${COLOR.PRIMARY};
   cursor: pointer;
 `;
+
+export const ErrorMessage = styled.p`
+  color: ${COLOR.ERROR};
+  ${Typography.S3};
+`;

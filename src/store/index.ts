@@ -2,7 +2,7 @@ import moviesReducer from "./features/moviesSlice/moviesSlice";
 import searchReducer from "./features/searchSlice/searchSlice";
 import userReducer from "./features/userSlice/userSlice";
 import movieDetailsReducer from "./features/movieDetailsSlice/movieDetailsSlice";
-import trendsReducer from "./features/trendsSlice/trendsSlice";
+import trendsReducer, { fetchNextPageTrendsMovies, nextTrendsMoviePage } from "./features/trendsSlice/trendsSlice";
 import favoritesReducer from "./features/favoritesSlice/favoritesSlice";
 import themeReducer from "./features/themeSlice/themeSlice";
 import { store } from "./store";
@@ -12,11 +12,17 @@ import { fetchNextPageMovies, nextMoviePage } from "store/features/moviesSlice/m
 import { fetchMovieDetails } from "./features/movieDetailsSlice/movieDetailsSlice";
 import { fetchMoviesBySearch } from "./features/searchSlice/searchSlice";
 import { fetchTrendsMovies } from "./features/trendsSlice/trendsSlice";
-import { fetchSignUpUser } from "./features/userSlice/userSlice";
-import { fetchSignInUser } from "./features/userSlice/userSlice";
-import { fetchResetPassword } from "./features/userSlice/userSlice";
-import { fetchNextPageTrendsMovies, nextTrendsMoviePage } from "./features/trendsSlice/trendsSlice";
 import { addFavorites, deleteFavorites } from "./features/favoritesSlice/favoritesSlice";
+
+import {
+  fetchSignUpUser,
+  fetchSignInUser,
+  fetchResetPassword,
+  fetchUpdateEmail,
+  fetchUpdatePassword,
+  fetchSignOut,
+} from "./features/userSlice/userSlice";
+
 import type { RootState, AppDispatch } from "./store";
 import { getUserAuth } from "./selectors/userAuthSelector";
 import { getMovies } from "./selectors/moviesSelector";
@@ -25,7 +31,6 @@ import { getTrendsMovies } from "./selectors/trendsMoviesSelector";
 import { getFavoritesMovies } from "./selectors/favoritesMoviesSelector";
 import { getMovieDetails } from "store/selectors/movieDetailsSelector";
 import { getTheme } from "store/selectors/themeSelector";
-
 import {
   deleteMoviesParameters,
   setMovieTitle,
@@ -34,6 +39,7 @@ import {
   wipeOutMovies,
 } from "./features/searchSlice/searchSlice";
 import { toggleMode } from "./features/themeSlice/themeSlice";
+import { updateUserName, setAuth, unsetAuth } from "./features/userSlice/userSlice";
 
 export {
   useAppDispatch,
@@ -49,6 +55,9 @@ export {
   fetchResetPassword,
   fetchNextPageTrendsMovies,
   nextTrendsMoviePage,
+  fetchUpdateEmail,
+  fetchUpdatePassword,
+  fetchSignOut,
   moviesReducer,
   searchReducer,
   userReducer,
@@ -74,4 +83,7 @@ export {
   addFavorites,
   deleteFavorites,
   toggleMode,
+  updateUserName,
+  setAuth,
+  unsetAuth,
 };
