@@ -1,3 +1,4 @@
+import { getTheme, getUserAuth, toggleMode, useAppDispatch, useAppSelector } from "store";
 import {
   BattonGroup,
   ButtonCancel,
@@ -19,8 +20,33 @@ import {
   TextTheme,
   Title,
 } from "./styles";
+import { useToggle } from "hooks";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+interface FormValues {
+  userName: string;
+  email: string;
+  password: string;
+  newPassword: string;
+  confirmPassword: string;
+}
 
 export const FormSettings = () => {
+  const { theme } = useAppSelector(getTheme);
+
+  const toggleTheme = () => {
+    dispatch(toggleMode());
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("theme", theme);
+  }, [theme]);
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { errorMessage, name, email } = useAppSelector(getUserAuth);
+  const [isOpen, setToggle] = useToggle(false);
   return (
     <StyledFormSettings>
       <Form action="">

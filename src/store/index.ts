@@ -4,6 +4,7 @@ import userReducer from "./features/userSlice/userSlice";
 import movieDetailsReducer from "./features/movieDetailsSlice/movieDetailsSlice";
 import trendsReducer from "./features/trendsSlice/trendsSlice";
 import favoritesReducer from "./features/favoritesSlice/favoritesSlice";
+import themeReducer from "./features/themeSlice/themeSlice";
 import { store } from "./store";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import { fetchAllMovies } from "./features/moviesSlice/moviesSlice";
@@ -23,6 +24,8 @@ import { getMoviesBySearch } from "./selectors/searchSelector";
 import { getTrendsMovies } from "./selectors/trendsMoviesSelector";
 import { getFavoritesMovies } from "./selectors/favoritesMoviesSelector";
 import { getMovieDetails } from "store/selectors/movieDetailsSelector";
+import { getTheme } from "store/selectors/themeSelector";
+
 import {
   deleteMoviesParameters,
   setMovieTitle,
@@ -30,6 +33,7 @@ import {
   setMovieYear,
   wipeOutMovies,
 } from "./features/searchSlice/searchSlice";
+import { toggleMode } from "./features/themeSlice/themeSlice";
 
 export {
   useAppDispatch,
@@ -51,6 +55,7 @@ export {
   movieDetailsReducer,
   trendsReducer,
   favoritesReducer,
+  themeReducer,
   store,
   RootState,
   AppDispatch,
@@ -60,6 +65,7 @@ export {
   getTrendsMovies,
   getFavoritesMovies,
   getMovieDetails,
+  getTheme,
   deleteMoviesParameters,
   setMovieTitle,
   setMovieType,
@@ -67,4 +73,5 @@ export {
   wipeOutMovies,
   addFavorites,
   deleteFavorites,
+  toggleMode,
 };

@@ -8,9 +8,10 @@ import {
   updateEmail,
   updatePassword,
   signOut,
+  updateProfile,
+  User,
 } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import { AuthFormValues } from "types";
 import { FirebaseErrorMessage, getFirebaseErrorMessage } from "utils";
 
 interface UserState {
@@ -21,6 +22,8 @@ interface UserState {
   isAuth: boolean;
   isPendingAuth: boolean;
   isResetPassword: boolean;
+  name: string | null;
+  uid: null | string;
 }
 
 const initialState: UserState = {
@@ -31,19 +34,25 @@ const initialState: UserState = {
   isAuth: false,
   isPendingAuth: false,
   isResetPassword: false,
+  name: null,
+  uid: "",
 };
 
 export const fetchSignUpUser = createAsyncThunk<
-  Pick<UserState, "email" | "creationTime">,
-  AuthFormValues,
+  Pick<UserState, "email" | "creationTime" | "name">,
+  { email: string; password: string; userName: string },
   { rejectValue: FirebaseErrorMessage }
->("user/fetchSignUpUser", async ({ email, password }, { rejectWithValue }) => {
+>("user/fetchSignUpUser", async ({ email, password, userName }, { rejectWithValue }) => {
   try {
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    const name = userName as string;
+    await updateProfile(auth.currentUser as User, { displayName: name });
 
     return {
       email: user.email,
       creationTime: user.metadata.creationTime ?? null,
+      name: user.displayName,
+      uid: null,
     };
   } catch (error) {
     const firebaseError = error as FirebaseError;
@@ -51,18 +60,20 @@ export const fetchSignUpUser = createAsyncThunk<
   }
 });
 
+interface SignInFormValues {
+  email: string;
+  password: string;
+}
+
 export const fetchSignInUser = createAsyncThunk<
-  { email: string; creationTime: string },
-  { email: string; password: string },
-  { rejectValue: FirebaseErrorMessage }
+  Pick<UserState, "email" | "name">,
+  SignInFormValues,
+  { rejectValue: string }
 >("user/fetchSignInUser", async ({ email, password }, { rejectWithValue }) => {
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const { user } = await signInWithEmailAndPassword(auth, email, password);
 
-    const userEmail = userCredential.user.email as string;
-    const creationTime = userCredential.user.metadata.creationTime as string;
-
-    return { creationTime, email: userEmail };
+    return { email: user.email, password: password, uid: user.uid, name: user.displayName };
   } catch (error) {
     const firebaseError = error as FirebaseError;
     return rejectWithValue(getFirebaseErrorMessage(firebaseError.code));
@@ -132,8 +143,21 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    updateUserUserName: (state, action: PayloadAction<string>) => {
+    updateUserName: (state, action: PayloadAction<string>) => {
       if (action.payload) state.email = action.payload;
+    },
+    setAuth: (state, { payload }) => {
+      state.isAuth = true;
+      state.name = payload.displayName;
+      state.email = payload.email;
+      state.uid = payload.uid;
+    },
+
+    unsetAuth: (state) => {
+      state.isAuth = false;
+      state.name = initialState.name;
+      state.email = initialState.email;
+      state.uid = initialState.uid;
     },
   },
   extraReducers(builder) {
@@ -144,6 +168,7 @@ const userSlice = createSlice({
     builder.addCase(fetchSignUpUser.fulfilled, (state, { payload }) => {
       state.email = payload.email;
       state.creationTime = payload.creationTime;
+      state.name = payload.name;
       state.isLoading = false;
       state.isAuth = true;
     });
@@ -163,7 +188,6 @@ const userSlice = createSlice({
       state.isAuth = true;
       state.errorMessage = null;
       state.email = payload.email;
-      state.creationTime = payload.creationTime;
       state.isPendingAuth = false;
     });
     builder.addCase(fetchSignInUser.rejected, (state, { payload }) => {
@@ -188,7 +212,6 @@ const userSlice = createSlice({
     builder.addCase(fetchResetPassword.rejected, (state, { payload }) => {
       if (payload) {
         state.isPendingAuth = false;
-
         state.isAuth = false;
         state.isResetPassword = false;
       }
@@ -240,5 +263,5 @@ const userSlice = createSlice({
     });
   },
 });
-
+export const { updateUserName, setAuth, unsetAuth } = userSlice.actions;
 export default userSlice.reducer;

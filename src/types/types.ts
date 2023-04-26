@@ -77,14 +77,6 @@ interface MovieDetails {
   director: string;
   writers: string;
 }
-
-interface AuthFormValues {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
 interface SearchValue {
   s: string;
   y: string;
@@ -105,7 +97,6 @@ export type {
   MovieDetailsApi,
   MovieDetails,
   RatingsApi,
-  AuthFormValues,
   SearchValue,
   Option,
   OptionType,

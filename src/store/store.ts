@@ -1,5 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { movieDetailsReducer, moviesReducer, searchReducer, trendsReducer, userReducer, favoritesReducer } from "store";
+import {
+  movieDetailsReducer,
+  moviesReducer,
+  searchReducer,
+  trendsReducer,
+  userReducer,
+  favoritesReducer,
+  themeReducer,
+} from "store";
 
 export const store = configureStore({
   reducer: {
@@ -9,6 +17,7 @@ export const store = configureStore({
     user: userReducer,
     movieDetails: movieDetailsReducer,
     favorites: favoritesReducer,
+    theme: themeReducer,
   },
 });
 
