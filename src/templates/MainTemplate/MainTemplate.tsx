@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
 import { ROUTE } from "router";
 import { PixemaLogoDark } from "assets";
-import { useToggle } from "hooks";
+import { useToggle, useWindowSize } from "hooks";
 import { setAuth, unsetAuth, useAppDispatch } from "store";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
@@ -30,6 +30,9 @@ export const MainTemplate = () => {
       }
     });
   }, [dispatch]);
+
+  const { width = 0 } = useWindowSize();
+  const isMobile = width < 568;
 
   const [theme, setTheme] = useState("dark");
   useEffect(() => {
