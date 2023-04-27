@@ -41,14 +41,14 @@ type OptionType = "movie" | "series" | "episode";
 interface SearchValue {
   s: string;
   y: string;
-  // type: Option;
+  type: Option;
 }
 
-// const options: Option[] = [
-//   { value: "series", label: "series" },
-//   { value: "movie", label: "movie" },
-// { value: "episode", label: "episode" },
-// ];
+const options: Option[] = [
+  { value: "series", label: "series" },
+  { value: "movie", label: "movie" },
+  { value: "episode", label: "episode" },
+];
 
 export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
   const closeFilters = () => {
@@ -99,18 +99,18 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
                   control={control}
                   name="s"
                   rules={{
-                    required: "movie name is required",
+                    required: "movie title is required",
                     pattern: {
                       value: /[A-Za-z]/,
-                      message: "movie name contain only letters",
+                      message: "movie title contains only letters",
                     },
                     maxLength: {
                       value: 15,
-                      message: "movie name should contain no more than 15 letters",
+                      message: "movie title can't contain more than 15 letters",
                     },
                     minLength: {
                       value: 3,
-                      message: "movie name should contain more than 3 letters",
+                      message: "movie title must contain more than 3 letters",
                     },
                   }}
                   render={({ field: { ref, ...rest } }) => (
@@ -126,11 +126,10 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
                   control={control}
                   name="y"
                   rules={{
-                    required: "year is required",
                     maxLength: { value: 4, message: "max 4 numbers" },
                     pattern: {
                       value: /[0-9]/,
-                      message: "Please enter a valid year",
+                      message: "Please, enter a valid year",
                     },
                   }}
                   render={({ field: { ref, ...rest } }) => <InputFilter {...rest} placeholder="Year" type="text" />}
@@ -143,7 +142,11 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
                   control={control}
                   name="type"
                   render={({ field: { value, onChange } }) => (
-                    <CustomSelect value={value} onChange={onChange} options={options} />
+                    <CustomSelect
+                      value={value}
+                      options={options}
+                      onChange={(options) => options && onChange(options.value)}
+                    />
                   )}
                 />
               </div> */}

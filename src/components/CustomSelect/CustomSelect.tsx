@@ -20,7 +20,7 @@ export const CustomSelect = ({ onChange, options, value }: SelectProps) => {
       onChange={handleChange}
       styles={selectStyles}
       value={value}
-      defaultValue={options[1]}
+      // defaultValue={options[1]}
     />
   );
 };
