@@ -67,28 +67,6 @@ export const NewPasswordGroup = styled.div`
 export const ConfirmPasswordGroup = styled.div`
   grid-area: z;
 `;
-export const ColorModeGroup = styled.div`
-  display: grid;
-  gap: 40px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: " l m ";
-  padding: 24px 40px;
-  align-items: center;
-  background-color: ${COLOR.DARK};
-  border-radius: 10px;
-`;
-export const NameTheme = styled.div`
-  grid-area: l;
-`;
-export const TextTheme = styled.div`
-  ${Typography.S3};
-  font-weight: 500;
-  color: ${COLOR.LIGHT};
-`;
-export const SwitchTheme = styled.button`
-  grid-area: m;
-  text-align: end;
-`;
 export const SubTitle = styled.div`
   margin-bottom: 8px;
   ${Typography.S3};
@@ -130,7 +108,6 @@ export const ButtonSave = styled.button`
   background-color: ${COLOR.PRIMARY};
   cursor: pointer;
 `;
-
 export const ErrorMessage = styled.p`
   color: ${COLOR.ERROR};
   ${Typography.S3};

@@ -15,10 +15,11 @@ export const WrapUserIcon = styled.div`
   background-color: ${COLOR.PRIMARY};
   border-radius: 10px;
 `;
-export const Email = styled.div`
+export const Name = styled.div`
   display: grid;
-  justify-items: center;
+  justify-items: start;
   align-items: center;
+  padding: 0px 20px;
 `;
 export const LogOutButton = styled.button`
   display: grid;

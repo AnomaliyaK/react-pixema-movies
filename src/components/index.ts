@@ -1,4 +1,5 @@
 import { CustomLink } from "./CustomLink/CustomLink";
+import { ColorMode } from "./ColorMode/ColorMode";
 import { CustomSelect } from "./CustomSelect/CustomSelect";
 import { ErrorMessage } from "./ErrorMessage/ErrorMessage";
 import { Footer } from "./Footer/Footer";
@@ -21,9 +22,11 @@ import { RequareAuth } from "./RequareAuth/RequareAuth";
 import { SliderRecomendation } from "./SliderRecomendation/SliderRecomendation";
 import { Slide } from "./Slide/Slide";
 import { Spinner } from "./Spinner/Spinner";
+import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserInfo } from "./UserInfo/UserInfo";
 
 export {
+  ColorMode,
   CustomLink,
   CustomSelect,
   ErrorMessage,
@@ -47,5 +50,6 @@ export {
   SliderRecomendation,
   Slide,
   Spinner,
+  ThemeToggler,
   UserInfo,
 };

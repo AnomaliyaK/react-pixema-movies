@@ -1,41 +1,35 @@
 import {
   fetchUpdateEmail,
   fetchUpdatePassword,
-  getTheme,
   getUserAuth,
-  toggleMode,
   updateUserName,
   useAppDispatch,
   useAppSelector,
 } from "store";
+import { useToggle } from "hooks";
+import { useNavigate } from "react-router-dom";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { ROUTE } from "router";
+import { emailValidate, nameValidate, passwordValidate } from "services";
+import { ColorMode } from "components";
 import {
   BattonGroup,
   ButtonCancel,
   ButtonSave,
-  ColorModeGroup,
   ConfirmPasswordGroup,
   EmailGroup,
   ErrorMessage,
   Form,
   Input,
   NameGroup,
-  NameTheme,
   NewPasswordGroup,
   PasswordGroup,
   PasswordGroupInput,
   ProfileGroup,
   StyledFormSettings,
   SubTitle,
-  SwitchTheme,
-  TextTheme,
   Title,
 } from "./styles";
-import { useToggle } from "hooks";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ROUTE } from "router";
-import { emailValidate, nameValidate, passwordValidate } from "services";
 interface FormValues {
   userName: string;
   email: string;
@@ -45,16 +39,6 @@ interface FormValues {
 }
 
 export const FormSettings = () => {
-  const { theme } = useAppSelector(getTheme);
-
-  const toggleTheme = () => {
-    dispatch(toggleMode());
-  };
-
-  useEffect(() => {
-    document.documentElement.setAttribute("theme", theme);
-  }, [theme]);
-
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { errorMessage, name, email } = useAppSelector(getUserAuth);
@@ -82,7 +66,6 @@ export const FormSettings = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     getValues,
   } = useForm<FormValues>();
@@ -147,14 +130,7 @@ export const FormSettings = () => {
         </div>
         <div>
           <Title>Color mode</Title>
-          <ColorModeGroup>
-            <NameTheme>
-              <SubTitle>Dark</SubTitle>
-              <TextTheme>Use dark thema</TextTheme>
-            </NameTheme>
-
-            <SwitchTheme onClick={toggleTheme}>Toggle Theme</SwitchTheme>
-          </ColorModeGroup>
+          <ColorMode />
         </div>
         <BattonGroup>
           <ButtonCancel type="button" onClick={handleNavigateHome}>

@@ -51,7 +51,7 @@ export const MainTemplate = () => {
 
       <GroupNav>
         <Nav />
-        <ToggleThemeButtons onClick={toggleTheme}>Toggle Theme</ToggleThemeButtons>
+        {/* <ToggleThemeButtons onClick={toggleTheme}>Toggle Theme</ToggleThemeButtons> */}
       </GroupNav>
 
       <GroupFooter>

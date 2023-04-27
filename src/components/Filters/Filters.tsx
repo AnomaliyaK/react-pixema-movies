@@ -1,8 +1,9 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { useOutsideClick } from "hooks";
 import { CloseIcon } from "assets";
 import { CustomSelect, InputFilter, Portal, PortalTarget } from "components";
-// import { Option } from "types";
 import { ROUTE } from "router";
 import {
   useAppDispatch,
@@ -40,14 +41,14 @@ type OptionType = "movie" | "series" | "episode";
 interface SearchValue {
   s: string;
   y: string;
-  type: Option;
+  // type: Option;
 }
 
-const options: Option[] = [
-  { value: "series", label: "series" },
-  { value: "movie", label: "movie" },
-  { value: "episode", label: "episode" },
-];
+// const options: Option[] = [
+//   { value: "series", label: "series" },
+//   { value: "movie", label: "movie" },
+// { value: "episode", label: "episode" },
+// ];
 
 export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
   const closeFilters = () => {
@@ -56,13 +57,16 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<SearchValue> = (searchValue) => {
+  const closeRef = useRef(null);
+  useOutsideClick(closeRef, closeFilters, isOpen);
+
+  const onSubmit: SubmitHandler<SearchValue> = (filter) => {
     navigate(ROUTE.SEARCH);
     dispatch(deleteMoviesParameters());
     dispatch(wipeOutMovies());
-    dispatch(setMovieTitle(searchValue.s));
-    dispatch(setMovieYear(searchValue.y));
-    dispatch(setMovieType(searchValue.type));
+    dispatch(setMovieTitle(filter.s));
+    dispatch(setMovieYear(filter.y));
+    // dispatch(setMovieType(filter.type));
   };
 
   const handleResetFilter = () => {
@@ -79,7 +83,7 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
   return (
     <Portal target={PortalTarget.FILTERS}>
       {isOpen && (
-        <StyledFilters>
+        <StyledFilters ref={closeRef}>
           <FormFilters onSubmit={handleSubmit(onSubmit)}>
             <TitleGroup>
               <Title>Filters</Title>
@@ -103,6 +107,10 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
                     maxLength: {
                       value: 15,
                       message: "movie name should contain no more than 15 letters",
+                    },
+                    minLength: {
+                      value: 3,
+                      message: "movie name should contain more than 3 letters",
                     },
                   }}
                   render={({ field: { ref, ...rest } }) => (
@@ -129,7 +137,7 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
                 />
                 {errors.y?.message && <StyledError>{errors.y.message}</StyledError>}
               </div>
-              <div>
+              {/* <div>
                 <SubTitle>Movie Types</SubTitle>
                 <Controller
                   control={control}
@@ -138,7 +146,7 @@ export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
                     <CustomSelect value={value} onChange={onChange} options={options} />
                   )}
                 />
-              </div>
+              </div> */}
             </InputGroup>
 
             <BattonGroup>
