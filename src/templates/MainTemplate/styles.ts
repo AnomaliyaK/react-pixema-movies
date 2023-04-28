@@ -76,9 +76,9 @@ export const GroupLogo = styled.div`
 
 export const GroupNav = styled.div`
   grid-area: d;
-  ${MEDIA.$_1280} {
+  /* ${MEDIA.$_1280} {
     display: none;
-  }
+  } */
 `;
 export const ToggleThemeButtons = styled.div`
   justify-content: center;
@@ -110,6 +110,11 @@ export const UserInfoWrap = styled.div`
     display: none;
   }
 `;
+
+export const BurgerMenuWrap = styled.div`
+  grid-area: c;
+`;
+
 export const StyledOutlet = styled.div`
   grid-area: e;
 `;

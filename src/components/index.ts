@@ -1,3 +1,4 @@
+import { BurgerMenu } from "./BurgerMenu/BurgerMenu";
 import { CustomLink } from "./CustomLink/CustomLink";
 import { ColorMode } from "./ColorMode/ColorMode";
 import { CustomSelect } from "./CustomSelect/CustomSelect";
@@ -26,6 +27,7 @@ import { ThemeToggler } from "./ThemeToggler/ThemeToggler";
 import { UserInfo } from "./UserInfo/UserInfo";
 
 export {
+  BurgerMenu,
   ColorMode,
   CustomLink,
   CustomSelect,

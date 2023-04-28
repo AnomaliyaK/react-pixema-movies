@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
+import { BurgerMenu, CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
 import { ROUTE } from "router";
 import { PixemaLogoDark } from "assets";
 import { useToggle, useWindowSize } from "hooks";
@@ -8,6 +8,7 @@ import { setAuth, unsetAuth, useAppDispatch } from "store";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import {
+  BurgerMenuWrap,
   GroupFooter,
   GroupLogo,
   GroupNav,
@@ -31,8 +32,9 @@ export const MainTemplate = () => {
     });
   }, [dispatch]);
 
+  const [isMenuOpen, toggleMenu] = useToggle();
   const { width = 0 } = useWindowSize();
-  const isMobile = width < 568;
+  const isMobile = width < 1281;
 
   const [theme, setTheme] = useState("dark");
   useEffect(() => {
@@ -52,10 +54,7 @@ export const MainTemplate = () => {
         </CustomLink>
       </GroupLogo>
 
-      <GroupNav>
-        <Nav />
-        {/* <ToggleThemeButtons onClick={toggleTheme}>Toggle Theme</ToggleThemeButtons> */}
-      </GroupNav>
+      <GroupNav>{width > 1280 && <Nav />}</GroupNav>
 
       <GroupFooter>
         <Footer />
@@ -69,6 +68,8 @@ export const MainTemplate = () => {
       <UserInfoWrap>
         <UserInfo />
       </UserInfoWrap>
+
+      <BurgerMenuWrap>{isMobile && <BurgerMenu toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />}</BurgerMenuWrap>
 
       <StyledOutlet>
         <Outlet />
