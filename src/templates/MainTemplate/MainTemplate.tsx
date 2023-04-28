@@ -8,7 +8,6 @@ import { setAuth, unsetAuth, useAppDispatch } from "store";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import {
-  BurgerMenuWrap,
   GroupFooter,
   GroupLogo,
   GroupNav,
@@ -54,22 +53,27 @@ export const MainTemplate = () => {
         </CustomLink>
       </GroupLogo>
 
-      <GroupNav>{width > 1280 && <Nav />}</GroupNav>
-
-      <GroupFooter>
-        <Footer />
-      </GroupFooter>
       <SearchInputGroup>
         <InputSearch toggleModal={toggleModal} />
       </SearchInputGroup>
 
       <Filters isOpen={isOpen} toggleModal={toggleModal} />
 
-      <UserInfoWrap>
-        <UserInfo />
-      </UserInfoWrap>
-
-      <BurgerMenuWrap>{isMobile && <BurgerMenu toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />}</BurgerMenuWrap>
+      {isMobile ? (
+        <BurgerMenu toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+      ) : (
+        <>
+          <GroupNav>
+            <Nav />
+          </GroupNav>
+          <GroupFooter>
+            <Footer />
+          </GroupFooter>
+          <UserInfoWrap>
+            <UserInfo />
+          </UserInfoWrap>
+        </>
+      )}
 
       <StyledOutlet>
         <Outlet />

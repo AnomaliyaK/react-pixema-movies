@@ -97,7 +97,7 @@ export const GroupFooter = styled.div`
   display: grid;
   align-items: center;
   ${MEDIA.$_1280} {
-    display: none;
+    grid-area: w;
   }
 `;
 
@@ -106,13 +106,9 @@ export const SearchInputGroup = styled.div`
 `;
 export const UserInfoWrap = styled.div`
   grid-area: c;
-  ${MEDIA.$_1280} {
+  /* ${MEDIA.$_1280} {
     display: none;
-  }
-`;
-
-export const BurgerMenuWrap = styled.div`
-  grid-area: c;
+  } */
 `;
 
 export const StyledOutlet = styled.div`

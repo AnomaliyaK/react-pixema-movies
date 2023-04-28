@@ -1,9 +1,12 @@
 import { FavoritesIcon, HomeIcon, SettingsIcon, TrendsIcon } from "assets";
-import { CustomLink } from "components";
+import { CustomLink, UserInfo } from "components";
 import { ROUTE } from "router";
-import { CustomWrap, Navigation, Title } from "./styles";
+import { CustomWrap, Navigation, Title, UserInfoWrap } from "./styles";
+import { useWindowSize } from "hooks";
 
 export const Nav = () => {
+  const { width = 0 } = useWindowSize();
+  const isMobile = width < 1281;
   return (
     <Navigation>
       <CustomLink to={ROUTE.HOME}>
@@ -33,6 +36,14 @@ export const Nav = () => {
           <Title>Settings</Title>
         </CustomWrap>
       </CustomLink>
+
+      {isMobile && (
+        <>
+          <UserInfoWrap>
+            <UserInfo />
+          </UserInfoWrap>
+        </>
+      )}
     </Navigation>
   );
 };
