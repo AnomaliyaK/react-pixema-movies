@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { Typography } from "ui";
-import { COLOR } from "ui/color";
-import { MEDIA } from "ui/media";
+import { COLOR, MEDIA, Typography } from "ui";
 
 export const StyledMainTemplate = styled.div`
   display: grid;
@@ -72,13 +70,13 @@ export const StyledMainTemplate = styled.div`
 
 export const GroupLogo = styled.div`
   grid-area: a;
+  fill: ${COLOR.WHITE};
 `;
 
 export const GroupNav = styled.div`
   grid-area: d;
-  /* ${MEDIA.$_1280} {
-    display: none;
-  } */
+  ${MEDIA.$_1280} {
+  }
 `;
 export const ToggleThemeButtons = styled.div`
   justify-content: center;
@@ -106,9 +104,8 @@ export const SearchInputGroup = styled.div`
 `;
 export const UserInfoWrap = styled.div`
   grid-area: c;
-  /* ${MEDIA.$_1280} {
-    display: none;
-  } */
+  ${MEDIA.$_1280} {
+  }
 `;
 
 export const StyledOutlet = styled.div`

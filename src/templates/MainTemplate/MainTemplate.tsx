@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { BurgerMenu, CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
+import { BurgerMenu, CustomLink, Filters, Footer, InputSearch, Nav, ThemeToggler, UserInfo } from "components";
 import { ROUTE } from "router";
-import { PixemaLogoDark } from "assets";
+import { PixemaLogoDark, PixemaLogoLight } from "assets";
 import { useToggle, useWindowSize } from "hooks";
-import { setAuth, unsetAuth, useAppDispatch } from "store";
+import { getTheme, setAuth, unsetAuth, useAppDispatch, useAppSelector } from "store";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import {
@@ -14,7 +14,6 @@ import {
   SearchInputGroup,
   StyledMainTemplate,
   StyledOutlet,
-  ToggleThemeButtons,
   UserInfoWrap,
 } from "./styles";
 
@@ -34,23 +33,14 @@ export const MainTemplate = () => {
   const [isMenuOpen, toggleMenu] = useToggle();
   const { width = 0 } = useWindowSize();
   const isMobile = width < 1281;
-
-  const [theme, setTheme] = useState("dark");
-  useEffect(() => {
-    document.documentElement.setAttribute("theme", theme);
-  }, [theme]);
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  const { theme } = useAppSelector(getTheme);
 
   const [isOpen, toggleModal] = useToggle();
 
   return (
     <StyledMainTemplate>
       <GroupLogo>
-        <CustomLink to={ROUTE.HOME}>
-          <PixemaLogoDark />
-        </CustomLink>
+        <CustomLink to={ROUTE.HOME}>{theme === "dark" ? <PixemaLogoDark /> : <PixemaLogoLight />}</CustomLink>
       </GroupLogo>
 
       <SearchInputGroup>

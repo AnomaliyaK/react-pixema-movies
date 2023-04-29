@@ -1,12 +1,15 @@
 import { FavoritesIcon, HomeIcon, SettingsIcon, TrendsIcon } from "assets";
-import { CustomLink, UserInfo } from "components";
+import { CustomLink, ThemeToggler, UserInfo } from "components";
 import { ROUTE } from "router";
 import { CustomWrap, Navigation, Title, UserInfoWrap } from "./styles";
 import { useWindowSize } from "hooks";
+import { getTheme, useAppSelector } from "store";
 
 export const Nav = () => {
   const { width = 0 } = useWindowSize();
   const isMobile = width < 1281;
+  const { theme } = useAppSelector(getTheme);
+
   return (
     <Navigation>
       <CustomLink to={ROUTE.HOME}>
@@ -36,6 +39,11 @@ export const Nav = () => {
           <Title>Settings</Title>
         </CustomWrap>
       </CustomLink>
+
+      <div>
+        {theme === "dark" ? "Dark" : "Light"}
+        <ThemeToggler />
+      </div>
 
       {isMobile && (
         <>

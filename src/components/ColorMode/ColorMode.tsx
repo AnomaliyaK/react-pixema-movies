@@ -9,8 +9,8 @@ export const ColorMode = () => {
   return (
     <StyledColorMode>
       <NameTheme>
-        <CurrentTheme>{theme === "light" ? "Light" : "Dark"}</CurrentTheme>
-        <TextTheme>Use {theme === "light" ? "light" : "dark"} thema</TextTheme>
+        <CurrentTheme>{theme === "dark" ? "Dark" : "Light"}</CurrentTheme>
+        <TextTheme>Use {theme === "dark" ? "dark" : "light"} thema</TextTheme>
       </NameTheme>
       <WrapThemeToggler>
         <ThemeToggler />

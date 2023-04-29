@@ -20,6 +20,7 @@ const CustomSwitch = styled(Switch)({
     width: 16,
     height: 16,
     boxSizing: "border-box",
+    color: "#ffffff",
   },
   "& .MuiButtonBase.Mui-checked": {
     background: COLOR.SECONDARY,

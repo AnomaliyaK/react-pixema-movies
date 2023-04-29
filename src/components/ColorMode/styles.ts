@@ -20,8 +20,8 @@ export const CurrentTheme = styled.div`
 `;
 export const TextTheme = styled.div`
   ${Typography.S3};
-  font-weight: 500;
-  color: ${COLOR.LIGHT};
+  font-weight: 400;
+  color: ${COLOR.WHITE};
 `;
 export const WrapThemeToggler = styled.div`
   grid-area: m;
