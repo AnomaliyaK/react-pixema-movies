@@ -1,7 +1,7 @@
 import { FavoritesIcon, HomeIcon, SettingsIcon, TrendsIcon } from "assets";
 import { CustomLink, ThemeToggler, UserInfo } from "components";
 import { ROUTE } from "router";
-import { CustomWrap, Navigation, Title, UserInfoWrap } from "./styles";
+import { CustomWrap, Navigation, Title, UserInfoWrap, WrapThema } from "./styles";
 import { useWindowSize } from "hooks";
 import { getTheme, useAppSelector } from "store";
 
@@ -40,10 +40,10 @@ export const Nav = () => {
         </CustomWrap>
       </CustomLink>
 
-      <div>
-        {theme === "dark" ? "Dark" : "Light"}
+      <WrapThema>
+        {theme === "dark" ? "Dark" : "Light"} thema
         <ThemeToggler />
-      </div>
+      </WrapThema>
 
       {isMobile && (
         <>

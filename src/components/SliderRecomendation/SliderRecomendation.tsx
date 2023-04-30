@@ -1,19 +1,8 @@
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { ArrowLeftIcon, ArrowRightIcon } from "assets";
-import {
-  Arrows,
-  NextButton,
-  PreviousButton,
-  Slick,
-  SlideContainer,
-  StyledSliderRecomendation,
-  Title,
-  TitleSlider,
-} from "./styles";
+import { Slick, SlideContainer, StyledSliderRecomendation, Title, TitleSlider } from "./styles";
 import { Movie } from "types";
 import { Slide } from "components";
 
@@ -41,7 +30,6 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
       {
         breakpoint: 480,
         settings: {
-          // arrows: false,
           slidesToShow: 1,
         },
       },
@@ -51,14 +39,6 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
     <StyledSliderRecomendation>
       <Title>
         <TitleSlider>Recommendations</TitleSlider>
-        {/* <Arrows>
-          <PreviousButton className="prev_btn">
-            <ArrowLeftIcon />
-          </PreviousButton>
-          <NextButton className="next_btn">
-            <ArrowRightIcon />
-          </NextButton>
-        </Arrows> */}
       </Title>
       <SlideContainer>
         <Slick>

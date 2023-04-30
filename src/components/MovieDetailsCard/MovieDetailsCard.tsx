@@ -30,7 +30,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "store";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ROUTE } from "router";
 
 interface MovieDetailsCardProps {

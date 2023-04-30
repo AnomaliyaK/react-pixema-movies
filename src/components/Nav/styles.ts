@@ -22,3 +22,14 @@ export const Title = styled.span`
 export const UserInfoWrap = styled.div`
   height: 56px;
 `;
+export const WrapThema = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  ${Typography.S1};
+
+  ${MEDIA.$_1024} {
+    ${Typography.S3};
+    color: ${COLOR.SECONDARY};
+  }
+`;
