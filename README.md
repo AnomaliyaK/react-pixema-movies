@@ -45,9 +45,9 @@ Pixema has an extensive library of feature films, documentaries, anime and other
 
 ### Built With
 
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+<!-- ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) -->
 
 - [![React][react.js]][react-url]
 - [![React Router][reactrouter.com]][react-router-url]
@@ -67,9 +67,11 @@ Pixema has an extensive library of feature films, documentaries, anime and other
 ## Contact
 
 Anastasiya Kachan
+<br />
 Email: kachan.fe.dev@gmail.com
 <br />
-LinkedIn: [https://www.linkedin.com/in/anastasiya-kachan-bb838a256/] - chamomiliya@gmail.com
+LinkedIn: [https://www.linkedin.com/in/anastasiya-kachan-bb838a256/]
+<br />
 Project Link: [https://github.com/AnomaliyaK/react-pixema-movies]
 
 <!-- MARKDOWN LINKS & IMAGES -->
