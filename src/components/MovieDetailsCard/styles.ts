@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLOR, Typography } from "ui";
+import { COLOR, MEDIA, Typography } from "ui";
 
 export const StyledMovieDetailsCard = styled.div`
   display: grid;
@@ -10,10 +10,31 @@ export const StyledMovieDetailsCard = styled.div`
     ". c c c c ";
   gap: 56px 42px;
   color: ${COLOR.WHITE};
+
+  ${MEDIA.$_1440} {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "a b b "
+      ". c c ";
+  }
+  ${MEDIA.$_768} {
+    gap: 40px 32px;
+  }
+  ${MEDIA.$_530} {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: min-content min-content min-content;
+    grid-template-areas:
+      "a "
+      "b ";
+  }
 `;
 export const PosterWithButton = styled.div`
   grid-area: a;
   max-width: 266px;
+  ${MEDIA.$_530} {
+    max-width: 100%;
+    max-height: 100%;
+  }
 `;
 export const AddFavoriteButton = styled.button`
   width: 50%;
@@ -67,6 +88,14 @@ export const PosterDetails = styled.img`
   margin-bottom: 32px;
   border-radius: 20px;
   border: none;
+  ${MEDIA.$_768} {
+    max-height: 365px;
+    max-width: 272px;
+  }
+  ${MEDIA.$_530} {
+    max-width: 100%;
+    max-height: 100%;
+  }
 `;
 export const DescriptionMovie = styled.div`
   grid-area: b;

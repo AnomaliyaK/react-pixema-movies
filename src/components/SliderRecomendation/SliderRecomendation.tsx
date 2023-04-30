@@ -21,6 +21,13 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
     dots: false,
     responsive: [
       {
+        breakpoint: 1919,
+        settings: {
+          arrows: false,
+          slidesToShow: 3,
+        },
+      },
+      {
         breakpoint: 768,
         settings: {
           arrows: false,
