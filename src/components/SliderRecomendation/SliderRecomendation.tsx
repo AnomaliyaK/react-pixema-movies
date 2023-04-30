@@ -1,10 +1,9 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import { Slick, SlideContainer, StyledSliderRecomendation, Title, TitleSlider } from "./styles";
 import { Movie } from "types";
 import { Slide } from "components";
+import { Slick, SlideContainer, StyledSliderRecomendation, Title, TitleSlider } from "./styles";
 
 interface SliderProps {
   movies: Movie[];
@@ -12,8 +11,8 @@ interface SliderProps {
 export const SliderRecomendation = ({ movies }: SliderProps) => {
   const settings = {
     centerMode: true,
-    centerPadding: "10px",
-    slidesToShow: 4,
+    centerPadding: "5px",
+    slidesToShow: 3,
     speed: 500,
     margin: 10,
     slidesToScroll: 1,
@@ -21,22 +20,24 @@ export const SliderRecomendation = ({ movies }: SliderProps) => {
     dots: false,
     responsive: [
       {
-        breakpoint: 1919,
+        breakpoint: 1920,
         settings: {
-          arrows: false,
+          arrows: true,
           slidesToShow: 3,
         },
       },
+
       {
         breakpoint: 768,
         settings: {
-          arrows: false,
+          arrows: true,
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 530,
         settings: {
+          arrows: true,
           slidesToShow: 1,
         },
       },
