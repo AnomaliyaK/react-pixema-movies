@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/react-pixema-movies/static/css/main.0e271dd8.css",
+    "main.js": "/react-pixema-movies/static/js/main.861d425d.js",
+    "static/media/background-movies-image.png": "/react-pixema-movies/static/media/background-movies-image.7cca4669d2d990d9773c.png",
+    "static/media/error-message-icon.svg": "/react-pixema-movies/static/media/error-message-icon.d675174e548f560a43b95ccb24b4e1c5.svg",
+    "static/media/pixema-logo-light.svg": "/react-pixema-movies/static/media/pixema-logo-light.22981b9ec8b862428f9a0d7bad09443a.svg",
+    "static/media/pixema-logo-dark.svg": "/react-pixema-movies/static/media/pixema-logo-dark.ef69f378f7796fa43e7162952fc3af4f.svg",
+    "static/media/slick.svg": "/react-pixema-movies/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/settings-icon.svg": "/react-pixema-movies/static/media/settings-icon.81a91794ca7e4d4f1d0d792b2d4d38aa.svg",
+    "static/media/slick.eot": "/react-pixema-movies/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/IMDb-icon.svg": "/react-pixema-movies/static/media/IMDb-icon.58444fd8d2f8f69876ca64b6261dde9a.svg",
+    "static/media/slick.ttf": "/react-pixema-movies/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/react-pixema-movies/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/close-icon.svg": "/react-pixema-movies/static/media/close-icon.b2eac1b4073215f287e9fe4edac46cfe.svg",
+    "static/media/home-icon.svg": "/react-pixema-movies/static/media/home-icon.41b254f8ad6d7466b918b0ef33c9bfb7.svg",
+    "static/media/trends-icon.svg": "/react-pixema-movies/static/media/trends-icon.dcd071efb82a8492baa7b868902f26fb.svg",
+    "index.html": "/react-pixema-movies/index.html",
+    "static/media/favorites-icon.svg": "/react-pixema-movies/static/media/favorites-icon.d40145d7bb12d981caad1d2191d3f0a4.svg",
+    "static/media/user-icon.svg": "/react-pixema-movies/static/media/user-icon.0847b0fa2af1cf58d56c860c9412876f.svg",
+    "static/media/share-icon.svg": "/react-pixema-movies/static/media/share-icon.433aa66ec2481de14a72b83611e65f64.svg",
+    "static/media/burger-menu-icon.svg": "/react-pixema-movies/static/media/burger-menu-icon.5204f44ebae1fdbbb4df3061cf46b75a.svg",
+    "static/media/arrow-right-icon.svg": "/react-pixema-movies/static/media/arrow-right-icon.4f6fff01306df2fc8b235a949922056f.svg",
+    "static/media/arrow-left-icon.svg": "/react-pixema-movies/static/media/arrow-left-icon.3c564afb63fdd9fca155e71bd34c58c5.svg",
+    "static/media/filter-icon.svg": "/react-pixema-movies/static/media/filter-icon.0586cc030ede7a12f0dcb1042303d11c.svg",
+    "static/media/arrow-down-icon.svg": "/react-pixema-movies/static/media/arrow-down-icon.a041a51a209d9a5abac967fe1bfb1a74.svg",
+    "main.0e271dd8.css.map": "/react-pixema-movies/static/css/main.0e271dd8.css.map",
+    "main.861d425d.js.map": "/react-pixema-movies/static/js/main.861d425d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e271dd8.css",
+    "static/js/main.861d425d.js"
+  ]
+}
