@@ -10,8 +10,8 @@
     Your assistant in choosing the best movie to watch
     <br />
     <br />
-    <!-- вставить ссылку на проект -->
-     Сlick <a href="">here</a> and start searching!
+    <!--  -->
+     Сlick <a href="https://anomaliyak.github.io/react-pixema-movies/">here</a> and start searching!
     <br />
   </p>
 </div>
