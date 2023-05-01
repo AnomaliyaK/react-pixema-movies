@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <a href="https://github.com/AnomaliyaK/react-pixema-movies">
-    <img src="images/pixema-logo.png" alt="Pixema Logo">
+    <img src="documentation/images/pixema-logo.png" alt="Pixema Logo">
   </a>
 <div align="center">
    <h3 align="center">PIXEMA</h3>
@@ -87,24 +87,24 @@ If you want to use the local copy:
 
 After loading site you can see Home Page.
 
-<img src="images/home-page.png" alt="Home Page">
+<img src="documentation/images/home-page.png" alt="Home Page">
 
 If you click on the movie card, you will see detailed information about selected film. On this page there are some similar movie recommendations. Registered users can add the movie to their favorites.
 
-<img src="images/details-page.png" alt="Details Page">
+<img src="documentation/images/details-page.png" alt="Details Page">
 
 If you sign up, you can add any movies to your favorites and see all of them on favorites page.
 
-<img src="images/favorites-page.png" alt="Favorites Page">
+<img src="documentation/images/favorites-page.png" alt="Favorites Page">
 
 Settings page provides an opportunity to change your name, email and password.
 You can also set your favorite theme: light or dark.
 
-<img src="images/settings-page.png" alt="Settings Page">
+<img src="documentation/images/settings-page.png" alt="Settings Page">
 
 If you open filters, you can search for movies by name and year of release.
 
-<img src="images/filters.png" alt="Search Page">
+<img src="documentation/images/filters.png" alt="Search Page">
 
 Other features you can find out by testing it!
 
