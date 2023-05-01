@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-pixema-movies/static/css/main.0e271dd8.css",
-    "main.js": "/react-pixema-movies/static/js/main.861d425d.js",
+    "main.js": "/react-pixema-movies/static/js/main.adffc37a.js",
     "static/media/background-movies-image.png": "/react-pixema-movies/static/media/background-movies-image.7cca4669d2d990d9773c.png",
     "static/media/error-message-icon.svg": "/react-pixema-movies/static/media/error-message-icon.d675174e548f560a43b95ccb24b4e1c5.svg",
     "static/media/pixema-logo-light.svg": "/react-pixema-movies/static/media/pixema-logo-light.22981b9ec8b862428f9a0d7bad09443a.svg",
@@ -25,10 +25,10 @@
     "static/media/filter-icon.svg": "/react-pixema-movies/static/media/filter-icon.0586cc030ede7a12f0dcb1042303d11c.svg",
     "static/media/arrow-down-icon.svg": "/react-pixema-movies/static/media/arrow-down-icon.a041a51a209d9a5abac967fe1bfb1a74.svg",
     "main.0e271dd8.css.map": "/react-pixema-movies/static/css/main.0e271dd8.css.map",
-    "main.861d425d.js.map": "/react-pixema-movies/static/js/main.861d425d.js.map"
+    "main.adffc37a.js.map": "/react-pixema-movies/static/js/main.adffc37a.js.map"
   },
   "entrypoints": [
     "static/css/main.0e271dd8.css",
-    "static/js/main.861d425d.js"
+    "static/js/main.adffc37a.js"
   ]
 }
