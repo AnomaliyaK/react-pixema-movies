@@ -1,9 +1,10 @@
 <!-- PROJECT LOGO -->
+
+<div align="center">
 <br />
 <a href="https://github.com/AnomaliyaK/react-pixema-movies">
     <img src="documentation/images/pixema-logo.png" alt="Pixema Logo">
   </a>
-<div align="center">
    <h3 align="center">PIXEMA</h3>
   <p align="center">
     Your assistant in choosing the best movie to watch
@@ -106,11 +107,9 @@ You can also set your favorite theme: light or dark.
 
 <img src="documentation/images/settings-page.png" alt="Settings Page">
 
-If you open filters, you can search for movies by name and year of release.
+If you open filters, you can search movie by title and year of release.
 
 <img src="documentation/images/filters.png" alt="Search Page">
-
-Other features you can find out by testing it!
 
 <!-- CONTACT -->
 
