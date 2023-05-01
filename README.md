@@ -17,7 +17,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -60,7 +60,53 @@ Pixema has an extensive library of feature films, documentaries, anime and other
   react-select
   burrel-pattern
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<!-- GETTING STARTED -->
+
+## Getting Started
+
+To get started use the `npm start`.
+
+### Prerequisites
+
+To install all libraries use the `npm install`.
+
+### Installation
+
+If you want to use the local copy:
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/AnomaliyaK/react-pixema-movies
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+## Usage
+
+After loading site you can see Home Page.
+
+<img src="images/home-page.png" alt="Home Page">
+
+If you click on the movie card, you will see detailed information about selected film. On this page there are some similar movie recommendations. Registered users can add the movie to their favorites.
+
+<img src="images/details-page.png" alt="Details Page">
+
+If you sign up, you can add any movies to your favorites and see all of them on favorites page.
+
+<img src="images/favorites-page.png" alt="Favorites Page">
+
+Settings page provides an opportunity to change your name, email and password.
+You can also set your favorite theme: light or dark.
+
+<img src="images/settings-page.png" alt="Settings Page">
+
+If you open filters, you can search for movies by name and year of release.
+
+<img src="images/filters.png" alt="Search Page">
+
+Other features you can find out by testing it!
 
 <!-- CONTACT -->
 
