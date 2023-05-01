@@ -89,6 +89,10 @@ After loading site you can see Home Page.
 
 <img src="documentation/images/home-page.png" alt="Home Page">
 
+You can see movie trends.
+
+<img src="documentation/images/trends-page.png" alt="Trends Page">
+
 If you click on the movie card, you will see detailed information about selected film. On this page there are some similar movie recommendations. Registered users can add the movie to their favorites.
 
 <img src="documentation/images/details-page.png" alt="Details Page">
