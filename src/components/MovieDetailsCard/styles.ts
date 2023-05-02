@@ -15,24 +15,25 @@ export const StyledMovieDetailsCard = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
       "a b b "
-      ". c c ";
+      "c c c ";
   }
   ${MEDIA.$_768} {
     gap: 40px 32px;
   }
   ${MEDIA.$_530} {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: min-content min-content min-content;
     grid-template-areas:
       "a "
-      "b ";
+      "b "
+      "c";
   }
 `;
 export const PosterWithButton = styled.div`
   grid-area: a;
   max-width: 266px;
   ${MEDIA.$_530} {
-    max-width: 100%;
+    /* max-width: 100%; */
     max-height: 100%;
   }
 `;
@@ -93,14 +94,15 @@ export const PosterDetails = styled.img`
     max-width: 272px;
   }
   ${MEDIA.$_530} {
-    max-width: 100%;
-    max-height: 100%;
   }
 `;
 export const DescriptionMovie = styled.div`
   grid-area: b;
   display: grid;
   gap: 40px;
+  ${MEDIA.$_530} {
+    width: 25%;
+  }
 `;
 export const MainInfoMovie = styled.div`
   display: grid;
@@ -149,4 +151,7 @@ export const GroupButton = styled.div`
 `;
 export const GroupSlider = styled.div`
   grid-area: c;
+  ${MEDIA.$_530} {
+    width: 25%;
+  }
 `;

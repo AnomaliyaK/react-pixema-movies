@@ -1,6 +1,6 @@
 import { Link, PathMatch } from "react-router-dom";
 import styled from "styled-components";
-import { COLOR } from "ui";
+import { COLOR, MEDIA } from "ui";
 
 type isActive = { $isActive: PathMatch<string> | null };
 

@@ -20,7 +20,7 @@ export const Wrap = styled.div`
   /* position: absolute;
  */
   z-index: 10;
-  background-color: ${COLOR.DARK};
+  background-color: ${COLOR.GRAPHITE};
   padding: 35px;
 `;
 
