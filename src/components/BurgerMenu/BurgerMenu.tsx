@@ -1,8 +1,7 @@
 import React from "react";
 import { BurgerMenuIcon, CloseIcon } from "assets";
-import { BurgerMenuOpen, GroupFooter, StyledBurgerMenu, UserInfoWrap, Wrap, WrapCloseIcon, WrapNav } from "./styles";
-import { ROUTE } from "router";
-import { CustomLink, Footer, Nav, UserInfo } from "components";
+import { BurgerMenuOpen, GroupFooter, StyledBurgerMenu, Wrap, WrapCloseIcon, WrapNav } from "./styles";
+import { Footer, Nav } from "components";
 
 interface BurgerMenuProps {
   toggleMenu: () => void;

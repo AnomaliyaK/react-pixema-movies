@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { BurgerMenu, CustomLink, Filters, Footer, InputSearch, Nav, ThemeToggler, UserInfo } from "components";
+import { BurgerMenu, CustomLink, Filters, Footer, InputSearch, Nav, UserInfo } from "components";
 import { ROUTE } from "router";
 import { PixemaLogoDark, PixemaLogoLight } from "assets";
 import { useToggle, useWindowSize } from "hooks";
@@ -20,6 +20,7 @@ import {
 export const MainTemplate = () => {
   const dispatch = useAppDispatch();
 
+  const { theme } = useAppSelector(getTheme);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -33,7 +34,6 @@ export const MainTemplate = () => {
   const [isMenuOpen, toggleMenu] = useToggle();
   const { width = 0 } = useWindowSize();
   const isMobile = width < 1281;
-  const { theme } = useAppSelector(getTheme);
 
   const [isOpen, toggleModal] = useToggle();
 

@@ -1,6 +1,5 @@
 import { LinkSignIn, LinkSignUp, StyledSignUpPage, TextLink, Title } from "./styles";
-import { CustomLink, FormSignUp } from "components";
-import { ROUTE } from "router";
+import { FormSignUp } from "components";
 
 export const SignUpPage = () => {
   return (

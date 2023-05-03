@@ -3,16 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useOutsideClick } from "hooks";
 import { CloseIcon } from "assets";
-import { CustomSelect, InputFilter, Portal, PortalTarget } from "components";
+import { InputFilter, Portal, PortalTarget } from "components";
 import { ROUTE } from "router";
-import {
-  useAppDispatch,
-  deleteMoviesParameters,
-  setMovieTitle,
-  setMovieType,
-  setMovieYear,
-  wipeOutMovies,
-} from "store";
+import { useAppDispatch, deleteMoviesParameters, setMovieTitle, setMovieYear, wipeOutMovies } from "store";
 import {
   BattonGroup,
   ButtonClearFilter,
@@ -44,11 +37,11 @@ interface SearchValue {
   type: Option;
 }
 
-const options: Option[] = [
-  { value: "series", label: "series" },
-  { value: "movie", label: "movie" },
-  { value: "episode", label: "episode" },
-];
+// const options: Option[] = [
+//   { value: "series", label: "series" },
+//   { value: "movie", label: "movie" },
+//   { value: "episode", label: "episode" },
+// ];
 
 export const Filters = ({ isOpen, toggleModal }: FiltersProps) => {
   const closeFilters = () => {

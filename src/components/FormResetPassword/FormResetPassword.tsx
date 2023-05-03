@@ -1,7 +1,5 @@
-import React from "react";
 import { ButtonResetPassword, ErrorMessage, InputEmail, Message, StyledFormResetPassword, SubTitle } from "./styles";
 import { useToggle } from "hooks";
-import { useNavigate } from "react-router-dom";
 import { fetchResetPassword, useAppDispatch } from "store";
 import { SubmitHandler, useForm } from "react-hook-form";
 
@@ -13,7 +11,6 @@ interface FormValues {
 
 export const FormResetPassword = () => {
   const [isToggle, setToggle] = useToggle();
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const {
     register,
